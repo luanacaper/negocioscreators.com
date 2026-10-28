@@ -69,11 +69,16 @@ for a in CFG["aliases"]:
 mapa.sort(key=lambda x: -len(x[0]))
 padroes = [(re.compile(r"(?:https?://)?" + re.escape(de) + r"(?![A-Za-z0-9_.-])"), para) for de, para in mapa]
 
+def _apaga_somente_leitura(func, caminho, _exc):  # no Windows o Git deixa os objetos como somente leitura
+    os.chmod(caminho, 0o700)
+    func(caminho)
+
+
 if OUT.exists():
-    shutil.rmtree(OUT)
+    shutil.rmtree(OUT, onerror=_apaga_somente_leitura)
 OUT.mkdir()
 
-with tempfile.TemporaryDirectory() as tmp:
+with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
     for s in sorted(meus, key=lambda s: len(s["path"])):  # raiz primeiro, subpastas depois
         src = Path(tmp) / s["repo"].replace("/", "__")
         subprocess.run(["git", "clone", "-q", "--depth", "1", f"https://github.com/{s['repo']}.git", str(src)], check=True)
