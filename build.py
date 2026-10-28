@@ -90,11 +90,21 @@ for arq in OUT.rglob("*"):
         if n != t:
             arq.write_text(n, encoding="utf-8", errors="surrogateescape")
 
+atalhos = [a for a in CFG.get("atalhos", []) if a["host"] == HOST]
+for a in atalhos:  # endereço curto no domínio que leva para um link de fora (ex.: o painel no claude.ai)
+    d = OUT / a["path"]
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "index.html").write_text(
+        f'<!doctype html><meta charset="utf-8"><title>{a["nome"]}</title><meta name="robots" content="noindex">'
+        f'<meta http-equiv="refresh" content="0; url={a["url"]}"><link rel="canonical" href="{a["url"]}">'
+        f'<p style="font-family:system-ui;padding:24px">Abrindo <a href="{a["url"]}">{a["nome"]}</a>…</p>', encoding="utf-8")
+
 if HOST == "painel":
+    itens = atalhos + meus
     (OUT / "index.html").write_text((AQUI / "painel-index.html").read_text(encoding="utf-8").replace(
         "<!--LISTA-->", "\n".join(
             f'<a class="app" href="/{s["path"]}/"><span class="av">{s["nome"][0]}</span><span><b>{s["nome"]}</b><small>painel.negocioscreators.com/{s["path"]}</small></span></a>'
-            for s in meus)), encoding="utf-8")
+            for s in itens)), encoding="utf-8")
 
 (OUT / "404.html").write_text((AQUI / "404.html").read_text(encoding="utf-8"), encoding="utf-8")
 (OUT / "CNAME").write_text(DOMINIO + "\n", encoding="utf-8")
