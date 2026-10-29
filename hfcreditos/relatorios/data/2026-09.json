@@ -1,0 +1,81 @@
+{
+ "chave": "2026-09",
+ "mesNome": "setembro",
+ "ano": 2026,
+ "kpi": {
+  "investido": 1916.8,
+  "leads": 404,
+  "cpl": 4.744554455445544,
+  "impressoes": 44537,
+  "alcance": 22950,
+  "cliquesLink": 1992,
+  "lpv": 1611,
+  "moskitLeads": 362,
+  "contratos": 4,
+  "perdidos": 233,
+  "emAtendimento": 125,
+  "custoContrato": 479.2,
+  "conv": 1.1049723756906076
+ },
+ "motivos": [
+  {
+   "cat": "nao-possui",
+   "rotulo": "Não possui RPV/PRC",
+   "n": 86,
+   "pct": 36.9098712446352,
+   "fora": false
+  },
+  {
+   "cat": "est-mun",
+   "rotulo": "PRC estadual/municipal",
+   "n": 59,
+   "pct": 25.321888412017167,
+   "fora": true
+  },
+  {
+   "cat": "sem-retorno",
+   "rotulo": "Sem retorno / sem contato",
+   "n": 49,
+   "pct": 21.030042918454935,
+   "fora": false
+  },
+  {
+   "cat": "duplicada",
+   "rotulo": "Oportunidade duplicada",
+   "n": 9,
+   "pct": 3.862660944206009,
+   "fora": false
+  },
+  {
+   "cat": "calculo",
+   "rotulo": "Cálculo não homologado",
+   "n": 9,
+   "pct": 3.862660944206009,
+   "fora": false
+  },
+  {
+   "cat": "nao-qualifica",
+   "rotulo": "Não qualifica",
+   "n": 6,
+   "pct": 2.575107296137339,
+   "fora": false
+  },
+  {
+   "cat": "emprestimo",
+   "rotulo": "Quer empréstimo (sem RPV)",
+   "n": 3,
+   "pct": 1.2875536480686696,
+   "fora": true
+  },
+  {
+   "cat": "outros",
+   "rotulo": "Outros motivos",
+   "n": 12,
+   "pct": 5.150214592274678,
+   "fora": false
+  }
+ ],
+ "pagina": true,
+ "publicado": "2026-10-06T18:20:15.083Z",
+ "origem": "relatório manual de 06/10/2026"
+}

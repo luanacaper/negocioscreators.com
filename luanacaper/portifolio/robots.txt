@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://negocioscreators.com/luanacaper/portifolio/sitemap.xml

@@ -1,0 +1,62 @@
+{
+ "chave": "2026-08",
+ "mesNome": "agosto",
+ "ano": 2026,
+ "kpi": {
+  "investido": 2209.19,
+  "leads": 790,
+  "cpl": 2.7964430379746834,
+  "moskitLeads": 816,
+  "contratos": 2,
+  "perdidos": 172,
+  "custoContrato": 1104.595,
+  "conv": 0.24509803921568626,
+  "cliquesLink": 2924,
+  "lpv": 2723
+ },
+ "motivos": [
+  {
+   "cat": "nao-possui",
+   "rotulo": "Não possui RPV/PRC",
+   "n": 59,
+   "pct": 34.30232558139535,
+   "fora": false
+  },
+  {
+   "cat": "sem-retorno",
+   "rotulo": "Sem retorno / sem contato",
+   "n": 48,
+   "pct": 27.906976744186046,
+   "fora": false
+  },
+  {
+   "cat": "emprestimo",
+   "rotulo": "Quer empréstimo (sem RPV)",
+   "n": 25,
+   "pct": 14.534883720930234,
+   "fora": true
+  },
+  {
+   "cat": "duplicada",
+   "rotulo": "Oportunidade duplicada",
+   "n": 9,
+   "pct": 5.232558139534884,
+   "fora": false
+  },
+  {
+   "cat": "est-mun",
+   "rotulo": "PRC estadual/municipal",
+   "n": 7,
+   "pct": 4.069767441860465,
+   "fora": true
+  },
+  {
+   "cat": "outros",
+   "rotulo": "Outros motivos",
+   "n": 24,
+   "pct": 13.953488372093023,
+   "fora": false
+  }
+ ],
+ "pagina": true
+}

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#D9713C">
+<title>Thaís Farm Rio · Gerador de Link</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✿</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF3E7;
+    --card:#FFFFFF;
+    --terracotta:#D9713C;
+    --terracotta-dark:#B85A2B;
+    --olive:#6B7A4F;
+    --sunny:#F4B740;
+    --rose:#E8A0A0;
+    --ink:#3A2B22;
+    --ink-soft:#8A7565;
+    --line:#EEE1D0;
+    --danger:#C1502E;
+    --shadow: 0 8px 24px rgba(58,43,34,.10);
+    font-size: 16px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background: var(--cream);
+    background-image:
+      radial-gradient(circle at 8% 6%, rgba(244,183,64,.25) 0, transparent 40%),
+      radial-gradient(circle at 95% 18%, rgba(232,160,160,.28) 0, transparent 38%),
+      radial-gradient(circle at 90% 92%, rgba(107,122,79,.15) 0, transparent 42%);
+    background-attachment: fixed;
+    color: var(--ink);
+    font-family: 'Poppins', system-ui, sans-serif;
+    min-height:100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap{
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 24px 18px 64px;
+  }
+  header{
+    text-align:center;
+    margin-bottom: 22px;
+    position:relative;
+  }
+  .bloom{
+    font-size: 26px;
+    display:block;
+    margin-bottom:4px;
+    color: var(--terracotta);
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size: 1.7rem;
+    margin:0 0 2px;
+    letter-spacing:.2px;
+  }
+  header p{
+    margin:0;
+    color: var(--ink-soft);
+    font-size: .88rem;
+    letter-spacing:.3px;
+  }
+  .gear{
+    position:absolute;
+    top:0; right:0;
+    background:none;
+    border:none;
+    font-size:1.25rem;
+    cursor:pointer;
+    padding:6px;
+    color: var(--ink-soft);
+    transition: transform .2s;
+  }
+  .gear:active{ transform: rotate(35deg); }
+
+  .card{
+    background: var(--card);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    margin-bottom: 18px;
+    border: 1px solid var(--line);
+  }
+  .card h2{
+    font-family:'Fraunces', serif;
+    font-size: 1.05rem;
+    margin: 0 0 12px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  label.field-label{
+    display:block;
+    font-size:.78rem;
+    font-weight:600;
+    color: var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:.6px;
+    margin-bottom:6px;
+  }
+  .input-row{
+    display:flex;
+    gap:8px;
+    margin-bottom:14px;
+  }
+  textarea, input[type=text]{
+    width:100%;
+    border: 1.5px solid var(--line);
+    background: #FFFDF9;
+    border-radius: 14px;
+    padding: 12px 14px;
+    font-family:'Poppins', sans-serif;
+    font-size: .95rem;
+    color: var(--ink);
+    resize: none;
+    outline:none;
+    transition: border-color .15s;
+  }
+  textarea:focus, input[type=text]:focus{
+    border-color: var(--terracotta);
+  }
+  textarea{ min-height: 64px; line-height:1.4; }
+  .paste-btn{
+    flex-shrink:0;
+    width:48px;
+    border-radius:14px;
+    border:1.5px solid var(--line);
+    background:#FFFDF9;
+    font-size:1.1rem;
+    cursor:pointer;
+  }
+  .paste-btn:active{ background: var(--cream); }
+
+  .chip-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .chip{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding: 12px 12px;
+    border-radius: 14px;
+    border: 1.5px solid var(--line);
+    background: #FFFDF9;
+    cursor:pointer;
+    font-size:.88rem;
+    font-weight:500;
+    color: var(--ink);
+    transition: all .15s;
+    user-select:none;
+  }
+  .chip .ic{ font-size:1.05rem; }
+  .chip.active{
+    background: var(--terracotta);
+    border-color: var(--terracotta);
+    color:#fff;
+    box-shadow: 0 4px 12px rgba(217,113,60,.35);
+  }
+  .chip:active{ transform: scale(.97); }
+
+  .error{
+    color: var(--danger);
+    font-size:.82rem;
+    margin-top:-6px;
+    margin-bottom:10px;
+    min-height:0;
+  }
+
+  #resultCard{ display:none; }
+  #resultCard.show{ display:block; animation: pop .25s ease; }
+  @keyframes pop{ from{ opacity:0; transform: translateY(6px);} to{opacity:1; transform:translateY(0);} }
+
+  .result-box{
+    background: var(--cream);
+    border: 1.5px dashed var(--olive);
+    border-radius: 14px;
+    padding: 12px 14px;
+    font-family: 'Poppins', monospace;
+    font-size: .82rem;
+    line-height:1.5;
+    word-break: break-all;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .source-tag{
+    display:inline-block;
+    background: var(--sunny);
+    color:#4A3300;
+    font-size:.72rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.4px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    margin-bottom:10px;
+  }
+  .btn-row{
+    display:flex;
+    gap:10px;
+  }
+  button.primary, button.secondary{
+    flex:1;
+    border:none;
+    border-radius: 14px;
+    padding: 13px 10px;
+    font-family:'Poppins', sans-serif;
+    font-size:.9rem;
+    font-weight:600;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    transition: transform .12s, opacity .12s;
+  }
+  button.primary{
+    background: var(--terracotta);
+    color:#fff;
+    box-shadow: 0 4px 14px rgba(217,113,60,.4);
+  }
+  button.secondary{
+    background: var(--olive);
+    color:#fff;
+  }
+  button:active{ transform: scale(.96); }
+  button.copied{ background: var(--olive) !important; }
+
+  .hist-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding: 10px 4px;
+    border-bottom: 1px solid var(--line);
+    cursor:pointer;
+  }
+  .hist-item:last-child{ border-bottom:none; }
+  .hist-item .dot{
+    width:8px; height:8px; border-radius:50%;
+    background: var(--terracotta);
+    flex-shrink:0;
+  }
+  .hist-item .info{ flex:1; min-width:0; }
+  .hist-item .info .l1{
+    font-size:.82rem;
+    font-weight:600;
+    color: var(--ink);
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .hist-item .info .l2{
+    font-size:.72rem;
+    color: var(--ink-soft);
+  }
+  .hist-item .del{
+    background:none; border:none; color:var(--ink-soft);
+    font-size:1rem; cursor:pointer; padding:4px 6px;
+  }
+  .empty-hist{
+    color: var(--ink-soft);
+    font-size:.85rem;
+    text-align:center;
+    padding: 8px 0 2px;
+  }
+
+  .overlay{
+    display:none;
+    position:fixed; inset:0;
+    background: rgba(58,43,34,.45);
+    z-index:10;
+    align-items:flex-end;
+    justify-content:center;
+  }
+  .overlay.show{ display:flex; }
+  .sheet{
+    background: var(--card);
+    width:100%;
+    max-width:480px;
+    border-radius: 20px 20px 0 0;
+    padding: 22px 20px 28px;
+    animation: slideup .25s ease;
+  }
+  @keyframes slideup{ from{ transform: translateY(100%);} to{ transform: translateY(0);} }
+  .sheet h3{
+    font-family:'Fraunces', serif;
+    margin: 0 0 4px;
+  }
+  .sheet .hint{
+    font-size:.78rem;
+    color: var(--ink-soft);
+    margin-bottom:16px;
+  }
+  .sheet label{
+    display:block;
+    font-size:.78rem;
+    font-weight:600;
+    color: var(--ink-soft);
+    margin-bottom:5px;
+    margin-top:12px;
+  }
+  .sheet-close{
+    display:block;
+    width:100%;
+    margin-top:18px;
+    background: var(--terracotta);
+    color:#fff;
+    border:none;
+    border-radius:14px;
+    padding:13px;
+    font-weight:600;
+    font-family:'Poppins',sans-serif;
+    cursor:pointer;
+  }
+  footer{
+    text-align:center;
+    font-size:.72rem;
+    color: var(--ink-soft);
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <button class="gear" id="gearBtn" title="Configurar UTM fixa">⚙︎</button>
+    <span class="bloom">✿</span>
+    <h1>Thaís Farm Rio</h1>
+    <p>Gerador de link com UTM</p>
+  </header>
+
+  <div class="card">
+    <h2>🔗 Link de rastreio</h2>
+    <label class="field-label" for="linkInput">Cole o link da página</label>
+    <div class="input-row">
+      <textarea id="linkInput" placeholder="https://..."></textarea>
+      <button class="paste-btn" id="pasteBtn" title="Colar da área de transferência">📋</button>
+    </div>
+    <div class="error" id="linkError"></div>
+
+    <label class="field-label">Onde vai enviar?</label>
+    <div class="chip-grid" id="chipGrid"></div>
+  </div>
+
+  <div class="card" id="resultCard">
+    <h2>✨ Link pronto</h2>
+    <span class="source-tag" id="sourceTag"></span>
+    <div class="result-box" id="resultBox"></div>
+    <div class="btn-row">
+      <button class="primary" id="copyBtn">📋 Copiar</button>
+      <button class="secondary" id="shareBtn" style="display:none;">↗ Compartilhar</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🕘 Histórico</h2>
+    <div id="histList"><div class="empty-hist">Seus últimos links aparecem aqui</div></div>
+  </div>
+
+  <footer>feito com ✿ pra Thaís Farm Rio</footer>
+</div>
+
+<div class="overlay" id="settingsOverlay">
+  <div class="sheet">
+    <h3>UTM fixa</h3>
+    <div class="hint">Esses valores entram em todo link gerado. Só mexa se a campanha mudar.</div>
+    <label for="mediumInput">utm_medium</label>
+    <input type="text" id="mediumInput">
+    <label for="campaignInput">utm_campaign</label>
+    <input type="text" id="campaignInput">
+    <button class="sheet-close" id="closeSettings">Salvar e fechar</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var CONFIG_KEY = 'thaisFarmUtmConfig';
+  var HISTORY_KEY = 'thaisFarmUtmHistory';
+  var MAX_HISTORY = 8;
+
+  var DESTINATIONS = [
+    { id:'grupo',    label:'Grupo',              icon:'👥' },
+    { id:'stories',  label:'Stories',            icon:'✨' },
+    { id:'feed',     label:'Feed',               icon:'🖼️' },
+    { id:'bio',      label:'Link na bio',        icon:'🔗' },
+    { id:'whatsapp', label:'Cliente no WhatsApp',icon:'💬' }
+  ];
+
+  var els = {
+    linkInput: document.getElementById('linkInput'),
+    linkError: document.getElementById('linkError'),
+    chipGrid: document.getElementById('chipGrid'),
+    resultCard: document.getElementById('resultCard'),
+    sourceTag: document.getElementById('sourceTag'),
+    resultBox: document.getElementById('resultBox'),
+    copyBtn: document.getElementById('copyBtn'),
+    shareBtn: document.getElementById('shareBtn'),
+    pasteBtn: document.getElementById('pasteBtn'),
+    histList: document.getElementById('histList'),
+    gearBtn: document.getElementById('gearBtn'),
+    settingsOverlay: document.getElementById('settingsOverlay'),
+    mediumInput: document.getElementById('mediumInput'),
+    campaignInput: document.getElementById('campaignInput'),
+    closeSettings: document.getElementById('closeSettings')
+  };
+
+  var state = {
+    source: null,
+    finalLink: null,
+    config: loadConfig()
+  };
+
+  function loadConfig(){
+    try{
+      var raw = localStorage.getItem(CONFIG_KEY);
+      if(raw) return Object.assign({medium:'Organico', campaign:'A6CY'}, JSON.parse(raw));
+    }catch(e){}
+    return { medium:'Organico', campaign:'A6CY' };
+  }
+  function saveConfig(){
+    localStorage.setItem(CONFIG_KEY, JSON.stringify(state.config));
+  }
+  function loadHistory(){
+    try{
+      var raw = localStorage.getItem(HISTORY_KEY);
+      if(raw) return JSON.parse(raw);
+    }catch(e){}
+    return [];
+  }
+  function saveHistory(list){
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(list.slice(0, MAX_HISTORY)));
+  }
+
+  function renderChips(){
+    els.chipGrid.innerHTML = '';
+    DESTINATIONS.forEach(function(d){
+      var chip = document.createElement('div');
+      chip.className = 'chip' + (state.source === d.id ? ' active' : '');
+      chip.innerHTML = '<span class="ic">' + d.icon + '</span><span>' + d.label + '</span>';
+      chip.addEventListener('click', function(){
+        state.source = d.id;
+        renderChips();
+        update();
+      });
+      els.chipGrid.appendChild(chip);
+    });
+  }
+
+  function normalizeUrl(raw){
+    raw = (raw || '').trim();
+    if(!raw) return null;
+    if(!/^https?:\/\//i.test(raw)) raw = 'https://' + raw;
+    try{
+      return new URL(raw);
+    }catch(e){
+      return null;
+    }
+  }
+
+  function buildLink(rawUrl, sourceId){
+    var url = normalizeUrl(rawUrl);
+    if(!url) return null;
+
+    // Link colado pode vir sujo (fbclid, gclid, ref, aem_, utm de outra
+    // origem etc. — de compartilhamento do Instagram/Facebook/WhatsApp).
+    // Descarta tudo e fica só com a página + a UTM da Thaís.
+    url.search = '';
+    url.hash = '';
+
+    url.searchParams.set('utm_source', sourceId);
+    url.searchParams.set('utm_medium', state.config.medium || 'Organico');
+    url.searchParams.set('utm_campaign', state.config.campaign || 'A6CY');
+
+    return url.toString();
+  }
+
+  function update(){
+    var raw = els.linkInput.value.trim();
+    els.linkError.textContent = '';
+
+    if(!raw || !state.source){
+      els.resultCard.classList.remove('show');
+      state.finalLink = null;
+      return;
+    }
+
+    var link = buildLink(raw, state.source);
+    if(!link){
+      els.linkError.textContent = 'Esse link não parece válido. Confere e cola de novo.';
+      els.resultCard.classList.remove('show');
+      state.finalLink = null;
+      return;
+    }
+
+    state.finalLink = link;
+    var dest = DESTINATIONS.filter(function(d){ return d.id === state.source; })[0];
+    els.sourceTag.textContent = dest.icon + ' ' + dest.label;
+    els.resultBox.textContent = link;
+    els.resultCard.classList.add('show');
+    els.copyBtn.textContent = '📋 Copiar';
+    els.copyBtn.classList.remove('copied');
+
+    pushHistory(link, dest.label);
+  }
+
+  var lastPushed = null;
+  function pushHistory(link, label){
+    if(link === lastPushed) return;
+    lastPushed = link;
+    var list = loadHistory();
+    list = list.filter(function(item){ return item.link !== link; });
+    list.unshift({ link: link, label: label, time: new Date().toISOString() });
+    saveHistory(list);
+    renderHistory();
+  }
+
+  function timeAgo(iso){
+    var diff = (Date.now() - new Date(iso).getTime()) / 1000;
+    if(diff < 60) return 'agora';
+    if(diff < 3600) return Math.floor(diff/60) + 'min atrás';
+    if(diff < 86400) return Math.floor(diff/3600) + 'h atrás';
+    return Math.floor(diff/86400) + 'd atrás';
+  }
+
+  function renderHistory(){
+    var list = loadHistory();
+    if(!list.length){
+      els.histList.innerHTML = '<div class="empty-hist">Seus últimos links aparecem aqui</div>';
+      return;
+    }
+    els.histList.innerHTML = '';
+    list.forEach(function(item, idx){
+      var row = document.createElement('div');
+      row.className = 'hist-item';
+      row.innerHTML =
+        '<span class="dot"></span>' +
+        '<div class="info"><div class="l1">' + item.label + '</div>' +
+        '<div class="l2">' + timeAgo(item.time) + ' · ' + item.link + '</div></div>' +
+        '<button class="del" data-idx="' + idx + '">✕</button>';
+      row.addEventListener('click', function(e){
+        if(e.target.classList.contains('del')) return;
+        copyText(item.link);
+        flashCopy(row);
+      });
+      row.querySelector('.del').addEventListener('click', function(e){
+        e.stopPropagation();
+        var l = loadHistory();
+        l.splice(idx, 1);
+        saveHistory(l);
+        renderHistory();
+      });
+      els.histList.appendChild(row);
+    });
+  }
+
+  function flashCopy(row){
+    var info = row.querySelector('.l1');
+    var original = info.textContent;
+    info.textContent = 'Copiado! ✓';
+    setTimeout(function(){ info.textContent = original; }, 1200);
+  }
+
+  function copyText(text){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).catch(fallbackCopy.bind(null, text));
+    } else {
+      fallbackCopy(text);
+    }
+  }
+  function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.focus(); ta.select();
+    try{ document.execCommand('copy'); }catch(e){}
+    document.body.removeChild(ta);
+  }
+
+  els.linkInput.addEventListener('input', update);
+
+  els.pasteBtn.addEventListener('click', function(){
+    if(navigator.clipboard && navigator.clipboard.readText){
+      navigator.clipboard.readText().then(function(text){
+        els.linkInput.value = text;
+        update();
+      }).catch(function(){
+        els.linkInput.focus();
+      });
+    } else {
+      els.linkInput.focus();
+    }
+  });
+
+  els.copyBtn.addEventListener('click', function(){
+    if(!state.finalLink) return;
+    copyText(state.finalLink);
+    els.copyBtn.textContent = '✓ Copiado!';
+    els.copyBtn.classList.add('copied');
+    setTimeout(function(){
+      els.copyBtn.textContent = '📋 Copiar';
+      els.copyBtn.classList.remove('copied');
+    }, 1500);
+  });
+
+  if(navigator.share){
+    els.shareBtn.style.display = 'flex';
+    els.shareBtn.addEventListener('click', function(){
+      if(!state.finalLink) return;
+      navigator.share({ url: state.finalLink, title: 'Thaís Farm Rio' }).catch(function(){});
+    });
+  }
+
+  els.gearBtn.addEventListener('click', function(){
+    els.mediumInput.value = state.config.medium;
+    els.campaignInput.value = state.config.campaign;
+    els.settingsOverlay.classList.add('show');
+  });
+  els.closeSettings.addEventListener('click', function(){
+    state.config.medium = els.mediumInput.value.trim() || 'Organico';
+    state.config.campaign = els.campaignInput.value.trim() || 'A6CY';
+    saveConfig();
+    els.settingsOverlay.classList.remove('show');
+    update();
+  });
+  els.settingsOverlay.addEventListener('click', function(e){
+    if(e.target === els.settingsOverlay) els.settingsOverlay.classList.remove('show');
+  });
+
+  renderChips();
+  renderHistory();
+})();
+</script>
+</body>
+</html>

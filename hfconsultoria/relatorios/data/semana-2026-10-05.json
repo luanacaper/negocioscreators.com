@@ -1,0 +1,32 @@
+{
+ "chave": "2026-10-05",
+ "rotulo": "05/10 a 11/10",
+ "ini": "2026-10-05",
+ "fim": "2026-10-11",
+ "arquivo": "semana-2026-10-05.html",
+ "kpi": {
+  "investido": 614.06,
+  "leads": 46,
+  "cpl": 13.349130434782607,
+  "impressoes": 38016,
+  "alcance": 23610,
+  "cliquesLink": 359,
+  "lpv": 281,
+  "moskitLeads": 55,
+  "contratos": 1,
+  "positivos": 5,
+  "valorPositivos": 15082.87,
+  "valorContratos": 2200.71,
+  "perdidos": 25,
+  "emAtendimento": 24,
+  "custoContrato": 614.06,
+  "custoPositivo": 122.81199999999998,
+  "conv": 1.8181818181818181,
+  "convPositivo": 9.090909090909092
+ },
+ "propostas": 0,
+ "publicado": "2026-10-13T18:09:32.347Z",
+ "textoPadrao": false,
+ "avisoNarrativa": null,
+ "divergencias": []
+}

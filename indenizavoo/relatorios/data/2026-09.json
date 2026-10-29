@@ -1,0 +1,54 @@
+{
+ "chave": "2026-09",
+ "mesNome": "setembro",
+ "ano": 2026,
+ "kpi": {
+  "investido": 2151.8,
+  "leads": 63,
+  "cpl": 34.15555555555556,
+  "impressoes": 81730,
+  "alcance": 62269,
+  "cliquesLink": 1402,
+  "lpv": 127,
+  "moskitLeads": 35,
+  "contratos": 5,
+  "perdidos": 23,
+  "emAtendimento": 7,
+  "custoContrato": 430.36,
+  "conv": 14.285714285714285
+ },
+ "motivos": [
+  {
+   "cat": "sem-retorno",
+   "rotulo": "Sem retorno / sem contato",
+   "n": 17,
+   "pct": 73.91304347826086,
+   "fora": false
+  },
+  {
+   "cat": "nao-possui",
+   "rotulo": "Não possui direito à indenização",
+   "n": 3,
+   "pct": 13.043478260869565,
+   "fora": true
+  },
+  {
+   "cat": "engano",
+   "rotulo": "Cadastrou por engano",
+   "n": 2,
+   "pct": 8.695652173913043,
+   "fora": true
+  },
+  {
+   "cat": "sem-interesse",
+   "rotulo": "Não tem interesse",
+   "n": 1,
+   "pct": 4.3478260869565215,
+   "fora": false
+  }
+ ],
+ "pagina": true,
+ "publicado": "2026-10-07T13:45:17.957Z",
+ "textoPadrao": false,
+ "avisoNarrativa": null
+}

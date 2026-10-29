@@ -1,0 +1,22 @@
+Semana 19/10 a 25/10 (seg a dom). Investimento Meta R$473,71; 18 leads somando formulário instantâneo e site (CPL R$26,32); 14.235 impressões; 353 cliques no link.
+Moskit (texto da Tatiana): 18 leads; 0 contratos assinados; 17 perdidos.
+Semana anterior (12/10 – 18/10): investimento R$527,42; 18 leads Meta; CPL R$29,30; 16 leads no Moskit; 1 contratos; 12 perdidos. Variação: investimento -10,2%, leads Meta 0,0%, CPL -10,2%.
+Semana 05/10 – 11/10: investido R$316,94; leads no Meta 14; CPL R$22,64; leads no Moskit 10; contratos assinados 0; perdidos 10.
+Semana 12/10 – 18/10: investido R$527,42; leads no Meta 18; CPL R$29,30; leads no Moskit 16; contratos assinados 1; perdidos 12.
+Semana 19/10 – 25/10 (a desta análise): investido R$473,71; leads no Meta 18; CPL R$26,32; leads no Moskit 18; contratos assinados 0; perdidos 17.
+Sequência atual: 1 semana(s) seguida(s) sem contrato assinado, contando esta.
+Campanha "Lc. Aquisição - Lead - 24/09/2026": gastou de 19/10 a 25/10 nesta semana.
+Campanha "Lc. Aquisição - Lead - 24/09/2026" (ACTIVE): R$473,71, 18 leads, CPL R$26,32, CTR 2,95%.
+Conjunto "Lead LP 25/09/2026   - formulário  ||  Interesses em viagem e hotel com comportamento de viajante frequente — Cópia": R$241,08, 13 leads, CPL R$18,54.
+Conjunto "Lead LP 30/09/2026   - formulário  ||  Advantage + maiores de 18 anos. — Cópia": R$140,12, 5 leads, CPL R$28,02.
+Conjunto "Lead LP 24/09/2026   || companhias aéreas": R$92,51, 0 leads, CPL —.
+Criativo "002 - companhias aéreas - formulário curto": R$202,25, 11 leads, CPL R$18,39, CTR 3,21%.
+Criativo "Carrossel voo cancelado - escrita janela": R$140,12, 5 leads, CPL R$28,02, CTR 2,80%.
+Criativo "005 - Bagagem 7 dias - novo formulário curto": R$38,83, 2 leads, CPL R$19,41, CTR 4,14%.
+Criativo "005 - Bagagem 7 dias": R$92,51, 0 leads, CPL sem lead, CTR 2,53%.
+Dia a dia: seg 19/10 R$64,92 e 3 lead(s); ter 20/10 R$75,47 e 3 lead(s); qua 21/10 R$71,41 e 4 lead(s); qui 22/10 R$63,39 e 0 lead(s); sex 23/10 R$67,87 e 2 lead(s); sáb 24/10 R$41,32 e 1 lead(s); dom 25/10 R$89,33 e 5 lead(s).
+Motivos de perda da planilha (17 linhas): Sem retorno / sem contato 12 (71%); Telefone inválido ou sem telefone 4 (24%); Não tem interesse 1 (6%).
+Perdas do criativo "002 - companhias aéreas - formulário curto": 11, principal motivo Sem retorno / sem contato com 7.
+Orçamento: média R$67,67 por dia (teto R$66); 4 dia(s) acima do teto; maior dia R$89,33 em 25/10.
+Contexto fixo: lead do Meta soma formulário instantâneo e site; contrato assinado é o negócio que chegou à fase Ingressar com ação no Moskit.
+Em 24/09/2026 entraram campanhas novas com um pixel novo (criado em 23/09/2026), então o aprendizado do Meta recomeçou nessas campanhas.

@@ -1,0 +1,23 @@
+{
+ "chave": "2026-08",
+ "mesNome": "agosto",
+ "ano": 2026,
+ "pagina": false,
+ "motivos": [],
+ "origem": "Meta Ads (API) conferido pelo MCP em 06/10/2026; sem dados do Moskit",
+ "kpi": {
+  "investido": 1119.42,
+  "leads": 67,
+  "cpl": 16.707761194029853,
+  "impressoes": 59429,
+  "alcance": 47609,
+  "cliquesLink": 1001,
+  "lpv": 112,
+  "moskitLeads": null,
+  "contratos": null,
+  "perdidos": null,
+  "emAtendimento": null,
+  "custoContrato": null,
+  "conv": null
+ }
+}
