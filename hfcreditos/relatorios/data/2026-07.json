@@ -1,0 +1,17 @@
+{
+ "chave": "2026-07",
+ "mesNome": "julho",
+ "ano": 2026,
+ "kpi": {
+  "investido": 1936.74,
+  "leads": 523,
+  "cpl": 3.7031357552581263,
+  "moskitLeads": 575,
+  "contratos": 4,
+  "perdidos": 154,
+  "custoContrato": 484.185,
+  "conv": 0.6956521739130435
+ },
+ "motivos": [],
+ "pagina": false
+}

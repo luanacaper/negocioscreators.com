@@ -1,0 +1,21 @@
+Semana 12/10 a 18/10 (seg a dom). Investimento Meta R$527,42; 18 leads somando formulário instantâneo e site (CPL R$29,30); 20.811 impressões; 519 cliques no link.
+Moskit (texto da Tatiana): 16 leads; 1 contratos assinados; 12 perdidos.
+Semana anterior (05/10 – 11/10): investimento R$316,94; 14 leads Meta; CPL R$22,64; 10 leads no Moskit; 0 contratos; 10 perdidos. Variação: investimento 66,4%, leads Meta 28,6%, CPL 29,4%.
+Semana 05/10 – 11/10: investido R$316,94; leads no Meta 14; CPL R$22,64; leads no Moskit 10; contratos assinados 0; perdidos 10.
+Semana 12/10 – 18/10 (a desta análise): investido R$527,42; leads no Meta 18; CPL R$29,30; leads no Moskit 16; contratos assinados 1; perdidos 12.
+Sequência atual: 0 semana(s) seguida(s) sem contrato assinado, contando esta.
+Campanha "Lc. Aquisição - Lead - 24/09/2026": gastou de 12/10 a 18/10 nesta semana.
+Campanha "Lc. Aquisição - Lead - 24/09/2026" (ACTIVE): R$527,42, 18 leads, CPL R$29,30, CTR 2,87%.
+Conjunto "Lead LP 25/09/2026   - formulário  ||  Interesses em viagem e hotel com comportamento de viajante frequente — Cópia": R$270,35, 11 leads, CPL R$24,58.
+Conjunto "Lead LP 30/09/2026   - formulário  ||  Advantage + maiores de 18 anos. — Cópia": R$156,13, 6 leads, CPL R$26,02.
+Conjunto "Lead LP 24/09/2026   || companhias aéreas": R$100,94, 1 leads, CPL R$100,94.
+Criativo "005 - Bagagem 7 dias - novo formulário curto": R$168,43, 8 leads, CPL R$21,05, CTR 2,90%.
+Criativo "Carrossel voo cancelado - escrita janela": R$156,13, 6 leads, CPL R$26,02, CTR 2,61%.
+Criativo "002 - companhias aéreas - formulário curto": R$101,92, 3 leads, CPL R$33,97, CTR 3,96%.
+Criativo "005 - Bagagem 7 dias": R$100,94, 1 leads, CPL R$100,94, CTR 2,39%.
+Dia a dia: seg 12/10 R$83,50 e 4 lead(s); ter 13/10 R$72,29 e 1 lead(s); qua 14/10 R$72,32 e 1 lead(s); qui 15/10 R$78,17 e 3 lead(s); sex 16/10 R$80,73 e 5 lead(s); sáb 17/10 R$57,59 e 0 lead(s); dom 18/10 R$82,82 e 4 lead(s).
+Orçamento: média R$75,35 por dia (teto R$66); 6 dia(s) acima do teto; maior dia R$83,50 em 12/10.
+Contexto fixo: lead do Meta soma formulário instantâneo e site; contrato assinado é o negócio que chegou à fase Ingressar com ação no Moskit.
+Em 24/09/2026 entraram campanhas novas com um pixel novo (criado em 23/09/2026), então o aprendizado do Meta recomeçou nessas campanhas.
+Contexto informado pela equipe de tráfego (é a explicação oficial dos leads perdidos e da oscilação de leads neste período; use no texto atribuindo à equipe de tráfego e nunca diga que a causa é desconhecida): Formulário completo × formulário curto. A campanha estava rodando com um formulário completo, com várias perguntas de qualificação. Ele trazia leads muito bem qualificados, mas em volume baixíssimo: 1 ou 2 leads a cada 2 dias. Passados os 7 dias de otimização do Meta, essa campanha parou de entregar leads. Para voltar a ter entrega, a equipe de tráfego trocou para um formulário curto, com menos perguntas (criado em 06/10). Os leads voltaram a chegar, mas passaram a ser desqualificados. Segundo a equipe, esse é o principal motivo dos leads perdidos nesse período. Em 09/10 a equipe voltou ao formulário completo, que filtra melhor, nos anúncios que usavam o formulário curto. Plano definido pela equipe de tráfego para as próximas semanas (use exatamente estes passos, nesta ordem, em "proximos", e baseie os 3 "pontos" neles): 1) Testar formulário intermediário com 3 perguntas-filtro (tipo de problema, quando ocorreu e comprovante) e verificação por SMS 2) Concentrar o orçamento diário em um só conjunto de anúncios, para o Meta sair do aprendizado 3) Manter um anúncio com o formulário completo, com verba pequena, como controle da comparação
+Anúncios que usaram o formulário curto nesta semana: "005 - Bagagem 7 dias - novo formulário curto", "Carrossel voo cancelado - escrita janela", "002 - companhias aéreas - formulário curto", somando 17 dos 18 leads do Meta e R$426,48 investidos. O formulário é definido por anúncio, não por conjunto: nunca descreva um conjunto como "de formulário completo" nem atribua ao formulário completo o resultado dos conjuntos desta semana.

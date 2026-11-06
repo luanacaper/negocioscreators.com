@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#55613b">
+<title>Admin | Luana Caper</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%2355613b'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='800' font-size='34' text-anchor='middle' fill='%23ffbf85'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--verde:#55613b;--verde-esc:#3f4a2b;--laranja:#d4691f;--laranja-claro:#ffbf85;--gelo:#f7f6f1;--tinta:#1d2216;--suave:#55594a;--linha:#e6e6da;--erro:#b3261e}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--gelo);color:var(--tinta);line-height:1.5;-webkit-text-size-adjust:100%}
+h1,h2,h3,p{margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--tinta);outline-offset:2px;border-radius:8px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:900px;margin:0 auto;padding:16px}
+
+/* Botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:42px;padding:8px 18px;border-radius:999px;border:2px solid transparent;font-weight:700;font-size:.95rem;cursor:pointer;text-decoration:none;background:var(--verde);color:#fff;transition:background .2s}
+.btn:hover{background:var(--verde-esc)}
+.btn:disabled{opacity:.6;cursor:wait}
+.btn.contorno{background:#fff;color:var(--verde-esc);border-color:var(--verde)}
+.btn.contorno:hover{background:#eef0df}
+.btn.perigo{background:#fff;color:var(--erro);border-color:#e6b8b4}
+.btn.perigo:hover{background:#fbeceb}
+.btn.mini{min-height:34px;padding:4px 14px;font-size:.85rem}
+
+/* Login */
+.login{min-height:100vh;display:grid;place-items:center;padding:16px}
+.cartao{width:100%;max-width:400px;background:#fff;border:1px solid var(--linha);border-radius:26px;padding:28px 24px;box-shadow:0 18px 44px rgba(20,32,28,.12)}
+.logo{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--verde);color:var(--laranja-claro);font-weight:800;margin-bottom:12px}
+.cartao h1{font-size:1.5rem;letter-spacing:-.02em}
+.cartao .sub{color:var(--suave);margin:4px 0 18px;font-size:.95rem}
+.campo{display:grid;gap:5px;margin-bottom:12px}
+.campo label{font-weight:700;font-size:.88rem}
+.campo input,.campo select,.campo textarea{width:100%;padding:11px 14px;border:1.5px solid #d7dac8;border-radius:14px;background:var(--gelo)}
+.campo textarea{min-height:90px;resize:vertical}
+.campo input:focus,.campo select:focus,.campo textarea:focus{outline:none;border-color:var(--verde);background:#fff;box-shadow:0 0 0 4px rgba(85,97,59,.2)}
+.campo .dica{font-size:.78rem;color:var(--suave)}
+.campo.check{display:flex;align-items:center;gap:10px}
+.campo.check input{width:20px;height:20px;padding:0}
+.aviso{padding:10px 14px;border-radius:14px;font-size:.9rem;margin-bottom:12px}
+.aviso.erro{background:#fbeceb;color:var(--erro);border:1px solid #e6b8b4}
+.aviso.ok{background:#e8f1e4;color:var(--verde-esc);border:1px solid #c9dbc1}
+
+/* Painel */
+.topo{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:6px 0 14px}
+.topo h1{font-size:1.3rem;letter-spacing:-.02em}
+.topo small{display:block;color:var(--suave);font-size:.8rem}
+.topo .acoes{display:flex;gap:8px;flex-wrap:wrap}
+.abas{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;margin-bottom:10px}
+.aba{flex:none;padding:9px 16px;border-radius:999px;border:2px solid var(--linha);background:#fff;font-weight:700;cursor:pointer}
+.aba[aria-selected="true"]{background:var(--verde);border-color:var(--verde);color:#fff}
+.barra{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.barra p{color:var(--suave);font-size:.9rem}
+.lista{display:grid;gap:10px}
+.item{background:#fff;border:1px solid var(--linha);border-radius:20px;padding:14px 16px;display:grid;gap:8px}
+.item-cab{display:flex;gap:12px;align-items:flex-start;justify-content:space-between}
+.item-cab img{flex:none;width:44px;height:78px;object-fit:cover;border-radius:8px;background:#ddd}
+.item-txt{min-width:0;flex:1}
+.item-txt b{display:block;overflow-wrap:anywhere}
+.item-txt span{display:block;color:var(--suave);font-size:.85rem;overflow-wrap:anywhere}
+.item-msg{background:var(--gelo);border-radius:12px;padding:8px 12px;font-size:.88rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.item-acoes{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.item-acoes select{padding:6px 10px;border:1.5px solid #d7dac8;border-radius:999px;background:#fff;font-weight:600}
+.vazio{padding:28px 16px;text-align:center;color:var(--suave);background:#fff;border:1px dashed #cfd3bd;border-radius:20px}
+
+/* Planilha de marcas */
+.planilha-ferramentas{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.planilha-ferramentas input[type=search]{flex:1;min-width:200px;padding:9px 14px;border:1.5px solid #d7dac8;border-radius:999px;background:#fff}
+.planilha-ferramentas select{padding:9px 14px;border:1.5px solid #d7dac8;border-radius:999px;background:#fff;font-weight:600}
+.tabela-embrulho{overflow-x:auto;border:1px solid var(--linha);border-radius:16px;background:#fff}
+table.planilha{width:100%;border-collapse:collapse;font-size:.86rem;min-width:860px}
+table.planilha th,table.planilha td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--linha);vertical-align:top}
+table.planilha thead th{background:var(--gelo);font-size:.74rem;text-transform:uppercase;letter-spacing:.03em;color:var(--suave);white-space:nowrap;position:sticky;top:0}
+table.planilha tbody tr:hover{background:var(--gelo)}
+table.planilha td.obs{max-width:240px;white-space:pre-wrap;overflow-wrap:anywhere;color:var(--suave)}
+table.planilha td.vazio{text-align:center;color:var(--suave);padding:24px 12px}
+table.planilha select{padding:5px 9px;border:1.5px solid #d7dac8;border-radius:999px;background:#fff;font-weight:600;font-size:.82rem}
+table.planilha a{color:var(--verde-esc);font-weight:600}
+
+/* Métricas do portfólio */
+.metricas-cartoes{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.metrica-cartao{flex:1;min-width:140px;background:#fff;border:1px solid var(--linha);border-radius:20px;padding:16px 18px;display:grid;gap:2px}
+.metrica-cartao b{font-size:1.7rem;letter-spacing:-.02em}
+.metrica-cartao span{color:var(--suave);font-size:.85rem;font-weight:600}
+.metricas-grade{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.metricas-grade h3{font-size:1rem;margin-bottom:8px}
+.metricas-grade table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--linha);border-radius:16px;overflow:hidden;font-size:.88rem}
+.metricas-grade th,.metricas-grade td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--linha)}
+.metricas-grade th{background:var(--gelo);font-size:.72rem;text-transform:uppercase;color:var(--suave)}
+.metricas-grade td:nth-child(2),.metricas-grade td:nth-child(3),.metricas-grade th:nth-child(2),.metricas-grade th:nth-child(3){text-align:right;white-space:nowrap}
+@media (max-width:640px){.metricas-grade{grid-template-columns:1fr}}
+
+/* Formulário em janela */
+dialog{width:min(520px,calc(100vw - 24px));max-height:calc(100vh - 24px);border:0;border-radius:24px;padding:22px 20px;box-shadow:0 30px 80px rgba(0,0,0,.35);overflow:auto}
+dialog::backdrop{background:rgba(24,30,17,.55)}
+dialog h2{font-size:1.25rem;margin-bottom:14px;letter-spacing:-.02em}
+.form-acoes{display:flex;gap:8px;justify-content:flex-end;margin-top:6px}
+</style>
+</head>
+<body>
+<main id="app"></main>
+
+<script>
+/* Endereço do banco e chave PÚBLICA (a chave pública pode ficar no site; quem protege os dados são as regras RLS do Supabase).
+   NUNCA cole aqui a chave secreta (sb_secret_...). */
+const SB = {
+  url: "https://tzpjkbzkmaeyjiktmpie.supabase.co",
+  chave: "sb_publishable_SPp8r0D8hiWdcEVe8u_YRw_Ezb0I5tl"
+};
+const CHAVE_SESSAO = "luana-admin-sessao";
+
+/* As abas do painel. Para criar uma aba nova, crie a tabela no Supabase e acrescente um bloco aqui. */
+const STATUS_MARCA = ["novo", "conversando", "proposta", "cliente", "perdido"];
+const ROTULO_STATUS = { novo: "Lead", conversando: "Conversando", proposta: "Proposta", cliente: "Cliente", perdido: "Perdido" };
+const NICHOS_GERAL = ["gastronomia-assinaturas", "casa-decoracao", "beleza-saude", "tech-infoprodutos", "viagem"];
+const ROTULO_NICHO = {
+  "gastronomia-assinaturas": "Alimentação & Lifestyle Saudável",
+  "casa-decoracao": "Casa, Decoração & Achadinhos",
+  "beleza-saude": "Beleza, Saúde & Bem-Estar",
+  "tech-infoprodutos": "Tech, Apps & Infoprodutos",
+  "viagem": "Viagem"
+};
+const TAMANHO_BADGE = ["", "pequeno", "grande"];
+const ROTULO_TAMANHO = { "": "Padrão", pequeno: "Pequeno (62px)", grande: "Grande (94px)" };
+const SITES_UTM = {
+  geral: "https://negocioscreators.com/luanacaper/portifolio/",
+  viagem: "https://negocioscreators.com/luanacaper/portifolio/ugc/",
+  "geral-dominio": "https://negocioscreators.com/luanacaper/portifolio/",
+  "viagem-dominio": "https://negocioscreators.com/luanacaper/portifolio/ugc/"
+};
+const ROTULO_SITE_UTM = {
+  geral: "Portfólio Geral",
+  viagem: "Portfolio Viagem",
+  "geral-dominio": "Portfólio Geral (negocioscreators.com)",
+  "viagem-dominio": "Portfolio Viagem (negocioscreators.com)"
+};
+const ABAS = {
+  videos: {
+    rotulo: "Vídeos", tabela: "videos", ordem: "ordem.asc,created_at.asc", novo: "Novo vídeo",
+    dica: "Os vídeos daqui aparecem no site, na seção Vídeos Experiências Narradas.",
+    campos: [
+      { k: "titulo", r: "Título", t: "text", obrig: true },
+      { k: "local", r: "Local (cidade)", t: "text" },
+      { k: "link", r: "Link do vídeo", t: "text", obrig: true, dica: "Cole o link do YouTube (Shorts ou normal) ou do TikTok (com /video/ no endereço)." },
+      { k: "ordem", r: "Ordem na página (1 aparece primeiro)", t: "number" },
+      { k: "publicado", r: "Mostrar no site", t: "check" }
+    ]
+  },
+  marcas: {
+    rotulo: "Marcas e contatos", tabela: "marcas", ordem: "created_at.desc", novo: "Nova marca",
+    dica: "Quem preenche o formulário do site cai aqui como \"Lead\". Vá mudando a situação até virar cliente.",
+    campos: [
+      { k: "nome", r: "Marca", t: "text", obrig: true },
+      { k: "instagram", r: "Instagram", t: "text", dica: "Sem @, ex: pousadaexemplo" },
+      { k: "email", r: "E-mail", t: "email" },
+      { k: "telefone", r: "Telefone ou WhatsApp", t: "text" },
+      { k: "status", r: "Situação", t: "select", opcoes: STATUS_MARCA, rotulos: ROTULO_STATUS },
+      { k: "ultimo_contato", r: "Último contato", t: "date" },
+      { k: "mensagem", r: "Mensagem que a pessoa enviou", t: "textarea" },
+      { k: "observacoes", r: "Observação", t: "textarea" }
+    ]
+  },
+  metricas: {
+    rotulo: "Métricas do portfólio", tabela: "metricas", ordem: "created_at.desc",
+    dica: "Quantas pessoas abriram o portfólio, o que mais olharam e de onde vieram — o que te diz qual nicho está puxando mais."
+  },
+  calendario: {
+    rotulo: "Calendário", tabela: "calendario", ordem: "data.asc", novo: "Novo compromisso",
+    dica: "Gravações, postagens, reuniões e entregas em ordem de data.",
+    campos: [
+      { k: "data", r: "Data", t: "date", obrig: true },
+      { k: "titulo", r: "O que é", t: "text", obrig: true },
+      { k: "tipo", r: "Tipo", t: "select", opcoes: ["gravação", "postagem", "reunião", "entrega", "outro"] },
+      { k: "marca", r: "Marca ou local", t: "text" },
+      { k: "feito", r: "Já foi feito", t: "check" }
+    ]
+  },
+  campanhas: {
+    rotulo: "Campanhas", tabela: "campanhas", ordem: "created_at.desc", novo: "Nova campanha",
+    dica: "Campanhas em andamento e o resultado de cada uma.",
+    campos: [
+      { k: "nome", r: "Nome da campanha", t: "text", obrig: true },
+      { k: "marca", r: "Marca", t: "text" },
+      { k: "status", r: "Status", t: "select", opcoes: ["planejada", "em andamento", "concluída"] },
+      { k: "inicio", r: "Início", t: "date" },
+      { k: "fim", r: "Fim", t: "date" },
+      { k: "resultado", r: "Resultado", t: "textarea" }
+    ]
+  },
+  videos_geral: {
+    rotulo: "Vídeos (Geral)", tabela: "videos_geral", ordem: "ordem.asc,created_at.asc", novo: "Novo vídeo",
+    dica: "Catálogo por nicho do Portfólio Geral. Sem link ainda? Deixa em branco que aparece como \"Em breve\". A \"Marca\" é o que aparece em destaque na miniatura pro público; \"Título\" e \"Nota\" são só pra você se localizar aqui no painel.",
+    campos: [
+      { k: "titulo", r: "Título (uso interno, não aparece no site)", t: "text", obrig: true },
+      { k: "marca", r: "Marca (aparece na miniatura, pro público)", t: "text", obrig: true },
+      { k: "nicho", r: "Nicho", t: "select", opcoes: NICHOS_GERAL, rotulos: ROTULO_NICHO },
+      { k: "nota", r: "Nota interna (ex.: ROAS 7,54)", t: "text" },
+      { k: "link", r: "Link do vídeo (opcional)", t: "text", dica: "Cole o link do YouTube (Shorts ou normal) ou do TikTok (com /video/ no endereço). Em branco = \"Em breve\"." },
+      { k: "ordem", r: "Ordem na página (1 aparece primeiro)", t: "number" },
+      { k: "publicado", r: "Mostrar no site", t: "check" }
+    ]
+  },
+  marcas_logos: {
+    rotulo: "Marcas (logos)", tabela: "marcas_logos", ordem: "ordem.asc,created_at.asc", novo: "Nova logo",
+    dica: "Carrossel \"Marcas que confiaram no meu trabalho\". Pra marca nova, além de cadastrar aqui, manda o arquivo da imagem pra colocar em img/marcas/.",
+    campos: [
+      { k: "nome", r: "Nome da marca", t: "text", obrig: true },
+      { k: "arquivo", r: "Arquivo da imagem", t: "text", obrig: true, dica: "Só o nome do arquivo, ex.: milky-moo.png (sem img/marcas/ na frente)." },
+      { k: "fundo", r: "Cor do selo de fundo (opcional)", t: "text", dica: "Só pra logo clara/branca que some no fundo claro. Ex.: #14130f. Em branco = sem selo." },
+      { k: "tamanho", r: "Tamanho do selo", t: "select", opcoes: TAMANHO_BADGE, rotulos: ROTULO_TAMANHO },
+      { k: "ordem", r: "Ordem no carrossel", t: "number" },
+      { k: "publicado", r: "Mostrar no site", t: "check" }
+    ]
+  },
+  depoimentos_geral: {
+    rotulo: "Depoimentos", tabela: "depoimentos_geral", ordem: "ordem.asc,created_at.asc", novo: "Novo depoimento",
+    dica: "Seção \"O que dizem sobre o trabalho\" do Portfólio Geral.",
+    campos: [
+      { k: "marca", r: "Marca", t: "text", obrig: true },
+      { k: "texto", r: "Depoimento", t: "textarea", obrig: true },
+      { k: "ctx", r: "Linha de contexto (ex.: ROAS 7,54)", t: "text" },
+      { k: "ordem", r: "Ordem na página", t: "number" },
+      { k: "publicado", r: "Mostrar no site", t: "check" }
+    ]
+  },
+  servicos_geral: {
+    rotulo: "Serviços", tabela: "servicos_geral", ordem: "ordem.asc,created_at.asc", novo: "Novo serviço",
+    dica: "Seção \"O que podemos criar juntos?\" do Portfólio Geral.",
+    campos: [
+      { k: "titulo", r: "Título do serviço", t: "text", obrig: true },
+      { k: "texto", r: "Descrição curta", t: "textarea", obrig: true },
+      { k: "ordem", r: "Ordem na página", t: "number" },
+      { k: "publicado", r: "Mostrar no site", t: "check" }
+    ]
+  },
+  links_utm: {
+    rotulo: "Links UTM", tabela: "links_utm", ordem: "created_at.desc", novo: "Novo link",
+    dica: "Gera um link rastreável. Toda visita por ele aparece na aba Métricas, em \"De onde vieram\", com o nome que você der aqui.",
+    campos: [
+      { k: "nome", r: "Nome (só pra você identificar)", t: "text", obrig: true, dica: "Ex.: Inscrição no diretório XPTO" },
+      { k: "site", r: "Qual portfólio", t: "select", opcoes: Object.keys(SITES_UTM), rotulos: ROTULO_SITE_UTM },
+      { k: "fonte", r: "Nome da origem (utm_source)", t: "text", obrig: true, dica: "Sem espaço/acento, ex.: linktree, diretorio-xpto. É esse nome que vai aparecer nas Métricas." }
+    ]
+  }
+};
+
+/* ---------- utilidades ---------- */
+const app = document.getElementById("app");
+function el(tag, attrs, filhos) {
+  const n = document.createElement(tag);
+  for (const k in (attrs || {})) {
+    const v = attrs[k];
+    if (v === false || v == null) continue;
+    if (k === "class") n.className = v;
+    else if (k === "text") n.textContent = v;
+    else n.setAttribute(k, v === true ? "" : v);
+  }
+  (filhos || []).forEach(f => f != null && n.append(f));
+  return n;
+}
+const limpar = n => { n.replaceChildren(); return n; };
+const dataBR = s => s ? new Date(s + "T12:00:00").toLocaleDateString("pt-BR") : "";
+
+/* ---------- sessão e chamadas ao Supabase ---------- */
+let sessao = null;
+try { sessao = JSON.parse(localStorage.getItem(CHAVE_SESSAO)); } catch (e) {}
+function salvarSessao(s) {
+  sessao = s;
+  try { s ? localStorage.setItem(CHAVE_SESSAO, JSON.stringify(s)) : localStorage.removeItem(CHAVE_SESSAO); } catch (e) {}
+}
+async function auth(tipo, corpo) {
+  const r = await fetch(SB.url + "/auth/v1/token?grant_type=" + tipo, { method: "POST", headers: { apikey: SB.chave, "Content-Type": "application/json" }, body: JSON.stringify(corpo) });
+  const d = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(d.error_description || d.msg || d.message || "Não foi possível entrar.");
+  return d;
+}
+function guardar(d) {
+  salvarSessao({ acesso: d.access_token, renovar: d.refresh_token, expira: Date.now() + Math.max(d.expires_in - 30, 30) * 1000, email: (d.user && d.user.email) || (sessao && sessao.email) || "" });
+}
+async function tokenValido() {
+  if (!sessao) return null;
+  if (Date.now() > sessao.expira) {
+    try { guardar(await auth("refresh_token", { refresh_token: sessao.renovar })); }
+    catch (e) { salvarSessao(null); return null; }
+  }
+  return sessao.acesso;
+}
+async function rest(caminho, opc) {
+  const o = opc || {};
+  const token = await tokenValido();
+  if (!token) throw new Error("sessao");
+  const h = { apikey: SB.chave, Authorization: "Bearer " + token, "Content-Type": "application/json" };
+  if (o.retorno) h.Prefer = "return=" + o.retorno;
+  const r = await fetch(SB.url + "/rest/v1/" + caminho, { method: o.metodo || "GET", headers: h, body: o.corpo !== undefined ? JSON.stringify(o.corpo) : undefined });
+  if (r.status === 401) { salvarSessao(null); throw new Error("sessao"); }
+  if (!r.ok) { const d = await r.json().catch(() => ({})); throw new Error(d.message || "Erro " + r.status); }
+  return r.status === 204 ? null : r.json().catch(() => null);
+}
+
+/* ---------- links de vídeo ---------- */
+function lerVideo(link) {
+  const t = String(link || "").trim();
+  let m = t.match(/(?:youtu\.be\/|youtube\.com\/(?:shorts\/|embed\/|live\/)|[?&]v=)([A-Za-z0-9_-]{11})/);
+  if (m) return { plataforma: "yt", video_id: m[1] };
+  m = t.match(/tiktok\.com\/(?:@[\w.\-]+\/)?(?:video|player\/v1)\/(\d{8,25})/);
+  if (m) return { plataforma: "tt", video_id: m[1] };
+  return null;
+}
+const linkDoVideo = v => v.plataforma === "tt" ? "https://www.tiktok.com/video/" + v.video_id : "https://www.youtube.com/shorts/" + v.video_id;
+
+/* ---------- telas ---------- */
+function telaLogin(erro) {
+  limpar(app);
+  const msg = el("div", { class: "aviso erro", role: "alert", hidden: !erro, text: erro || "" });
+  const email = el("input", { id: "l-email", type: "email", autocomplete: "username", required: true });
+  const senha = el("input", { id: "l-senha", type: "password", autocomplete: "current-password", required: true });
+  const botao = el("button", { class: "btn", type: "submit", text: "Entrar", style: "width:100%" });
+  const form = el("form", {}, [
+    msg,
+    el("div", { class: "campo" }, [el("label", { for: "l-email", text: "E-mail" }), email]),
+    el("div", { class: "campo" }, [el("label", { for: "l-senha", text: "Senha" }), senha]),
+    botao
+  ]);
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    botao.disabled = true; botao.textContent = "Entrando...";
+    try {
+      guardar(await auth("password", { email: email.value.trim(), password: senha.value }));
+      const admin = await rest("rpc/is_admin", { metodo: "POST", corpo: {} });
+      if (admin !== true) { salvarSessao(null); throw new Error("Esse usuário entrou, mas ainda não tem permissão de administrador. Peça para liberar o acesso."); }
+      telaPainel();
+    } catch (err) {
+      salvarSessao(null);
+      msg.hidden = false;
+      msg.textContent = err.message === "Invalid login credentials" ? "E-mail ou senha incorretos." : err.message;
+      botao.disabled = false; botao.textContent = "Entrar";
+    }
+  });
+  app.append(el("div", { class: "login" }, [el("div", { class: "cartao" }, [
+    el("span", { class: "logo", "aria-hidden": "true", text: "L" }),
+    el("h1", { text: "Admin dos portfólios" }),
+    el("p", { class: "sub", text: "Área só para a Luana. Entre para editar o conteúdo dos dois portfólios, contatos, calendário e campanhas." }),
+    form
+  ])]));
+  email.focus();
+}
+
+function telaPainel() {
+  limpar(app);
+  let atual = "videos";
+  const conteudo = el("div", {});
+  const abas = el("div", { class: "abas", role: "tablist", "aria-label": "Seções do admin" });
+  Object.keys(ABAS).forEach(k => {
+    const b = el("button", { class: "aba", role: "tab", type: "button", text: ABAS[k].rotulo, "aria-selected": String(k === atual) });
+    b.addEventListener("click", () => { atual = k; abas.querySelectorAll(".aba").forEach(x => x.setAttribute("aria-selected", String(x === b))); mostrarAba(conteudo, k); });
+    abas.append(b);
+  });
+  const sair = el("button", { class: "btn contorno mini", type: "button", text: "Sair" });
+  sair.addEventListener("click", () => { salvarSessao(null); telaLogin(); });
+  app.append(el("div", { class: "wrap" }, [
+    el("div", { class: "topo" }, [
+      el("div", {}, [el("h1", { text: "Admin dos portfólios" }), el("small", { text: sessao && sessao.email ? "Logada como " + sessao.email : "" })]),
+      el("div", { class: "acoes" }, [el("a", { class: "btn contorno mini", href: "../", target: "_blank", rel: "noopener", text: "Ver o site" }), sair])
+    ]),
+    abas, conteudo
+  ]));
+  mostrarAba(conteudo, atual);
+}
+
+async function mostrarAba(raiz, chave) {
+  if (chave === "marcas") return mostrarMarcas(raiz);
+  if (chave === "metricas") return mostrarMetricas(raiz);
+  const aba = ABAS[chave];
+  limpar(raiz);
+  const aviso = el("div", { class: "aviso", hidden: true, role: "status" });
+  const lista = el("div", { class: "lista" }, [el("div", { class: "vazio", text: "Carregando..." })]);
+  const novo = el("button", { class: "btn", type: "button", text: "+ " + aba.novo });
+  raiz.append(el("div", { class: "barra" }, [el("p", { text: aba.dica }), novo]), aviso, lista);
+
+  const falar = (texto, tipo) => { aviso.hidden = false; aviso.className = "aviso " + (tipo || "ok"); aviso.textContent = texto; };
+  let linhas = [];
+  async function carregar() {
+    try {
+      linhas = await rest(aba.tabela + "?select=*&order=" + aba.ordem) || [];
+      desenhar();
+    } catch (e) { tratarErro(e); }
+  }
+  function tratarErro(e) {
+    if (e.message === "sessao") { telaLogin("Sua sessão expirou. Entre de novo."); return; }
+    falar(e.message, "erro");
+    if (!linhas.length) limpar(lista);
+  }
+  async function salvar(id, dados) {
+    try {
+      if (id) await rest(aba.tabela + "?id=eq." + id, { metodo: "PATCH", corpo: dados, retorno: "minimal" });
+      else await rest(aba.tabela, { metodo: "POST", corpo: dados, retorno: "minimal" });
+      falar("Salvo.", "ok");
+      await carregar();
+      return true;
+    } catch (e) { tratarErro(e); return false; }
+  }
+  async function excluir(l) {
+    if (!confirm("Excluir \"" + (l.titulo || l.nome || l.marca || "este item") + "\"? Não dá para desfazer.")) return;
+    try { await rest(aba.tabela + "?id=eq." + l.id, { metodo: "DELETE", retorno: "minimal" }); falar("Excluído.", "ok"); await carregar(); }
+    catch (e) { tratarErro(e); }
+  }
+
+  function desenhar() {
+    limpar(lista);
+    if (!linhas.length) { lista.append(el("div", { class: "vazio", text: "Nada por aqui ainda. Toque em \"+ " + aba.novo + "\"." })); return; }
+    linhas.forEach(l => lista.append(cartaoDe(chave, l, { salvar, excluir, editar: () => abrirFormulario(aba, l, salvar, linhas) })));
+  }
+  novo.addEventListener("click", () => abrirFormulario(aba, null, salvar, linhas));
+  carregar();
+}
+
+/* Aba "Marcas e contatos": planilha em vez de cartões — busca, filtro por situação e CSV */
+async function mostrarMarcas(raiz) {
+  const aba = ABAS.marcas;
+  limpar(raiz);
+  const aviso = el("div", { class: "aviso", hidden: true, role: "status" });
+  const novo = el("button", { class: "btn", type: "button", text: "+ " + aba.novo });
+  const busca = el("input", { type: "search", placeholder: "Buscar por marca, Instagram, e-mail, telefone ou observação", "aria-label": "Buscar marcas" });
+  const filtro = el("select", { "aria-label": "Filtrar por situação" }, [
+    el("option", { value: "", text: "Todas as situações" }),
+    ...STATUS_MARCA.map(s => el("option", { value: s, text: ROTULO_STATUS[s] || s }))
+  ]);
+  const csv = el("button", { class: "btn contorno mini", type: "button", text: "Baixar CSV" });
+  const corpo = el("tbody", {});
+  const tabela = el("table", { class: "planilha" }, [
+    el("thead", {}, [el("tr", {}, ["Marca", "Instagram", "E-mail", "Telefone", "Situação", "Observação", "Último contato", "Ações"].map(t => el("th", { text: t })))]),
+    corpo
+  ]);
+  raiz.append(
+    el("div", { class: "barra" }, [el("p", { text: aba.dica }), novo]),
+    aviso,
+    el("div", { class: "planilha-ferramentas" }, [busca, filtro, csv]),
+    el("div", { class: "tabela-embrulho" }, [tabela])
+  );
+
+  const falar = (texto, tipo) => { aviso.hidden = false; aviso.className = "aviso " + (tipo || "ok"); aviso.textContent = texto; };
+  let linhas = [];
+  async function carregar() {
+    try { linhas = await rest(aba.tabela + "?select=*&order=" + aba.ordem) || []; redesenhar(); }
+    catch (e) { tratarErro(e); }
+  }
+  function tratarErro(e) {
+    if (e.message === "sessao") { telaLogin("Sua sessão expirou. Entre de novo."); return; }
+    falar(e.message, "erro");
+  }
+  async function salvar(id, dados) {
+    try {
+      if (id) await rest(aba.tabela + "?id=eq." + id, { metodo: "PATCH", corpo: dados, retorno: "minimal" });
+      else await rest(aba.tabela, { metodo: "POST", corpo: dados, retorno: "minimal" });
+      falar("Salvo.", "ok");
+      await carregar();
+      return true;
+    } catch (e) { tratarErro(e); return false; }
+  }
+  async function excluir(l) {
+    if (!confirm("Excluir \"" + (l.nome || "esta marca") + "\"? Não dá para desfazer.")) return;
+    try { await rest(aba.tabela + "?id=eq." + l.id, { metodo: "DELETE", retorno: "minimal" }); falar("Excluído.", "ok"); await carregar(); }
+    catch (e) { tratarErro(e); }
+  }
+
+  function filtradas() {
+    const termo = busca.value.trim().toLowerCase();
+    const status = filtro.value;
+    return linhas.filter(l => {
+      if (status && l.status !== status) return false;
+      if (!termo) return true;
+      return [l.nome, l.instagram, l.email, l.telefone, l.observacoes].some(v => String(v || "").toLowerCase().includes(termo));
+    });
+  }
+
+  function linhaDe(l) {
+    const sel = el("select", { "aria-label": "Situação de " + l.nome }, STATUS_MARCA.map(s => el("option", { value: s, text: ROTULO_STATUS[s] || s, selected: s === l.status })));
+    sel.addEventListener("change", () => salvar(l.id, { status: sel.value }));
+    const fone = String(l.telefone || "").replace(/\D/g, "");
+    const celTelefone = fone.length >= 10
+      ? el("a", { href: "https://wa.me/" + (fone.length <= 11 ? "55" : "") + fone, target: "_blank", rel: "noopener noreferrer", text: l.telefone })
+      : document.createTextNode(l.telefone || "—");
+    const celEmail = l.email ? el("a", { href: "mailto:" + l.email, text: l.email }) : document.createTextNode("—");
+    const handle = l.instagram ? l.instagram.replace(/^@/, "") : "";
+    const celInstagram = handle ? el("a", { href: "https://instagram.com/" + handle, target: "_blank", rel: "noopener noreferrer", text: "@" + handle }) : document.createTextNode("—");
+    const ed = el("button", { class: "btn contorno mini", type: "button", text: "Editar" });
+    ed.addEventListener("click", () => abrirFormulario(aba, l, salvar, linhas));
+    const ex = el("button", { class: "btn perigo mini", type: "button", text: "Excluir" });
+    ex.addEventListener("click", () => excluir(l));
+    return el("tr", {}, [
+      el("td", { text: l.nome || "—" }),
+      el("td", {}, [celInstagram]),
+      el("td", {}, [celEmail]),
+      el("td", {}, [celTelefone]),
+      el("td", {}, [sel]),
+      el("td", { class: "obs", text: l.observacoes || "—" }),
+      el("td", { text: l.ultimo_contato ? dataBR(l.ultimo_contato) : "—" }),
+      el("td", {}, [el("div", { class: "item-acoes" }, [ed, ex])])
+    ]);
+  }
+
+  function redesenhar() {
+    const vis = filtradas();
+    limpar(corpo);
+    if (!linhas.length) { corpo.append(el("tr", {}, [el("td", { colspan: 8, class: "vazio", text: "Nada por aqui ainda. Toque em \"+ " + aba.novo + "\"." })])); return; }
+    if (!vis.length) { corpo.append(el("tr", {}, [el("td", { colspan: 8, class: "vazio", text: "Nenhuma marca encontrada com esse filtro." })])); return; }
+    vis.forEach(l => corpo.append(linhaDe(l)));
+  }
+
+  function paraCSV() {
+    const cab = ["Marca", "Instagram", "E-mail", "Telefone", "Situação", "Observação", "Último contato"];
+    const esc = v => { const s = String(v == null ? "" : v).replace(/"/g, '""'); return /[",\n;]/.test(s) ? '"' + s + '"' : s; };
+    const corpoCSV = filtradas().map(l => [l.nome, l.instagram, l.email, l.telefone, ROTULO_STATUS[l.status] || l.status, l.observacoes, l.ultimo_contato ? dataBR(l.ultimo_contato) : ""].map(esc).join(","));
+    return "﻿" + [cab.map(esc).join(","), ...corpoCSV].join("\r\n");
+  }
+
+  busca.addEventListener("input", redesenhar);
+  filtro.addEventListener("change", redesenhar);
+  csv.addEventListener("click", () => {
+    if (!filtradas().length) { falar("Não há marcas para baixar com esse filtro.", "erro"); return; }
+    const blob = new Blob([paraCSV()], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = el("a", { href: url, download: "marcas-" + new Date().toISOString().slice(0, 10) + ".csv" });
+    document.body.append(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+  });
+  novo.addEventListener("click", () => abrirFormulario(aba, null, salvar, linhas));
+  carregar();
+}
+
+/* Aba "Métricas do portfólio": visitas, sessões (pessoas) e vídeos mais abertos, com filtro de período */
+async function mostrarMetricas(raiz) {
+  const aba = ABAS.metricas;
+  limpar(raiz);
+  const aviso = el("div", { class: "aviso", hidden: true, role: "status" });
+  const periodo = el("select", { "aria-label": "Período" }, [
+    el("option", { value: "7", text: "Últimos 7 dias" }),
+    el("option", { value: "30", text: "Últimos 30 dias", selected: true }),
+    el("option", { value: "90", text: "Últimos 90 dias" }),
+    el("option", { value: "0", text: "Desde sempre" })
+  ]);
+  const cartoes = el("div", { class: "metricas-cartoes" });
+  const colOrigem = el("div", {});
+  const colVideos = el("div", {});
+  raiz.append(
+    el("div", { class: "barra" }, [el("p", { text: aba.dica }), periodo]),
+    aviso,
+    cartoes,
+    el("div", { class: "metricas-grade" }, [colOrigem, colVideos])
+  );
+
+  const falar = (texto, tipo) => { aviso.hidden = false; aviso.className = "aviso " + (tipo || "ok"); aviso.textContent = texto; };
+
+  function contagem(linhas, chave) {
+    const mapa = new Map();
+    linhas.forEach(l => { const k = chave(l); mapa.set(k, (mapa.get(k) || 0) + 1); });
+    return [...mapa.entries()].sort((a, b) => b[1] - a[1]);
+  }
+  function cartaoNumero(n, rotulo) {
+    return el("div", { class: "metrica-cartao" }, [el("b", { text: String(n) }), el("span", { text: rotulo })]);
+  }
+  function tabelaContagem(pares, colRotulo, total) {
+    if (!pares.length) return el("p", { class: "vazio", text: "Sem dados nesse período." });
+    return el("table", {}, [
+      el("thead", {}, [el("tr", {}, [el("th", { text: colRotulo }), el("th", { text: "Vezes" }), el("th", { text: "%" })])]),
+      el("tbody", {}, pares.slice(0, 12).map(([nome, n]) => el("tr", {}, [
+        el("td", { text: nome }),
+        el("td", { text: String(n) }),
+        el("td", { text: total ? Math.round(n / total * 100) + "%" : "—" })
+      ])))
+    ]);
+  }
+
+  async function carregar() {
+    limpar(cartoes); limpar(colOrigem); limpar(colVideos);
+    cartoes.append(el("div", { class: "vazio", text: "Carregando..." }));
+    try {
+      const dias = Number(periodo.value);
+      let filtro = "tipo=in.(visita,video)&select=tipo,origem,detalhe,sessao,created_at&order=created_at.desc&limit=5000";
+      if (dias) filtro += "&created_at=gte." + new Date(Date.now() - dias * 86400000).toISOString();
+      desenhar(await rest(aba.tabela + "?" + filtro) || []);
+    } catch (e) {
+      limpar(cartoes);
+      if (e.message === "sessao") { telaLogin("Sua sessão expirou. Entre de novo."); return; }
+      falar(e.message, "erro");
+    }
+  }
+
+  function desenhar(linhas) {
+    limpar(cartoes); limpar(colOrigem); limpar(colVideos);
+    const visitas = linhas.filter(l => l.tipo === "visita");
+    const videos = linhas.filter(l => l.tipo === "video");
+    const pessoas = new Set(linhas.map(l => l.sessao)).size;
+    cartoes.append(
+      cartaoNumero(visitas.length, "Visitas"),
+      cartaoNumero(pessoas, "Pessoas (aprox.)"),
+      cartaoNumero(videos.length, "Vídeos abertos")
+    );
+    colOrigem.append(el("h3", { text: "De onde vieram" }), tabelaContagem(contagem(visitas, l => l.origem || "Direto"), "Origem", visitas.length));
+    colVideos.append(el("h3", { text: "O que mais olharam" }), tabelaContagem(contagem(videos, l => l.detalhe || "Sem título"), "Vídeo", videos.length));
+  }
+
+  periodo.addEventListener("change", carregar);
+  carregar();
+}
+
+function linkUtm(l) {
+  const base = SITES_UTM[l.site] || SITES_UTM.geral;
+  return base + "?utm_source=" + encodeURIComponent(l.fonte || "");
+}
+
+function cartaoDe(chave, l, acoes) {
+  let titulo = "", sub = "", extra = [], miniatura = null;
+  if (chave === "videos") {
+    titulo = l.titulo;
+    sub = [l.local, l.plataforma === "tt" ? "TikTok" : "YouTube", l.publicado ? "publicado" : "oculto"].filter(Boolean).join(" · ") + " · ordem " + l.ordem;
+    if (l.plataforma === "yt") miniatura = el("img", { src: "https://i.ytimg.com/vi/" + l.video_id + "/mqdefault.jpg", alt: "", loading: "lazy" });
+  } else if (chave === "videos_geral") {
+    titulo = l.titulo;
+    sub = [ROTULO_NICHO[l.nicho] || l.nicho, l.nota, l.video_id ? (l.plataforma === "tt" ? "TikTok" : "YouTube") : "em breve", l.publicado ? "publicado" : "oculto"].filter(Boolean).join(" · ") + " · ordem " + l.ordem;
+    if (l.plataforma === "yt" && l.video_id) miniatura = el("img", { src: "https://i.ytimg.com/vi/" + l.video_id + "/mqdefault.jpg", alt: "", loading: "lazy" });
+  } else if (chave === "marcas_logos") {
+    titulo = l.nome;
+    sub = [l.fundo ? "selo " + l.fundo : null, ROTULO_TAMANHO[l.tamanho || ""], l.publicado ? "publicado" : "oculto"].filter(Boolean).join(" · ") + " · ordem " + l.ordem;
+    miniatura = el("img", { src: "../img/marcas/" + l.arquivo, alt: "", loading: "lazy", style: "object-fit:contain;background:" + (l.fundo || "#fff") });
+  } else if (chave === "depoimentos_geral") {
+    titulo = l.marca;
+    sub = [l.ctx, l.publicado ? "publicado" : "oculto"].filter(Boolean).join(" · ") + " · ordem " + l.ordem;
+    extra.push(el("div", { class: "item-msg", text: l.texto }));
+  } else if (chave === "servicos_geral") {
+    titulo = l.titulo;
+    sub = (l.publicado ? "publicado" : "oculto") + " · ordem " + l.ordem;
+    extra.push(el("div", { class: "item-msg", text: l.texto }));
+  } else if (chave === "calendario") {
+    titulo = dataBR(l.data) + "  " + l.titulo + (l.feito ? "  (feito)" : "");
+    sub = [l.tipo, l.marca].filter(Boolean).join(" · ");
+  } else if (chave === "links_utm") {
+    titulo = l.nome;
+    sub = ROTULO_SITE_UTM[l.site] || l.site;
+    extra.push(el("div", { class: "item-msg", text: linkUtm(l) }));
+  } else {
+    titulo = l.nome;
+    sub = [l.marca, l.status, l.inicio ? dataBR(l.inicio) + (l.fim ? " a " + dataBR(l.fim) : "") : ""].filter(Boolean).join(" · ");
+    if (l.resultado) extra.push(el("div", { class: "item-msg", text: l.resultado }));
+  }
+  const botoes = [];
+  if (chave === "calendario") {
+    const b = el("button", { class: "btn contorno mini", type: "button", text: l.feito ? "Desmarcar" : "Marcar como feito" });
+    b.addEventListener("click", () => acoes.salvar(l.id, { feito: !l.feito }));
+    botoes.push(b);
+  }
+  if (chave === "links_utm") {
+    const b = el("button", { class: "btn contorno mini", type: "button", text: "Copiar link" });
+    b.addEventListener("click", () => {
+      navigator.clipboard.writeText(linkUtm(l)).then(() => {
+        b.textContent = "Copiado!";
+        setTimeout(() => { b.textContent = "Copiar link"; }, 1600);
+      });
+    });
+    botoes.push(b);
+  }
+  const ed = el("button", { class: "btn contorno mini", type: "button", text: "Editar" });
+  ed.addEventListener("click", acoes.editar);
+  const ex = el("button", { class: "btn perigo mini", type: "button", text: "Excluir" });
+  ex.addEventListener("click", () => acoes.excluir(l));
+  botoes.push(ed, ex);
+  return el("article", { class: "item" }, [
+    el("div", { class: "item-cab" }, [
+      el("div", { class: "item-txt" }, [el("b", { text: titulo }), el("span", { text: sub })]),
+      miniatura
+    ]),
+    ...extra,
+    el("div", { class: "item-acoes" }, botoes)
+  ]);
+}
+
+function abrirFormulario(aba, linha, salvar, linhas) {
+  const dlg = el("dialog", { "aria-labelledby": "dlg-titulo" });
+  const msg = el("div", { class: "aviso erro", role: "alert", hidden: true });
+  const campos = [];
+  aba.campos.forEach(c => {
+    const id = "f-" + c.k;
+    let entrada, valor = linha ? linha[c.k] : undefined;
+    if (c.k === "link") valor = linha && linha.video_id ? linkDoVideo(linha) : "";
+    if (c.k === "ordem" && !linha) valor = linhas.reduce((m, x) => Math.max(m, x.ordem || 0), 0) + 1;
+    if (c.k === "publicado" && !linha) valor = true;
+    if (c.k === "status" && !linha) valor = aba.tabela === "marcas" ? "novo" : (c.opcoes && c.opcoes[0]);
+    if (c.k === "tipo" && !linha) valor = c.opcoes[0];
+    if (c.t === "textarea") entrada = el("textarea", { id, required: c.obrig });
+    else if (c.t === "select") entrada = el("select", { id }, c.opcoes.map(o => el("option", { value: o, text: (c.rotulos && c.rotulos[o]) || o })));
+    else entrada = el("input", { id, type: c.t === "check" ? "checkbox" : c.t, required: c.obrig, inputmode: c.t === "number" ? "numeric" : null });
+    if (c.t === "check") entrada.checked = !!valor; else if (valor != null) entrada.value = valor;
+    campos.push({ c, entrada });
+  });
+  const form = el("form", { method: "dialog" }, [msg]);
+  campos.forEach(({ c, entrada }) => {
+    if (c.t === "check") form.append(el("div", { class: "campo check" }, [entrada, el("label", { for: entrada.id, text: c.r })]));
+    else form.append(el("div", { class: "campo" }, [el("label", { for: entrada.id, text: c.r }), entrada, c.dica ? el("span", { class: "dica", text: c.dica }) : null]));
+  });
+  const cancelar = el("button", { class: "btn contorno", type: "button", text: "Cancelar" });
+  const ok = el("button", { class: "btn", type: "submit", text: "Salvar" });
+  form.append(el("div", { class: "form-acoes" }, [cancelar, ok]));
+  dlg.append(el("h2", { id: "dlg-titulo", text: linha ? "Editar" : aba.novo }), form);
+  document.body.append(dlg);
+  const fechar = () => { dlg.close(); dlg.remove(); };
+  cancelar.addEventListener("click", fechar);
+  dlg.addEventListener("cancel", e => { e.preventDefault(); fechar(); });
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const dados = {};
+    let erro = "";
+    campos.forEach(({ c, entrada }) => {
+      if (c.k === "link") {
+        if (!entrada.value.trim() && !c.obrig) { dados.plataforma = null; dados.video_id = null; return; }
+        const v = lerVideo(entrada.value);
+        if (!v) { erro = "Não reconheci esse link. Use um link do YouTube ou um link do TikTok com /video/ no endereço."; return; }
+        dados.plataforma = v.plataforma; dados.video_id = v.video_id;
+      } else if (c.t === "check") dados[c.k] = entrada.checked;
+      else if (c.t === "number") dados[c.k] = parseInt(entrada.value, 10) || 0;
+      else { const t = entrada.value.trim(); dados[c.k] = t === "" && !c.obrig ? null : t; }
+    });
+    if (erro) { msg.hidden = false; msg.textContent = erro; return; }
+    ok.disabled = true; ok.textContent = "Salvando...";
+    if (await salvar(linha ? linha.id : null, dados)) fechar();
+    else { ok.disabled = false; ok.textContent = "Salvar"; }
+  });
+  dlg.showModal();
+  const primeiro = form.querySelector("input,select,textarea");
+  if (primeiro) primeiro.focus();
+}
+
+/* ---------- início ---------- */
+(async function () {
+  if (!sessao) return telaLogin();
+  try {
+    const admin = await rest("rpc/is_admin", { metodo: "POST", corpo: {} });
+    if (admin === true) telaPainel(); else { salvarSessao(null); telaLogin(); }
+  } catch (e) { telaLogin(); }
+})();
+</script>
+</body>
+</html>

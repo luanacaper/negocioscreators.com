@@ -1,0 +1,21 @@
+Semana 05/10 a 11/10 (seg a dom). Investimento Meta R$316,94; 14 leads somando formulário instantâneo e site (CPL R$22,64); 15.133 impressões; 386 cliques no link.
+Moskit (texto da Tatiana): 10 leads; 0 contratos assinados; 10 perdidos.
+Semana 05/10 – 11/10 (a desta análise): investido R$316,94; leads no Meta 14; CPL R$22,64; leads no Moskit 10; contratos assinados 0; perdidos 10.
+Sequência atual: 1 semana(s) seguida(s) sem contrato assinado, contando esta.
+Campanha "Lc. Aquisição - Lead - 24/09/2026": gastou de 05/10 a 11/10 nesta semana.
+Campanha "Lc. Aquisição - Lead - 24/09/2026" (ACTIVE): R$316,94, 14 leads, CPL R$22,64, CTR 2,82%.
+Conjunto "Lead LP 25/09/2026   - formulário  ||  Interesses em viagem e hotel com comportamento de viajante frequente — Cópia": R$159,67, 11 leads, CPL R$14,52.
+Conjunto "Lead LP 30/09/2026   - formulário  ||  Advantage + maiores de 18 anos. — Cópia": R$90,02, 3 leads, CPL R$30,01.
+Conjunto "Lead LP 24/09/2026   || companhias aéreas": R$67,25, 0 leads, CPL —.
+Criativo "002 - companhias aéreas - formulário curto": R$88,98, 6 leads, CPL R$14,83, CTR 3,94%.
+Criativo "Carrossel voo cancelado - escrita janela": R$90,02, 3 leads, CPL R$30,01, CTR 3,50%.
+Criativo "005 - Bagagem 7 dias": R$120,62, 2 leads, CPL R$60,31, CTR 1,70%.
+Criativo "005 - Bagagem 7 dias - novo formulário curto": R$15,83, 2 leads, CPL R$7,92, CTR 2,70%.
+Criativo "002 - companhias aéreas": R$1,43, 1 leads, CPL R$1,43, CTR 7,89%.
+Criativo "005 - 🛫 Já passou sufoco em": R$0,06, 0 leads, CPL sem lead, CTR 0,00%.
+Dia a dia: seg 05/10 R$74,27 e 2 lead(s); ter 06/10 R$70,44 e 5 lead(s); qua 07/10 R$67,13 e 4 lead(s); qui 08/10 R$63,47 e 2 lead(s); sex 09/10 R$19,63 e 1 lead(s); sáb 10/10 R$0,00 e 0 lead(s); dom 11/10 R$22,00 e 0 lead(s).
+Orçamento: média R$45,28 por dia (teto R$66); 3 dia(s) acima do teto; maior dia R$74,27 em 05/10.
+Contexto fixo: lead do Meta soma formulário instantâneo e site; contrato assinado é o negócio que chegou à fase Ingressar com ação no Moskit.
+Em 24/09/2026 entraram campanhas novas com um pixel novo (criado em 23/09/2026), então o aprendizado do Meta recomeçou nessas campanhas.
+Contexto informado pela equipe de tráfego (é a explicação oficial dos leads perdidos e da oscilação de leads neste período; use no texto atribuindo à equipe de tráfego e nunca diga que a causa é desconhecida): Formulário completo × formulário curto. A campanha estava rodando com um formulário completo, com várias perguntas de qualificação. Ele trazia leads muito bem qualificados, mas em volume baixíssimo: 1 ou 2 leads a cada 2 dias. Passados os 7 dias de otimização do Meta, essa campanha parou de entregar leads. Para voltar a ter entrega, a equipe de tráfego trocou para um formulário curto, com menos perguntas (criado em 06/10). Os leads voltaram a chegar, mas passaram a ser desqualificados. Segundo a equipe, esse é o principal motivo dos leads perdidos nesse período. Em 09/10 a equipe voltou ao formulário completo, que filtra melhor, nos anúncios que usavam o formulário curto. Plano definido pela equipe de tráfego para as próximas semanas (use exatamente estes passos, nesta ordem, em "proximos", e baseie os 3 "pontos" neles): 1) Testar formulário intermediário com 3 perguntas-filtro (tipo de problema, quando ocorreu e comprovante) e verificação por SMS 2) Concentrar o orçamento diário em um só conjunto de anúncios, para o Meta sair do aprendizado 3) Manter um anúncio com o formulário completo, com verba pequena, como controle da comparação
+Anúncios que usaram o formulário curto nesta semana: "002 - companhias aéreas - formulário curto", "Carrossel voo cancelado - escrita janela", "005 - Bagagem 7 dias - novo formulário curto", somando 11 dos 14 leads do Meta e R$194,83 investidos. O formulário é definido por anúncio, não por conjunto: nunca descreva um conjunto como "de formulário completo" nem atribua ao formulário completo o resultado dos conjuntos desta semana.
