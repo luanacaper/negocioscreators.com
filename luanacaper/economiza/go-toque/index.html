@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Economiza.ai Family — Entrando no grupo</title>
+<meta name="robots" content="noindex, nofollow">
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '4507344732870900'); fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=4507344732870900&ev=PageView&noscript=1"/></noscript>
+<style>
+  :root { --verde:#25D366; --verde-escuro:#128C4A; --bg:#EAFBF1; --texto:#0B2E1C; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { height:100%; }
+  body {
+    font-family:-apple-system,'Segoe UI',Roboto,sans-serif;
+    background:linear-gradient(160deg, var(--bg) 0%, #fff 60%);
+    color:var(--texto);
+    display:flex; align-items:center; justify-content:center;
+    min-height:100vh; padding:24px; text-align:center;
+  }
+  .iab-banner {
+    position:fixed; top:0; left:0; right:0; background:#FFF4E5; color:#7A4A00;
+    font-size:13px; line-height:1.5; text-align:center; padding:10px 16px;
+    border-bottom:1px solid #FFDFA6; z-index:80;
+  }
+  .card { max-width:380px; width:100%; }
+  .emoji { font-size:56px; margin-bottom:14px; }
+  h1 { font-size:20px; font-weight:800; margin-bottom:8px; line-height:1.3; }
+  p { font-size:14px; color:#3E5B4C; margin-bottom:26px; line-height:1.5; }
+  .cta {
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    background:var(--verde); color:#fff; font-weight:800; font-size:17px;
+    padding:16px 28px; border-radius:14px; border:none; width:100%;
+    box-shadow:0 8px 22px rgba(37,211,102,.35); cursor:pointer;
+    text-decoration:none;
+    animation:pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { box-shadow:0 8px 22px rgba(37,211,102,.35); }
+    50% { box-shadow:0 8px 30px rgba(37,211,102,.6); }
+  }
+  .cta:active { transform:scale(.98); }
+  .fine { font-size:12px; color:#7C9186; margin-top:16px; }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="emoji">🛍️</div>
+  <h1>Você está a 1 toque do<br>Economiza.ai Family</h1>
+  <p>Ofertas reais, com cupom, garimpadas todo dia. Toque abaixo pra entrar no grupo do WhatsApp agora.</p>
+  <button type="button" class="cta" id="btnEntrar">Entrar no grupo agora ➜</button>
+  <div class="fine">Você será levado direto pro WhatsApp.</div>
+</div>
+
+<script>
+  var dest = 'https://chat.whatsapp.com/HxzlNHAlZsQBWUh1aQA8Mm';
+  var leadFired = false;
+
+  function fireLeadAndGo(target) {
+    if (!leadFired) {
+      leadFired = true;
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', {}, { eventID: 'lead-' + Date.now() });
+      }
+    }
+    var finalDest = target;
+    if (isInAppBrowser && isAndroid) {
+      var withoutScheme = finalDest.replace(/^https?:\/\//, '');
+      finalDest = 'intent://' + withoutScheme + '#Intent;scheme=https;package=com.whatsapp;S.browser_fallback_url=' + encodeURIComponent(finalDest) + ';end';
+    }
+    var novaAba = window.open(finalDest, '_blank');
+    if (!novaAba) window.location.href = finalDest;
+  }
+
+  fetch('../family/active-invite.json', { cache: 'no-store' })
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(data){ if (data && data.inviteUrl) dest = data.inviteUrl; })
+    .catch(function(){});
+
+  var ua = navigator.userAgent || '';
+  var isInAppBrowser = /FBAN|FBAV|FB_IAB|Instagram/i.test(ua);
+  var isAndroid = /Android/i.test(ua);
+
+  if (isInAppBrowser) {
+    var banner = document.createElement('div');
+    banner.className = 'iab-banner';
+    banner.innerHTML = '⚠️ Pra abrir o WhatsApp certinho, toque nos <b>⋮</b> (ou no ícone de compartilhar) no topo e escolha <b>"Abrir no navegador"</b>.';
+    document.body.insertBefore(banner, document.body.firstChild);
+  }
+
+  document.getElementById('btnEntrar').addEventListener('click', function(){
+    fireLeadAndGo(dest);
+  });
+</script>
+
+</body>
+</html>

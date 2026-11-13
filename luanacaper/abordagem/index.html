@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abordagem UGC · Negócios Creators</title>
+<meta name="description" content="Monta a mensagem de inscrição em campanhas de UGC com os resultados reais da Luana Caper.">
+<link rel="icon" href="https://negocioscreators.com/marca/nc-icone-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3EBDF; --surface:#FFFFFF; --ink:#5A3A2E; --muted:#8A6E60; --line:#E2D5C3;
+  --mint:#C8603A; --mint-soft:#E3F6EF; --orange:#B0831F; --orange-soft:#FDEEE3; --chip:#EADFCF;
+  --ok:#C8603A; --warn:#C2410C; --sombra:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.05);
+  --display:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#241913; --surface:#33241C; --ink:#F3EBDF; --muted:#CBB6A6; --line:#402E25;
+    --mint:#E07B52; --mint-soft:#432219; --orange:#D9AE4A; --orange-soft:#3A2E16; --chip:#402E25;
+    --ok:#E07B52; --warn:#D9AE4A; --sombra:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#241913; --surface:#33241C; --ink:#F3EBDF; --muted:#CBB6A6; --line:#402E25;
+  --mint:#E07B52; --mint-soft:#432219; --orange:#D9AE4A; --orange-soft:#3A2E16; --chip:#402E25;
+  --ok:#E07B52; --warn:#D9AE4A; --sombra:none;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--display);font-size:15px;line-height:1.5}
+a{color:var(--mint)}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 16px 64px}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}
+.logo{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none}
+.logo svg{height:26px;width:auto}
+.logo span{font-weight:700;font-size:13px;color:var(--muted);border-left:1px solid var(--line);padding-left:10px}
+.tema{background:var(--chip);border:0;color:var(--ink);border-radius:999px;padding:6px 12px;font:600 12px var(--display);cursor:pointer}
+h1{font-size:clamp(28px,4.4vw,44px);line-height:1.05;letter-spacing:-.02em;margin:0 0 10px;font-weight:800}
+h1 mark{background:linear-gradient(transparent 55%,var(--mint-soft) 55%);color:inherit;padding:0 4px}
+.lead{color:var(--muted);max-width:640px;margin:0 0 28px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:900px){.grid{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--sombra);margin-bottom:18px}
+.card h2{font-size:17px;margin:0 0 14px;display:flex;gap:8px;align-items:baseline;font-weight:800}
+.card h2 i{font-style:normal;color:var(--mint);font-size:13px}
+label{display:block;font-weight:700;font-size:13px;margin:12px 0 4px}
+small,.dica{color:var(--muted);font-size:12px;font-weight:500}
+input[type=text],textarea,select{width:100%;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;padding:10px 12px;font:500 14px var(--display)}
+textarea{min-height:110px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--mint);outline-offset:1px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.chip{border:1px solid var(--line);background:var(--chip);color:var(--ink);border-radius:999px;padding:6px 12px;font:600 13px var(--display);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.auto{display:inline-block;margin-left:6px;font-size:11px;font-weight:700;color:var(--mint);background:var(--mint-soft);border-radius:6px;padding:1px 6px}
+.ganchos{display:flex;flex-direction:column;gap:8px}
+.gancho{display:flex;gap:10px;text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:14px;padding:11px 13px;cursor:pointer;font:500 14px var(--display)}
+.gancho[aria-checked=true]{border-color:var(--orange);box-shadow:0 0 0 1px var(--orange)}
+.gancho .bola{flex:none;width:14px;height:14px;border-radius:50%;border:2px solid var(--line);margin-top:3px}
+.gancho[aria-checked=true] .bola{border:4px solid var(--orange)}
+.gancho b{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.linha{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){.linha{grid-template-columns:1fr}}
+details summary{cursor:pointer;font-weight:800;font-size:15px}
+.preview{display:flex;gap:16px;align-items:flex-start}
+.cartao{width:190px;flex:none;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--sombra)}
+.foto{height:150px;background:var(--chip);display:grid;place-items:center;color:var(--muted);font-size:12px;position:relative}
+.foto img{width:100%;height:100%;object-fit:cover}
+.cartao .info{padding:10px 12px;font-size:12px}
+.cartao .info strong{display:block;font-size:14px}
+.cartao .msg{color:var(--muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-top:6px}
+.saida{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:14px;font-size:14px;min-height:160px}
+.barra{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px;flex-wrap:wrap}
+.btn{border:0;border-radius:999px;padding:10px 18px;font:800 14px var(--display);cursor:pointer;background:var(--mint);color:#241913}
+.btn.sec{background:var(--chip);color:var(--ink)}
+.cont{font-size:12px;color:var(--muted);font-weight:700}
+.cont.alto{color:var(--warn)}
+ul.check{list-style:none;padding:0;margin:12px 0 0;font-size:13px}
+ul.check li{padding:3px 0 3px 24px;position:relative}
+ul.check li::before{content:"✓";position:absolute;left:4px;color:var(--ok);font-weight:800}
+ul.check li.nao::before{content:"!";color:var(--warn)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font-weight:700;font-size:13px}
+footer{color:var(--muted);font-size:12px;margin-top:24px;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="logo" href="https://negocioscreators.com/" aria-label="Negócios Creators">
+      <img src="https://negocioscreators.com/marca/nc-simbolo-creme.svg" alt="nc" style="height:28px;width:auto;display:block">
+      <span>Abordagem UGC</span>
+    </a>
+    <button class="tema" id="tema" type="button">tema</button>
+  </header>
+
+  <h1>A marca lê a primeira linha.<br><mark>Faça ela valer.</mark></h1>
+  <p class="lead">Cole a campanha e o painel monta a inscrição com os seus resultados reais. Ele escolhe o resultado que mais combina com a marca, o formato e a entrega que ela pediu, e o link do portfólio com UTM. Até 500 caracteres, sem se apresentar na primeira linha.</p>
+
+  <div class="grid">
+    <div>
+      <section class="card">
+        <h2><i>1.</i> A campanha</h2>
+        <div class="linha">
+          <div><label for="marca">Nome da marca</label><input id="marca" type="text" placeholder="ex.: OLX"></div>
+          <div><label for="codigo">Código no grupo <small>(opcional)</small></label><input id="codigo" type="text" placeholder="ex.: SI-014"></div>
+        </div>
+        <label for="descr">Cole o título e a descrição da campanha <span class="dica">eu leio e descubro o resto</span></label>
+        <textarea id="descr" placeholder="Cole aqui o briefing inteiro da campanha"></textarea>
+        <label for="problema">Qual problema o produto resolve? <span class="dica">complete: "de quem…"</span></label>
+        <input id="problema" type="text" placeholder="ex.: desapega do que não usa e ganha renda extra">
+        <label>Formato do vídeo <span class="auto" id="formatoAuto" hidden>pela campanha</span></label>
+        <div class="chips" id="formatos"></div>
+        <label>Entrega <span class="dica">até 2 itens, sempre com 48h</span> <span class="auto" id="entregaAuto" hidden>pela campanha</span></label>
+        <div class="chips" id="entregas"></div>
+        <label for="publico">Sou público real da marca? <span class="dica">deixe em branco se não for</span></label>
+        <input id="publico" type="text" placeholder="ex.: inclusive estou vendendo o carrinho do meu bebê e meu carro por lá">
+      </section>
+
+      <section class="card">
+        <h2><i>2.</i> Escolha o gancho</h2>
+        <div class="ganchos" id="ganchos" role="radiogroup" aria-label="Gancho"></div>
+        <div id="caixaProprio" hidden><label for="proprio">Sua primeira linha</label><input id="proprio" type="text"></div>
+      </section>
+
+      <details class="card">
+        <summary>Seus dados (já preenchidos com o portfólio)</summary>
+        <label for="nome">Nome no card</label><input id="nome" type="text">
+        <label for="cidade">Cidade</label><input id="cidade" type="text">
+        <label for="marcasConhecidas">Marcas conhecidas <small>(até 3 entram na mensagem)</small></label><input id="marcasConhecidas" type="text">
+        <label for="publicoBase">Por que sou público <small>(frase base)</small></label><input id="publicoBase" type="text">
+        <label for="link">Link do portfólio</label><input id="link" type="text">
+        <p class="dica">As 280 marcas aparecem sempre como "entre conteúdo UGC e campanhas que gerenciei". Os resultados são fixos e verdadeiros: Tekoá (ROAS 7,54), App Place (R$ 27,4 mil no orgânico em 5 dias + ROAS 5,6 no tráfego) e Cachoeira Sonho Meu (287 mil views orgânicas, 6 meses de agenda lotada).</p>
+        <button class="btn sec" id="limpar" type="button">Voltar aos dados do portfólio</button>
+      </details>
+    </div>
+
+    <div>
+      <section class="card">
+        <h2>Assim a marca te vê</h2>
+        <div class="preview">
+          <div class="cartao">
+            <label class="foto" id="fotoBox" for="foto"><span id="fotoVazia">clique pra testar sua foto</span></label>
+            <input id="foto" type="file" accept="image/*" hidden>
+            <div class="info"><strong id="cardNome"></strong><span id="cardCidade"></span><div class="msg" id="cardMsg"></div></div>
+          </div>
+          <p class="dica">A marca decide pela <b>foto</b>, pelo <b>nome</b> e pelas <b>3 primeiras linhas</b>. O resto ela só lê se clicar. Foto: rosto iluminado, de frente, sorrindo, fundo limpo.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Sua mensagem</h2>
+        <div class="saida" id="saida" aria-live="polite"></div>
+        <div class="barra"><span class="cont" id="cont"></span><button class="btn" id="copiar" type="button">Copiar mensagem</button></div>
+        <ul class="check" id="check"></ul>
+      </section>
+
+      <section class="card">
+        <h2>Personalizar com a marca</h2>
+        <p class="dica">Copia um pedido pro Claude pesquisar o site e o Instagram da marca e reescrever com um detalhe real dela, seguindo todas as suas regras.</p>
+        <div class="barra"><span></span><button class="btn sec" id="copiarPedido" type="button">Copiar pedido pro Claude</button></div>
+      </section>
+    </div>
+  </div>
+  <footer>Negócios Creators · painel de abordagem da Luana Caper</footer>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const PADRAO = {
+  nome: 'Luana Caper', cidade: 'Goiânia · GO',
+  marcasConhecidas: "Sam's Club, Magalu, Posto Ipiranga",
+  publicoBase: 'sou mãe, trabalho home office e amo apps e tecnologias que facilitam o dia a dia e a organização da casa',
+  link: 'https://negocioscreators.com/luanacaper/portifolio/'
+};
+const CAMPOS_PERFIL = ['nome','cidade','marcasConhecidas','publicoBase','link'];
+const CAMPOS_CAMP = ['marca','codigo','descr','problema','publico','proprio'];
+const CHAVE = 'nc-abordagem-v1';
+
+// Resultados verdadeiros do portfólio (nunca juntar números de marcas diferentes como se fossem do mesmo vídeo).
+const RESULTADOS = {
+  ads:   'Meu último destaque: ROAS de até 7,54 no tráfego e um vídeo que vendeu R$ 27,4 mil no orgânico em 5 dias.',
+  app:   'Meu último destaque: um vídeo que vendeu R$ 27,4 mil no orgânico em 5 dias (App Place) e ROAS 5,6 no tráfego.',
+  viagem:'Meu último destaque: um vídeo orgânico com 287 mil views que lotou 6 meses de agenda de uma hospedagem.'
+};
+const FORMATOS = {
+  'Review sincero':'um review sincero', 'Unboxing':'um unboxing', 'Antes e depois':'um antes e depois', 'Tutorial':'um tutorial rápido',
+  'Receita':'uma receita', 'POV':'um POV', 'Tela gravada':'uma tela gravada', 'Lifestyle':'um vídeo de rotina',
+  'Depoimento':'um depoimento', 'Trend':'uma trend'
+};
+const RX_FORMATO = {
+  'Unboxing':/unbox|abrindo a caixa|desembal/i, 'Antes e depois':/antes e depois/i, 'Tutorial':/tutorial|passo a passo|como usar/i,
+  'Receita':/receita/i, 'POV':/\bpov\b/i, 'Tela gravada':/tela gravada|grava(ção|r) de tela|screen ?record/i,
+  'Lifestyle':/lifestyle|v[ií]deo de rotina/i, 'Depoimento':/depoimento|testemunho/i, 'Trend':/\btrend/i
+};
+const ENTREGAS = {
+  'Roteiro pra aprovar antes':'roteiro pra vocês aprovarem antes', 'Gancho nos 3 segundos':'gancho nos 3 primeiros segundos',
+  'Versão com e sem legenda':'versão com e sem legenda', 'Ajustes inclusos':'ajustes inclusos',
+  'Pensado pra anúncio':'pensado pra rodar como anúncio', 'Identidade visual da marca':'editado com a identidade visual de vocês',
+  'Luz e áudio caprichados':'luz e áudio caprichados', 'Edição própria':'edição própria'
+};
+const RX_ENTREGA = {
+  'Roteiro pra aprovar antes':/roteiro/i, 'Gancho nos 3 segundos':/gancho|primeiros segundos|hook/i,
+  'Versão com e sem legenda':/legenda/i, 'Ajustes inclusos':/ajuste|refa(ç|z)|altera(ç|r)/i,
+  'Luz e áudio caprichados':/ilumina|luz|áudio|audio/i, 'Edição própria':/edi(ç|t)/i
+};
+const RX = {
+  ads:/an[uú]ncio|tr[aá]fego|\bads\b|meta ads|patrocinad|impulsion|performance|convers[aã]o/i,
+  app:/\bapp\b|aplicativo|baixar|download|plataforma|software|\bia\b|intelig[eê]ncia artificial|tecnolog|site/i,
+  viagem:/hosped|pousada|hotel|viag|turism|reserva|airbnb|cachoeira|trilha|natureza|passeio|agenda/i,
+  mensal:/mensal|por m[eê]s|recorrent|todo dia|di[aá]ri|canvas|conta (nova|dedicada)/i
+};
+
+const $ = id => document.getElementById(id);
+let estado = { ...PADRAO, marca:'', codigo:'', descr:'', problema:'', publico:'', proprio:'', gancho:'resultado', formato:null, entregas:null };
+let foto = false;
+
+function salvar(){ try{ localStorage.setItem(CHAVE, JSON.stringify(estado)); }catch(e){} }
+function carregar(){ try{ const s = JSON.parse(localStorage.getItem(CHAVE)||'null'); if(s) estado = { ...estado, ...s }; }catch(e){} }
+
+const txt = () => `${estado.marca} ${estado.descr}`;
+function tipoCampanha(){
+  const t = txt();
+  if (RX.ads.test(t) && !RX.viagem.test(t)) return 'ads';
+  if (RX.viagem.test(t)) return 'viagem';
+  if (RX.app.test(t)) return 'app';
+  return RX.ads.test(t) ? 'ads' : 'app';
+}
+function formatoAuto(){
+  for (const [f, rx] of Object.entries(RX_FORMATO)) if (rx.test(estado.descr)) return f;
+  return RX.app.test(txt()) ? 'Tela gravada' : 'Review sincero';
+}
+function entregasAuto(){
+  const t = estado.descr, e = [];
+  if (RX.ads.test(t)) e.push('Pensado pra anúncio');
+  if (RX.app.test(txt())) e.push('Identidade visual da marca');
+  for (const [k, rx] of Object.entries(RX_ENTREGA)) if (e.length < 2 && rx.test(t) && !e.includes(k)) e.push(k);
+  return e.slice(0, 2);
+}
+const formato = () => estado.formato || formatoAuto();
+const entregas = () => estado.entregas || entregasAuto();
+const conhecidas = () => (estado.marcasConhecidas||'').split(',').map(s=>s.trim()).filter(Boolean).slice(0,3);
+const lista = a => a.length < 2 ? (a[0]||'') : a.slice(0,-1).join(', ') + ' e ' + a[a.length-1];
+
+function ganchos(){
+  const tipo = tipoCampanha(), conh = conhecidas();
+  return [
+    { id:'resultado', tipo:'Meus resultados (padrão)', txt: RESULTADOS[tipo], nota: { ads:'campanha de anúncio ou venda', app:'app, tecnologia ou produto', viagem:'hospedagem, viagem ou natureza' }[tipo] },
+    { id:'resultado-ads', tipo:'Resultado · anúncio', txt: RESULTADOS.ads },
+    { id:'resultado-app', tipo:'Resultado · app e orgânico', txt: RESULTADOS.app },
+    { id:'resultado-viagem', tipo:'Resultado · hospedagem e views', txt: RESULTADOS.viagem },
+    { id:'combinado', tipo:'Combinado', txt:'+10 anos, +280 marcas entre UGC e gestão e ROAS de até 7,54.' },
+    { id:'marcas', tipo:'Marcas conhecidas', txt:`Já criei pra ${lista(conh)}.` },
+    { id:'publico', tipo:'Sou o seu público', txt:`Público real de vocês: ${estado.publicoBase}.` },
+    { id:'ideia', tipo:'Ideia pronta', txt:`Já pensei no vídeo: ${FORMATOS[formato()]} de quem ${(estado.problema||'[problema que o produto resolve]').replace(/^(de |pra |para )?quem /i,'')}.` },
+    { id:'presencial', tipo:'Presencial', txt:`Moro em ${(estado.cidade||'Goiânia').split('·')[0].trim()} e gravo presencial na região.` },
+    { id:'proprio', tipo:'Escrever o meu', txt:'', proprio:true }
+  ];
+}
+function linkUtm(){
+  const base = (estado.link||PADRAO.link).trim();
+  const cod = (estado.codigo||'').trim() || (estado.marca||'campanha').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+  return `${base}${base.includes('?')?'&':'?'}utm_source=seuinfluencer&utm_content=${cod}`;
+}
+// Monta a mensagem e vai enxugando (nível 0 a 5) até caber em 500 caracteres.
+function montar(nivel){
+  const g = ganchos().find(x => x.id === estado.gancho) || ganchos()[0];
+  const l1 = g.proprio ? (estado.proprio||'').trim() : (nivel >= 7 ? g.txt.replace(' (App Place)', '') : g.txt);
+  const marca = (estado.marca||'').trim() || 'essa campanha';
+  const conh = conhecidas().slice(0, nivel >= 2 ? (nivel >= 3 ? 0 : 1) : 3);
+  const prova = g.id === 'marcas' || g.id === 'combinado'
+    ? 'São resultados reais: ROAS de até 7,54 no tráfego e vídeo com 287 mil views orgânicas.'
+    : nivel >= 6 ? '+280 marcas entre UGC e campanhas que gerenciei.'
+    : nivel >= 4 ? '+10 anos e +280 marcas entre UGC e campanhas que gerenciei.'
+    : `São +10 anos e +280 marcas entre conteúdo UGC e campanhas que gerenciei${conh.length ? `, como ${lista(conh)}` : ''}.`;
+  const pub = (estado.publico||'').trim();
+  const prob = (estado.problema||'').trim().replace(/^(de |pra |para )?quem /i,'').replace(/\.$/,'');
+  const fmt = nivel >= 5 ? FORMATOS[formato()].replace(/^uma? /,'') : FORMATOS[formato()];
+  const ideia = `Pra ${marca}, ${nivel >= 5 ? 'faço' : 'eu faria'} ${fmt}${prob ? ` de quem ${prob}` : ''}${prob ? (nivel >= 1 ? '' : ', mostrando o produto resolvendo isso') : (nivel >= 1 ? '' : ', mostrando o produto na prática')}.`;
+  const extras = entregas().map(k => ENTREGAS[k]).slice(0,2);
+  const entrega = `Entrego em até 48h${extras.length ? ', ' + lista(extras) : ''}.`;
+  const frasePub = pub && g.id !== 'publico' ? `${nivel >= 7 ? 'Sou público de vocês' : 'Eu sou público-alvo de vocês'}, ${pub.replace(/^(eu )?sou público([- ]alvo)? de vocês,?\s*/i,'').replace(/[.!]$/,'')}. ` : '';
+  const fecho = nivel >= 6 ? 'Se fizer sentido, mando a ideia de roteiro no chat!' : 'Se fizer sentido, já mando a ideia de roteiro no chat!';
+  return `${l1}\n\n${prova}\n\n${frasePub}${ideia} ${entrega}\n\n${fecho}\nPortfólio: ${linkUtm()}`;
+}
+function mensagem(){
+  let t = '';
+  for (let n = 0; n <= 7; n++) { t = montar(n); if (t.length <= 500) break; }
+  return t;
+}
+
+function checar(t){
+  const l1 = t.split('\n')[0];
+  const itens = [
+    [l1.length > 8 && !/\[/.test(l1), 'Primeira linha com gancho completo'],
+    [!/^\s*(oi|ol[aá]|sou a|meu nome)/i.test(l1), 'Não se apresenta na primeira linha'],
+    [l1.length <= 115, `Gancho cabe no card (${l1.length} caracteres)`],
+    [!!(estado.marca||'').trim(), 'Cita o nome da marca'],
+    [t.length <= 500, `Até 500 caracteres (${t.length})`],
+    [!/tenho interesse|gostaria de participar|amo a marca|vi a campanha|li o briefing/i.test(t), 'Sem "tenho interesse" nem "vi a campanha"'],
+    [!/280 marcas(?! entre)/i.test(t) || /entre (conteúdo )?UGC e/i.test(t), '280 marcas = UGC + campanhas gerenciadas'],
+    [!/App Place/i.test(t) || /orgânico/i.test(t), 'App Place aparece como venda orgânica'],
+    [/Portfólio: https?:/.test(t), 'Link do portfólio com UTM']
+  ];
+  $('check').innerHTML = itens.map(([ok,s]) => `<li class="${ok?'':'nao'}">${s}</li>`).join('');
+}
+
+function renderChips(box, opcoes, atuais, auto, aoMudar, max){
+  box.innerHTML = opcoes.map(o => `<button type="button" class="chip" aria-pressed="${atuais.includes(o)}">${o}</button>`).join('');
+  box.querySelectorAll('.chip').forEach(b => b.addEventListener('click', () => aoMudar(b.textContent, max)));
+}
+function render(){
+  CAMPOS_PERFIL.concat(CAMPOS_CAMP).forEach(c => { if (document.activeElement !== $(c)) $(c).value = estado[c] ?? ''; });
+  renderChips($('formatos'), Object.keys(FORMATOS), [formato()], !estado.formato, (f) => { estado.formato = f; mudou(); });
+  $('formatoAuto').hidden = !!estado.formato || !estado.descr;
+  renderChips($('entregas'), Object.keys(ENTREGAS), entregas(), !estado.entregas, (k) => {
+    const atual = [...entregas()];
+    estado.entregas = atual.includes(k) ? atual.filter(x => x !== k) : (atual.length < 2 ? [...atual, k] : (toast('No máximo 2 itens'), atual));
+    mudou();
+  });
+  $('entregaAuto').hidden = !!estado.entregas || !estado.descr;
+  const g = ganchos();
+  if (!g.some(x => x.id === estado.gancho)) estado.gancho = 'resultado';
+  $('ganchos').innerHTML = g.map(x => `<button type="button" class="gancho" role="radio" aria-checked="${x.id===estado.gancho}" data-id="${x.id}"><span class="bola"></span><span><b>${x.tipo}${x.nota?` · ${x.nota}`:''}</b>${x.proprio?'Escreva a sua primeira linha':x.txt}</span></button>`).join('');
+  $('ganchos').querySelectorAll('.gancho').forEach(b => b.addEventListener('click', () => { estado.gancho = b.dataset.id; mudou(); }));
+  $('caixaProprio').hidden = estado.gancho !== 'proprio';
+  const t = mensagem();
+  $('saida').textContent = t;
+  $('cont').textContent = `${t.length} de 500 caracteres`;
+  $('cont').classList.toggle('alto', t.length > 500);
+  $('cardNome').textContent = estado.nome || 'Seu nome';
+  $('cardCidade').textContent = estado.cidade || '';
+  $('cardMsg').textContent = t.replace(/\n+/g,' ');
+  checar(t);
+}
+function mudou(){ salvar(); render(); }
+
+CAMPOS_PERFIL.concat(CAMPOS_CAMP).forEach(c => $(c).addEventListener('input', () => {
+  estado[c] = $(c).value;
+  if (c === 'descr' || c === 'marca') { estado.formato = null; estado.entregas = null; }
+  mudou();
+}));
+$('limpar').addEventListener('click', () => { Object.assign(estado, PADRAO); mudou(); toast('Dados do portfólio restaurados'); });
+
+function copiar(t, msg){
+  const ok = () => toast(msg);
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(ok).catch(() => reserva(t, msg)); else reserva(t, msg);
+}
+function reserva(t, msg){ const a = document.createElement('textarea'); a.value = t; document.body.appendChild(a); a.select(); try { document.execCommand('copy'); toast(msg); } catch(e) { toast('Selecione e copie'); } a.remove(); }
+$('copiar').addEventListener('click', () => copiar(mensagem(), 'Mensagem copiada'));
+$('copiarPedido').addEventListener('click', () => copiar(
+`Sou a Luana Caper, UGC creator, e vou me inscrever numa campanha da marca ${estado.marca||'[nome da marca]'} na plataforma Seu Influencer.
+
+Briefing da campanha:
+${estado.descr||'[cole aqui]'}
+
+1. Pesquise o site e o Instagram da marca e me diga, em 3 linhas, o principal benefício do produto e pra quem ele é.
+2. Reescreva a minha mensagem citando UM detalhe real da marca ou do produto (sem inventar nada), de preferência o problema que ele resolve.
+3. A primeira linha não me apresenta (a plataforma já mostra meu nome): começa direto com o meu resultado mais forte pra essa marca.
+4. Máximo de 500 caracteres contando o link, tom leve e direto, sem "tenho interesse" e sem "vi a campanha".
+
+Minhas regras (não quebre nenhuma):
+- Resultados reais, só estes: ROAS 7,54 (Tekoá, anúncio); App Place: um vídeo vendeu R$ 27,4 mil no orgânico em 5 dias e fez ROAS 5,6 no tráfego (sempre dizer que foi orgânico e juntar o ROAS); Cachoeira Sonho Meu: vídeo orgânico com 287 mil views que lotou 6 meses de agenda. Nunca junte números de marcas diferentes como se fossem do mesmo vídeo.
+- Se a campanha fala de anúncio ou venda, use sempre ROAS + faturamento.
+- As 280 marcas são sempre "entre conteúdo UGC e campanhas que gerenciei"; nunca diga quantas fiz só com UGC.
+- Formato: o que a marca pedir; se não pedir, review sincero (app: tela gravada).
+- Entrega: o que o briefing pedir; senão "Entrego em até 48h". Anúncio: + "pensado pra rodar como anúncio". App ou tecnologia: + "editado com a identidade visual de vocês".
+- Se eu for público real da marca, diga no corpo do jeito que eu falo: "Eu sou público-alvo de vocês, inclusive…".
+- Fale do que a marca ganha, não do quanto eu quero trabalhar com ela.
+- Termine com "Se fizer sentido, já mando a ideia de roteiro no chat!" e o link do portfólio.
+
+Minha mensagem atual:
+${mensagem()}`, 'Pedido copiado. Cole no Claude'));
+
+$('foto').addEventListener('change', ev => {
+  const f = ev.target.files && ev.target.files[0]; if (!f) return;
+  const box = $('fotoBox'); box.querySelector('img')?.remove();
+  const img = document.createElement('img'); img.src = URL.createObjectURL(f); img.alt = 'Sua foto'; box.prepend(img); $('fotoVazia').hidden = true;
+  toast('A foto só aparece na sua tela');
+});
+let tt; function toast(t){ const el = $('toast'); el.textContent = t; el.hidden = false; clearTimeout(tt); tt = setTimeout(() => el.hidden = true, 2200); }
+
+// Tema claro/escuro (lembra a escolha neste navegador)
+const raiz = document.documentElement;
+try { const tm = localStorage.getItem('nc-tema'); if (tm) raiz.dataset.theme = tm; } catch(e) {}
+$('tema').addEventListener('click', () => {
+  const escuro = raiz.dataset.theme ? raiz.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  raiz.dataset.theme = escuro ? 'light' : 'dark';
+  try { localStorage.setItem('nc-tema', raiz.dataset.theme); } catch(e) {}
+});
+
+carregar(); render();
+</script>
+</body>
+</html>
