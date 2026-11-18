@@ -156,6 +156,12 @@
       "nome": "Stabille Advogados · site modelo 2"
     },
     {
+      "host": "site",
+      "path": "stabille/lp",
+      "repo": "Negocios-creators/stabille-lps",
+      "nome": "Stabille Advogados · LPs BPC/LOAS e Auxílio-Acidente"
+    },
+    {
       "host": "painel",
       "path": "central",
       "repo": "luanacaper/central",
