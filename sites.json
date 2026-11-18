@@ -212,6 +212,12 @@
       "path": "laradam/proposta",
       "repo": "luanacaper/proposta-lara-dam",
       "nome": "Proposta Lara Dam (tráfego)"
+    },
+    {
+      "host": "site",
+      "path": "orcamentostabile",
+      "repo": "luanacaper/orcamento-stabille",
+      "nome": "Orçamento nova fase Stabille"
     }
   ],
   "atalhos": [
