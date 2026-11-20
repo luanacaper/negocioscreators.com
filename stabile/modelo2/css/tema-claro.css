@@ -1,0 +1,470 @@
+/* ============================================================
+   MODELO 2 — TEMA CLARO (19/11/2026)
+   Pedido da Tatiana: o Dr. Henrique não quer "tudo em preto".
+   Base marfim/branco, azul-marinho no texto, dourado acobreado de acento.
+   Faixas escuras só nos depoimentos e no rodapé. Carregar por último.
+   ============================================================ */
+:root {
+  --bg: #F6F1E8; --bg-2: #EFE7DA; --surface: #FFFFFF; --surface-2: #FBF7F0;
+  --ink: #18202B; --muted: #5C6370;
+  --accent: #A8763F; --accent-hi: #8C5E2E;
+  --line: rgba(140, 94, 46, .18); --line-2: rgba(140, 94, 46, .34);
+  --navy: #1D2633;
+}
+body { background: var(--bg); color: var(--ink); }
+.grain { opacity: .03; }
+.vignette { display: none; }
+h1 em, h2 em, .ph-content h1 em, .hero-content h1 em, .missao blockquote em, .section-head h2 em { color: var(--accent); }
+.kicker { color: var(--accent-hi); background: rgba(168, 118, 63, .07); }
+
+/* ---------- cabeçalho sempre claro ---------- */
+#header, #header.scrolled { background: rgba(246, 241, 232, .9); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 1px 0 var(--line); }
+#header nav a { color: var(--ink); }
+#header nav a:hover, #header nav a[aria-current="page"] { color: var(--accent); }
+.menu-btn span { background: var(--ink); }
+.menu-mobile { background: rgba(246, 241, 232, .98); }
+.menu-mobile a:not(.btn) { color: var(--ink); }
+
+/* ---------- botões ---------- */
+.btn-ghost { color: var(--ink); border-color: var(--line-2); background: rgba(255, 255, 255, .6); }
+.btn-ghost:hover { color: var(--accent-hi); border-color: var(--accent); }
+
+/* ============================================================
+   CAPA: retrato oficial do Dr. Henrique, sem recorte, em moldura reta
+   ============================================================ */
+#hero2 { background:
+  radial-gradient(ellipse 55% 70% at 78% 55%, rgba(201, 149, 94, .18), transparent 70%),
+  linear-gradient(180deg, #FBF8F2 0%, var(--bg) 100%); }
+#hero2::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+  background: repeating-linear-gradient(90deg, transparent 0 58px, rgba(168, 118, 63, .07) 58px 59px); -webkit-mask-image: linear-gradient(90deg, transparent 40%, #000 75%); mask-image: linear-gradient(90deg, transparent 40%, #000 75%); }
+.h2-shade { display: none; }
+.h2-grid { align-items: center; }
+.h2-welcome { color: var(--ink); }
+.h2-sub { color: var(--muted); }
+.h2-call small { color: var(--ink); }
+.h2-call strong { color: var(--accent-hi); }
+.h2-stat { background: #fff; border: 1px solid var(--line); box-shadow: 0 14px 34px rgba(24, 32, 43, .07); }
+.h2-stat strong { color: var(--ink); }
+.h2-stat strong i { color: var(--accent); }
+.h2-visual { display: flex; align-items: center; justify-content: center; height: auto; min-height: 0; padding: 30px 0 40px; }
+.h2-retrato { position: relative; width: min(430px, 82%); aspect-ratio: 942 / 985; margin: 0; }
+.h2-retrato::before { content: ""; position: absolute; inset: 0; transform: translate(22px, 22px); border: 1.5px solid var(--accent); border-radius: 6px; }
+.h2-retrato img { position: relative; width: 100%; height: 100%; object-fit: cover; border-radius: 6px; box-shadow: 0 40px 80px rgba(24, 32, 43, .22); }
+.h2-name { left: -6%; right: auto; bottom: 10%; background: rgba(255, 255, 255, .92); border: 1px solid var(--line); box-shadow: 0 18px 40px rgba(24, 32, 43, .14); }
+.h2-name strong { color: var(--ink); }
+.h2-name span { color: var(--accent-hi); }
+.h2-team { right: -4%; top: 6%; bottom: auto; background: var(--navy); border: 0; }
+.h2-badge { left: auto; right: 2%; top: auto; bottom: 4%; background: #fff; border: 1px solid var(--line-2); box-shadow: 0 12px 30px rgba(24, 32, 43, .12); }
+.h2-badge svg { stroke: var(--accent); }
+
+/* ---------- seções claras ---------- */
+.prova-item, .prova-item:first-child, .prova-item:nth-child(n) { background: #fff; border: 1px solid var(--line); box-shadow: 0 12px 30px rgba(24, 32, 43, .05); }
+.prova-item strong { color: var(--accent); }
+.glass { background: #fff; border: 1px solid var(--line); box-shadow: 0 16px 40px rgba(24, 32, 43, .06); backdrop-filter: none; -webkit-backdrop-filter: none; }
+.glass::after { background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(201, 149, 94, .1), transparent 60%); }
+.cards-3 p, .area-card p, .passo p, .faq-item p, .section-sub { color: var(--muted); }
+.card-num { background: rgba(168, 118, 63, .12); color: var(--accent-hi); }
+#atuacao { background: var(--bg-2); }
+.area-card { background: #fff; border: 1px solid var(--line); }
+.area-card:hover { background: #fff; box-shadow: 0 24px 50px rgba(24, 32, 43, .1); }
+.area-card::before { background: linear-gradient(160deg, rgba(201, 149, 94, .12), transparent 60%); }
+.esc-end { color: var(--muted); }
+.esc-end strong { color: var(--ink); }
+.esc-photo::after { background: linear-gradient(180deg, transparent 60%, rgba(14, 12, 10, .6)); }
+#henrique { background: var(--bg-2); }
+.hen-text > p { color: var(--muted); }
+.hen-creds li { border-color: var(--line); }
+#processo { background: var(--bg); }
+.passo-num { color: var(--accent); }
+#faq { background: var(--bg-2); }
+.faq-item { background: #fff; border-color: var(--line) !important; }
+#blog-home { background: var(--bg); }
+.post-card { background: #fff; border-color: var(--line); }
+.contato-box { background: #fff; }
+.contato-grid { box-shadow: 0 30px 70px rgba(24, 32, 43, .1); }
+.contato-dados dd { color: var(--ink); }
+.mapa iframe { filter: grayscale(.4) contrast(.95); }
+.cta-band { background: radial-gradient(ellipse 60% 120% at 50% 120%, rgba(201, 149, 94, .22), transparent 70%), var(--bg-2); }
+
+/* ---------- moldura reta na foto do Dr. Henrique (sem "lápide") ---------- */
+.hen-frame { border-radius: 6px !important; box-shadow: 0 30px 70px rgba(24, 32, 43, .18); }
+.hen-arch { border-radius: 6px !important; border: 1.5px solid var(--accent); }
+
+/* ---------- faixa escura 1: depoimentos ---------- */
+#depoimentos { background: var(--navy); color: #fff; }
+#depoimentos video { opacity: .18; }
+.dep-shade { background: linear-gradient(180deg, var(--navy) 0%, rgba(29, 38, 51, .82) 25%, rgba(29, 38, 51, .82) 75%, var(--navy) 100%); }
+#depoimentos h2 { color: #fff; }
+#depoimentos h2 em { color: #E2B983; }
+#depoimentos .kicker { color: #E2B983; background: rgba(226, 185, 131, .1); border-color: rgba(226, 185, 131, .35); }
+.dep-card { background: rgba(255, 255, 255, .06); border-color: rgba(255, 255, 255, .12); }
+.dep-card cite { color: #E2B983; }
+.dep-more { color: #C9CDD3; border-color: rgba(255, 255, 255, .15); }
+
+/* ---------- faixa escura 2: rodapé ---------- */
+footer { background: var(--navy); color: #C9CDD3; }
+footer a, .foot-top nav a { color: #E6E8EC; }
+.foot-cols { color: #E6E8EC; border-color: rgba(255, 255, 255, .12); }
+.foot-cols span { color: #E2B983; }
+.foot-top, .foot-bottom { border-color: rgba(255, 255, 255, .12); }
+.foot-bottom, .foot-bottom .legal { color: #A9AFB8; }
+
+/* ---------- páginas internas ---------- */
+.page-hero, .art-hero { color: #fff; }
+.ph-content h1 { color: #fff; }
+.ph-content h1 em { color: #E2B983; }
+.page-hero .hero-sub, .art-hero .hero-sub { color: #E8E2D8; }
+.page-hero .eyebrow, .art-hero .eyebrow { color: #E2B983; }
+.ph-shade { background:
+  linear-gradient(90deg, rgba(18, 22, 30, .88) 0%, rgba(18, 22, 30, .55) 45%, rgba(18, 22, 30, .15) 100%),
+  linear-gradient(180deg, rgba(18, 22, 30, .4) 0%, transparent 35%, rgba(18, 22, 30, .55) 85%, var(--bg) 100%); }
+.qs-numeros > div { background: #fff; border: 1px solid var(--line); }
+.qs-texto > p:not(.kicker) { color: var(--muted); }
+.missao { background: #fff; border-color: var(--line); }
+.missao-aspas { color: var(--accent); }
+.pessoa-bio { color: var(--muted); }
+.area-txt > p { color: var(--muted); }
+.area-benef a { color: var(--ink); background: #fff; }
+.art-corpo { color: #333B47; }
+.art-corpo > p:first-child { color: var(--ink); }
+.art-box { background: #fff; }
+.art-outros { background: var(--bg-2); }
+.campo input, .campo select, .campo textarea { background: #fff; color: var(--ink); border-color: var(--line-2); }
+.campo input:focus, .campo select:focus, .campo textarea:focus { background: #fff; border-color: var(--accent); }
+.campo select option { background: #fff; color: var(--ink); }
+.contato-lado { background: #fff; }
+.aceite { color: var(--muted); }
+
+/* ---------- celular ---------- */
+@media (max-width: 768px) {
+  .h2-visual { order: -1; height: auto; min-height: 0; max-height: none; margin: 0; padding: 18px var(--pad) 26px; }
+  .h2-retrato { width: min(300px, 74%); }
+  .h2-retrato::before { transform: translate(14px, 14px); }
+  .h2-name { left: 0; bottom: 6%; }
+  .h2-badge { right: 4%; bottom: auto; top: 10%; }
+  .h2-text { background: none; margin-top: 0; padding-top: 6px; }
+}
+
+/* ============================================================
+   SÓ A CAPA ESCURA (19/11, pedido da Luana): o resto intercala branco e bege.
+   Números, situações e áreas com os cartões azul-marinho de antes.
+   ============================================================ */
+#prova, #atuacao, #henrique, #processo, #faq, #qs-historia, #areas-lista, .art-wrap { background: #FFFFFF; }
+#situacoes, #escritorio, #depoimentos, #blog-home, #contato, #qs-missao, #equipe, #blog-lista, #contato-pagina, .art-outros, .cta-band { background: var(--bg-2); }
+/* cartões escuros */
+#prova .prova-item, #situacoes .glass, #atuacao .area-card {
+  --ink: #F7F4EE; --muted: #A4A8B2; --accent: #C9955E; --accent-hi: #E8C08C;
+  --line: rgba(201, 149, 94, .16); color: var(--ink);
+  background: linear-gradient(160deg, #15233A, #0F1A2C); border-color: rgba(255, 255, 255, .06); box-shadow: 0 22px 50px rgba(24, 32, 43, .16);
+}
+#prova .prova-item strong, #atuacao .area-card h3, #situacoes .glass h3 { color: var(--ink); }
+#prova .prova-item strong i, #prova .prova-item strong { color: var(--accent-hi); }
+#prova .prova-item > span, #situacoes .glass p, #atuacao .area-card p { color: var(--muted); }
+#situacoes .card-num { background: rgba(232, 192, 140, .12); color: var(--accent-hi); }
+#atuacao .area-card:hover { background: linear-gradient(160deg, #1B2C47, #13213A); box-shadow: 0 30px 60px rgba(24, 32, 43, .22); }
+/* depoimentos claros */
+#depoimentos { color: var(--ink); }
+#depoimentos video { opacity: .1; }
+.dep-shade { background: linear-gradient(180deg, var(--bg-2) 0%, rgba(239, 231, 218, .86) 25%, rgba(239, 231, 218, .86) 75%, var(--bg-2) 100%); }
+#depoimentos h2 { color: var(--ink); }
+#depoimentos h2 em { color: var(--accent); }
+#depoimentos .kicker { color: var(--accent-hi); background: rgba(168, 118, 63, .07); border-color: var(--line-2); }
+.dep-card { background: #fff; border-color: var(--line); box-shadow: 0 16px 40px rgba(24, 32, 43, .06); }
+.dep-card cite { color: var(--accent-hi); }
+.dep-more { color: var(--muted); border-color: var(--line); }
+/* missão e faixa de chamada claras */
+#qs-missao .missao { background: #fff; border-color: var(--line); }
+#qs-missao .missao-aspas { color: var(--accent); }
+.cta-band { background: radial-gradient(ellipse 60% 120% at 50% 120%, rgba(201, 149, 94, .2), transparent 70%), var(--bg-2); }
+/* rodapé preto, como era antes (pedido da Luana 19/11), logo dourada */
+footer { --bg: #060608; --ink: #F7F4EE; --muted: #A4A8B2; --accent: #C9955E; --accent-hi: #E8C08C;
+  --line: rgba(201, 149, 94, .16); --line-2: rgba(201, 149, 94, .34); background: #060608 !important; color: var(--muted); border-top: 0; }
+footer a, .foot-top nav a { color: #E6E8EC; }
+.foot-cols { color: var(--ink); border-color: rgba(255, 255, 255, .1); }
+.foot-cols span { color: var(--accent-hi); }
+.foot-top, .foot-bottom { border-color: rgba(255, 255, 255, .1); }
+.foot-bottom, .foot-bottom .legal { color: #A4A8B2; }
+
+/* ============================================================
+   CAPA NO ESTILO DA PRIMEIRA VERSÃO (19/11): foto ocupando a capa, esfumada no escuro
+   (agora com o retrato oficial do Dr. Henrique, sem recorte)
+   ============================================================ */
+#hero2 { --ink: #F7F4EE; --muted: #C9CCD3; background: #09090B; color: #F7F4EE; }
+#hero2::before { display: none; }
+.h2-retrato { position: absolute; top: 0; right: 0; bottom: 0; width: min(64%, 1000px); margin: 0; aspect-ratio: auto; z-index: 0; }
+.h2-retrato::before { display: none; }
+.h2-retrato img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 16%; border-radius: 0; box-shadow: none;
+  filter: saturate(1.02) contrast(1.04);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, .55) 20%, #000 46%);
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, .55) 20%, #000 46%); }
+.h2-shade { display: block; z-index: 1; background:
+  radial-gradient(ellipse 34% 60% at 72% 40%, rgba(247, 197, 91, .10), transparent 70%),
+  linear-gradient(90deg, rgba(9, 9, 11, .96) 0%, rgba(9, 9, 11, .8) 32%, rgba(9, 9, 11, .25) 54%, rgba(9, 9, 11, 0) 70%, rgba(9, 9, 11, .2) 100%),
+  linear-gradient(180deg, rgba(9, 9, 11, .55) 0%, transparent 22%, transparent 72%, rgba(9, 9, 11, .85) 92%, #09090B 100%); }
+.h2-grid { align-items: stretch; z-index: 3; }
+.h2-welcome, .h2-call small { color: #fff; }
+.h2-sub { color: #C9CCD3; }
+.h2-call strong { color: #E8C08C; }
+.h2-stat { background: rgba(15, 26, 44, .78); border-color: rgba(255, 255, 255, .06); box-shadow: none; }
+.h2-stat strong { color: #fff; }
+.h2-stat strong i { color: #E8C08C; }
+.h2-visual { display: block; position: relative; height: 100%; min-height: 480px; padding: 0; }
+.h2-name { left: 6%; right: auto; bottom: 14%; background: rgba(9, 9, 11, .62); border: 1px solid rgba(255, 255, 255, .12); box-shadow: none; }
+.h2-name strong { color: #fff; }
+.h2-name span { color: #E8C08C; }
+.h2-team { right: 0; top: auto; bottom: 14%; }
+.h2-badge { left: auto; right: 4%; top: 10%; bottom: auto; background: rgba(9, 9, 11, .5); border-color: rgba(201, 149, 94, .34); box-shadow: none; }
+.h2-badge svg { stroke: #E8C08C; }
+#hero2 .btn-ghost { color: #fff; }
+/* cabeçalho por cima da capa escura: transparente no topo, claro depois de rolar */
+#header:not(.scrolled) { background: transparent; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+#header:not(.scrolled) nav a { color: #E6E8EC; }
+#header:not(.scrolled) .menu-btn span { background: #E6E8EC; }
+@media (max-width: 768px) {
+  .h2-retrato { left: 0; width: 100%; bottom: auto; height: 62svh; min-height: 400px; max-height: 600px; }
+  .h2-retrato img { object-position: 50% 12%; -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%); }
+  .h2-shade { background: linear-gradient(180deg, rgba(9, 9, 11, .5) 0%, transparent 18%, transparent 40%, rgba(9, 9, 11, .9) 56%, #09090B 66%); }
+  .h2-visual { order: -1; height: 50svh; min-height: 330px; max-height: 500px; margin: 0 var(--pad); padding: 0; }
+  .h2-name { left: auto; right: 0; bottom: 18%; }
+  .h2-text { margin-top: -40px; padding-top: 26px; }
+}
+/* cabeçalho escuro com a logo dourada (as capas são escuras) */
+#header, #header:not(.scrolled) { background: transparent; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+#header.scrolled { background: rgba(9, 9, 11, .86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 1px 0 rgba(201, 149, 94, .2); }
+#header nav a, #header:not(.scrolled) nav a { color: #E6E8EC; }
+#header nav a:hover, #header nav a[aria-current="page"] { color: #E8C08C; }
+.menu-btn span, #header:not(.scrolled) .menu-btn span { background: #E6E8EC; }
+.menu-mobile { background: rgba(9, 9, 11, .97); }
+.menu-mobile a:not(.btn) { color: #F7F4EE; }
+.dep-card p { color: var(--ink); }
+
+/* ============================================================
+   CAPA COM A FOTO NA SALA DE REUNIÕES (19/11): foto inteira na capa,
+   escurecida só do lado do texto, com zoom bem leve aproximando
+   ============================================================ */
+@keyframes capa-zoom { from { transform: scale(1); } to { transform: scale(1.07); } }
+.h2-retrato { left: -24px; right: -24px; width: auto; overflow: hidden; }
+.h2-retrato picture { display: block; width: 100%; height: 100%; }
+.h2-retrato img { object-position: 62% 30%; -webkit-mask-image: none; mask-image: none; filter: none;
+  transform-origin: 66% 38%; animation: capa-zoom 22s cubic-bezier(.25, .1, .25, 1) .2s both; }
+.h2-shade { background:
+  linear-gradient(90deg, rgba(9, 9, 11, .94) 0%, rgba(9, 9, 11, .78) 30%, rgba(9, 9, 11, .3) 50%, rgba(9, 9, 11, 0) 64%),
+  linear-gradient(180deg, rgba(9, 9, 11, .55) 0%, transparent 20%, transparent 74%, rgba(9, 9, 11, .8) 92%, #09090B 100%); }
+@media (max-width: 768px) {
+  .h2-retrato { left: 0; right: 0; width: 100%; }
+  .h2-retrato img { object-position: 50% 20%; transform-origin: 50% 30%; -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%); }
+  .h2-shade { background: linear-gradient(180deg, rgba(9, 9, 11, .5) 0%, transparent 18%, transparent 40%, rgba(9, 9, 11, .9) 56%, #09090B 66%); }
+}
+@media (prefers-reduced-motion: reduce) { .h2-retrato img { animation: none; } }
+
+/* endereço (contato) preto, junto com o rodapé (pedido da Luana 19/11) */
+#contato {
+  --bg: #09090B; --bg-2: #0E0F13; --surface: #0F1A2C; --surface-2: #15233A;
+  --ink: #F7F4EE; --muted: #A4A8B2; --accent: #C9955E; --accent-hi: #E8C08C;
+  --line: rgba(201, 149, 94, .16); --line-2: rgba(201, 149, 94, .34);
+  background: #09090B !important; color: var(--ink);
+}
+#contato .contato-box { background: var(--surface); }
+#contato .contato-dados dd, #contato h2 { color: var(--ink); }
+#contato h2 em { color: var(--accent-hi); }
+#contato .kicker { color: var(--accent-hi); background: rgba(201, 149, 94, .08); border-color: var(--line-2); }
+#contato .contato-grid { box-shadow: none; }
+#contato .btn-ghost { color: var(--ink); border-color: rgba(255, 255, 255, .18); background: rgba(255, 255, 255, .04); }
+#contato .mapa iframe { filter: grayscale(1) invert(.9) contrast(.85) brightness(.85) sepia(.2) hue-rotate(180deg); }
+footer { border-top: 1px solid rgba(201, 149, 94, .12); }
+
+/* ============================================================
+   DETALHES NA COR DAS CADEIRAS DO ESCRITÓRIO (couro bordô) · 19/11
+   bem sutis: pontinho dos selos, losangos da faixa, filete dos cartões,
+   barra de leitura e linha de destaque ao passar o mouse
+   ============================================================ */
+:root { --couro: #7A2E2A; --couro-hi: #9E4A3C; }
+.kicker::before { display: inline-block !important; content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--couro-hi); margin-right: 9px; align-self: center; opacity: .9; }
+.m2 .marquee-track i { background: var(--couro); }
+#prova .prova-item { box-shadow: inset 0 -2px 0 var(--couro-hi), 0 22px 50px rgba(24, 32, 43, .16); }
+/* hover suave (19/11): só um brilho leve no canto e um filete fino em cima, nada de faixa colorida */
+#atuacao .area-card::before {
+  background:
+    linear-gradient(90deg, rgba(158, 74, 60, .9), rgba(201, 149, 94, .7) 45%, transparent 85%) top left / 100% 2px no-repeat,
+    radial-gradient(ellipse 90% 70% at 0% 0%, rgba(201, 149, 94, .10), transparent 70%);
+}
+.progress span { background: linear-gradient(90deg, var(--couro), #C9955E) !important; }
+.faq-item[open] summary { color: var(--couro); }
+
+/* redes sociais no rodapé (19/11) */
+.foot-marca { display: flex; flex-direction: column; gap: 22px; }
+.foot-social { display: flex; gap: 12px; }
+.foot-social a { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgba(201, 149, 94, .3); color: #E8C08C; transition: background .3s, color .3s, border-color .3s; }
+.foot-social a:hover { background: var(--couro, #7A2E2A); border-color: var(--couro, #7A2E2A); color: #fff; }
+.foot-social svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.foot-social svg .ponto { fill: currentColor; stroke: none; }
+
+/* ============================================================
+   "QUEM ATENDE" COMO BANNER (19/11): foto da sala de reuniões em tela cheia,
+   Dr. Henrique à esquerda, texto à direita sobre um véu escuro quente
+   ============================================================ */
+.hen-banner {
+  --ink: #F7F4EE; --muted: #D2CBC0; --accent: #C9955E; --accent-hi: #E8C08C;
+  --line: rgba(232, 192, 140, .22); --line-2: rgba(232, 192, 140, .42);
+  position: relative; overflow: hidden; color: var(--ink); background: #1A120C !important;
+  min-height: min(100vh, 860px); display: flex; align-items: center; padding-top: clamp(70px, 8vw, 110px); padding-bottom: clamp(70px, 8vw, 110px);
+}
+.hen-banner .hen-bg { position: absolute; inset: 0; margin: 0; }
+.hen-banner .hen-bg picture, .hen-banner .hen-bg img { display: block; width: 100%; height: 100%; }
+.hen-banner .hen-bg img { object-fit: cover; object-position: 30% 30%; transform-origin: 35% 40%; }
+.hen-veu { position: absolute; inset: 0; pointer-events: none; background:
+  linear-gradient(90deg, rgba(26, 18, 12, 0) 0%, rgba(26, 18, 12, .1) 34%, rgba(34, 22, 14, .78) 54%, rgba(30, 20, 13, .9) 100%),
+  linear-gradient(180deg, rgba(14, 10, 7, .35) 0%, transparent 22%, transparent 78%, rgba(14, 10, 7, .45) 100%),
+  radial-gradient(ellipse 40% 50% at 78% 50%, rgba(201, 149, 94, .12), transparent 70%); }
+.hen-banner .hen-grid { position: relative; z-index: 2; width: 100%; max-width: 1320px; margin: 0 auto; grid-template-columns: 1fr minmax(0, 620px); }
+.hen-banner .hen-photo { visibility: hidden; }
+.hen-banner .hen-text h2 { color: #fff; }
+.hen-banner .hen-text h2 em { color: var(--accent-hi); }
+.hen-banner .hen-text > p { color: var(--muted); }
+.hen-banner .kicker { color: #F1DDBE; background: rgba(14, 10, 7, .25); border-color: rgba(232, 192, 140, .5); }
+.hen-banner .hen-creds li { border-color: var(--line); color: #F3EEE6; }
+.hen-banner .hen-creds { border-color: var(--line); }
+.hen-banner .hen-creds li span { color: var(--accent-hi); }
+.hen-banner .btn-ghost { color: #fff; border-color: rgba(232, 192, 140, .55); background: rgba(14, 10, 7, .2); }
+.hen-banner .btn-ghost:hover { color: #fff; border-color: var(--accent-hi); }
+@media (max-width: 960px) and (min-width: 769px) {
+  .hen-veu { background: linear-gradient(90deg, rgba(26, 18, 12, 0) 0%, rgba(30, 20, 13, .7) 42%, rgba(30, 20, 13, .92) 100%); }
+  .hen-banner .hen-grid { grid-template-columns: 1fr minmax(0, 62%); }
+}
+@media (max-width: 768px) {
+  .hen-banner { display: block; min-height: 0; padding-top: 0; }
+  .hen-banner .hen-bg { position: relative; height: 70svh; max-height: 560px; }
+  .hen-banner .hen-bg img { object-position: 50% 20%; }
+  .hen-veu { inset: auto 0 auto 0; top: 0; height: 70svh; max-height: 560px; background: linear-gradient(180deg, rgba(26, 18, 12, .2) 0%, transparent 30%, rgba(26, 18, 12, .6) 78%, #1A120C 100%); }
+  .hen-banner .hen-grid { grid-template-columns: 1fr; margin-top: -70px; }
+  .hen-banner .hen-photo { display: none; }
+}
+@media (max-width: 768px) {
+  .hen-banner .hen-bg { margin: 0 calc(-1 * var(--pad)); overflow: hidden; }
+  .hen-veu { left: 0; right: 0; }
+}
+
+/* ============================================================
+   CELULAR (19/11, pedidos da Luana)
+   1. capa enxuta: foto + widgets (nome, equipe, selo), uma frase e um botão
+   2/3. situações e áreas em carrossel numa faixa só, cartões mais baixos
+   4. depoimentos em carrossel
+   ============================================================ */
+html { background: #09090B; }   /* o "puxão" do iPhone no fim da página fica escuro, igual ao rodapé */
+@media (max-width: 768px) {
+  /* ---- capa ---- */
+  #hero2 { min-height: 100svh; display: flex; flex-direction: column; }
+  #hero2 .h2-retrato { left: 0; right: 0; top: 0; bottom: auto; width: 100%; height: 76svh; min-height: 460px; max-height: none; }
+  #hero2 .h2-retrato img { object-position: 50% 14%; -webkit-mask-image: none; mask-image: none; }
+  #hero2 .h2-shade { background: linear-gradient(180deg, rgba(9, 9, 11, .55) 0%, transparent 16%, transparent 46%, rgba(9, 9, 11, .75) 62%, #09090B 76%); }
+  #hero2 .h2-grid { flex: 1; display: flex; flex-direction: column; padding: 0; gap: 0; }
+  #hero2 .h2-visual { order: 0; position: relative; height: 56svh; min-height: 360px; max-height: none; margin: 0 var(--pad); padding: 0; }
+  #hero2 .h2-badge { top: 92px; right: 0; left: auto; bottom: auto; width: 46px; height: 46px; }
+  #hero2 .h2-name { right: 0; left: auto; bottom: 22%; padding: 10px 14px; border-radius: 14px; }
+  #hero2 .h2-name strong { font-size: 15px; }
+  #hero2 .h2-name span { font-size: 11px; }
+  #hero2 .h2-team { display: block; left: 0; right: auto; top: auto; bottom: 4%; width: 118px; padding: 8px 8px 10px; border-radius: 14px; text-align: center; }
+  #hero2 .h2-team img { border-radius: 8px; margin-bottom: 6px; }
+  #hero2 .h2-team span { font-size: 13px; margin-bottom: 0; line-height: 1.2; }
+  #hero2 .h2-team .ico { display: none; }
+  #hero2 .h2-text { order: 1; margin-top: auto; padding: 8px var(--pad) 34px; background: none; text-align: left; }
+  #hero2 .h2-welcome, #hero2 .h2-sub, #hero2 .h2-call, #hero2 .h2-stats { display: none; }
+  #hero2 .h2-text h1 { font-size: clamp(34px, 9.6vw, 42px); line-height: 1.04; margin: 0 0 22px; }
+  #hero2 .h2-ctas { margin: 0; }
+  #hero2 .h2-ctas .btn-pill { width: 100%; justify-content: space-between; }
+
+  /* ---- carrosséis numa faixa só ---- */
+  .carrossel-m { display: flex !important; grid-template-columns: none !important; gap: 12px !important; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; margin-left: calc(-1 * var(--pad)); margin-right: calc(-1 * var(--pad)); padding: 6px var(--pad) 22px; scroll-padding: 0 var(--pad);
+    scrollbar-width: none; -webkit-overflow-scrolling: touch; background: none !important; border: 0 !important; box-shadow: none !important; }
+  .carrossel-m::-webkit-scrollbar { display: none; }
+  .carrossel-m > * { flex: 0 0 84%; scroll-snap-align: start; min-height: 0 !important; transform: none !important; }
+  #situacoes .carrossel-m .glass { padding: 22px 22px 24px; }
+  #situacoes .carrossel-m .card-num { width: 34px; height: 34px; font-size: 12px; margin-bottom: 14px; }
+  #situacoes .carrossel-m h3 { font-size: 22px; margin-bottom: 8px; }
+  #situacoes .carrossel-m p { font-size: 14px; line-height: 1.55; }
+  #atuacao .carrossel-m .area-card { padding: 20px 22px 20px; }
+  #atuacao .carrossel-m .area-idx { margin-bottom: 10px; }
+  #atuacao .carrossel-m h3 { font-size: 22px; margin-bottom: 6px; }
+  #atuacao .carrossel-m p { font-size: 14px; margin-bottom: 14px; }
+  #depoimentos .carrossel-m { align-items: stretch; }
+  #depoimentos .carrossel-m .dep-card { padding: 24px 22px; grid-column: auto !important; }
+  #depoimentos .carrossel-m .dep-card p { font-size: 15px; }
+  .carrossel-dots { display: flex; justify-content: center; gap: 7px; margin-top: 2px; }
+  .carrossel-dots i { width: 6px; height: 6px; border-radius: 50%; background: rgba(168, 118, 63, .28); transition: width .4s, background .3s; }
+  .carrossel-dots i.on { width: 20px; border-radius: 4px; background: var(--accent); }
+}
+@media (max-width: 768px) {
+  #hero2 .h2-name { bottom: 3%; }
+  #hero2 .h2-team { bottom: 30%; }
+  #hero2 .h2-text { padding-bottom: 86px; }
+}
+
+/* ============================================================
+   CAPA NO CELULAR, v2 (19/11): a foto ocupa a capa inteira (sem faixa preta),
+   frase e botão por cima da parte de baixo da foto, widgets longe do rosto.
+   A frase não depende de animação para aparecer.
+   ============================================================ */
+@media (max-width: 768px) {
+  #hero2 { display: block; position: relative; height: 100svh; min-height: 560px; max-height: 900px; overflow: hidden; }
+  #hero2 .h2-retrato { inset: 0; width: 100%; height: 100%; min-height: 0; }
+  #hero2 .h2-retrato img { width: 100%; height: 100%; object-position: 50% 10%; }
+  #hero2 .h2-shade { background: linear-gradient(180deg, rgba(9, 9, 11, .6) 0%, rgba(9, 9, 11, 0) 16%, rgba(9, 9, 11, 0) 48%, rgba(9, 9, 11, .78) 66%, rgba(9, 9, 11, .96) 82%, #09090B 100%); }
+  #hero2 .h2-grid { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 0; z-index: 3; }
+  #hero2 .h2-visual { position: absolute; inset: 0; height: auto; min-height: 0; margin: 0; padding: 0; pointer-events: none; }
+  #hero2 .h2-visual > * { pointer-events: auto; }
+  #hero2 .h2-team { left: var(--pad); right: auto; top: 96px; bottom: auto; width: 104px; }
+  #hero2 .h2-team span { font-size: 12px; }
+  #hero2 .h2-badge { right: var(--pad); left: auto; top: 96px; bottom: auto; }
+  #hero2 .h2-name { right: var(--pad); left: auto; top: auto; bottom: 196px; }
+  #hero2 .h2-text { margin: 0; padding: 0 var(--pad) 30px; }
+  #hero2 .h2-text h1 { font-size: clamp(32px, 9vw, 40px); margin-bottom: 18px; }
+  #hero2 .h2-ctas .btn-pill { width: calc(100% - 70px); }
+  #hero2 .h2-text h1, #hero2 .h2-ctas { opacity: 1 !important; visibility: visible !important; }
+}
+@media (max-width: 768px) {
+  /* equipe e nome lado a lado logo acima da frase, longe do rosto */
+  #hero2 .h2-team { top: auto; bottom: 190px; width: 92px; padding: 6px 6px 8px; }
+  #hero2 .h2-team span { font-size: 11.5px; }
+  #hero2 .h2-name { bottom: 190px; max-width: calc(100% - 2 * var(--pad) - 104px); padding: 9px 12px; }
+  #hero2 .h2-name strong { font-size: 14px; }
+  #hero2 .h2-name span { font-size: 10.5px; }
+}
+@media (max-width: 768px) {
+  /* o botão não pode ficar atrás da faixa: frase e botão sempre no lugar, sem o deslocamento da animação */
+  #hero2 .h2-text h1, #hero2 .h2-ctas { transform: none !important; }
+  #hero2 .h2-text { padding-bottom: 34px; }
+  /* cartões da capa em vidro bege (paleta do site) no lugar do escuro */
+  #hero2 .h2-name, #hero2 .h2-team {
+    background: rgba(246, 241, 232, .78); border: 1px solid rgba(232, 192, 140, .55);
+    backdrop-filter: blur(12px) saturate(1.2); -webkit-backdrop-filter: blur(12px) saturate(1.2);
+    box-shadow: 0 14px 34px rgba(9, 9, 11, .28);
+  }
+  #hero2 .h2-name strong, #hero2 .h2-team span { color: #18202B; }
+  #hero2 .h2-name span { color: #8C5E2E; }
+}
+@media (max-width: 768px) { #hero2 .h2-team, #hero2 .h2-name { bottom: 214px; } }
+@media (max-width: 768px) {
+  /* vidro fosco bem transparente, estilo widget do iPhone */
+  #hero2 .h2-name, #hero2 .h2-team {
+    background: linear-gradient(145deg, rgba(246, 241, 232, .42), rgba(232, 214, 188, .22));
+    border: 1px solid rgba(255, 250, 240, .45);
+    backdrop-filter: blur(22px) saturate(1.6) brightness(1.08); -webkit-backdrop-filter: blur(22px) saturate(1.6) brightness(1.08);
+    box-shadow: 0 10px 30px rgba(9, 9, 11, .22), inset 0 1px 0 rgba(255, 255, 255, .35);
+    border-radius: 18px;
+  }
+  #hero2 .h2-name strong, #hero2 .h2-team span { color: #fff; text-shadow: 0 1px 8px rgba(9, 9, 11, .35); }
+  #hero2 .h2-name span { color: #F3DFC2; text-shadow: 0 1px 6px rgba(9, 9, 11, .35); }
+  #hero2 .h2-team img { border-radius: 12px; }
+}
+@media (max-width: 768px) {
+  /* flutuar de leve, um descompassado do outro (usa "translate", então não briga com a animação de entrada) */
+  @keyframes flutua-a { 0%, 100% { translate: 0 0; } 50% { translate: 0 -7px; } }
+  @keyframes flutua-b { 0%, 100% { translate: 0 0; } 50% { translate: 0 -5px; } }
+  #hero2 .h2-team { animation: flutua-a 4.2s ease-in-out infinite; }
+  #hero2 .h2-name { animation: flutua-b 5s ease-in-out .8s infinite; }
+  #hero2 .h2-badge { animation: flutua-b 3.6s ease-in-out .3s infinite; }
+}
+@media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+  #hero2 .h2-team, #hero2 .h2-name, #hero2 .h2-badge { animation: none; }
+}

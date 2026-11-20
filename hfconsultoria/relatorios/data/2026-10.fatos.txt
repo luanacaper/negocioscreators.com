@@ -1,0 +1,59 @@
+Mês: Outubro/2026. Investimento Meta R$2.879,37; 228 leads no pixel (custo por lead R$12,63); 1.687 cliques no link; 1.395 visualizações da página (83% dos cliques); 16% das visualizações viram lead.
+Moskit (números do texto da Tatiana): 294 cadastros; 19 cálculos positivos em negociação somando R$124.986,88 (6,5% dos cadastros); 3 contratos assinados somando R$13.393,67 (1,02% dos cadastros); 244 perdidos; 28 ainda em atendimento. Custo por cálculo positivo R$151,55; custo por contrato R$959,79.
+Funil da HF Consultoria: lead → cálculo positivo em negociação (fase Fechamento) → contrato assinado. Cálculo positivo ainda não é venda. O valor do cálculo positivo é o valor do cálculo, não receita.
+Mês anterior (setembro/2026): investimento R$3.499,25; 225 leads; CPL R$15,55; 11 cálculos positivos; 4 contratos; custo por contrato R$874,81; 336 cadastros no Moskit. Variação: investimento -17,7%, leads 1,3%, CPL -18,8%, contratos -1.
+Atenção ao comparar perdidos: este mês foi lido em 04/11 (leads com semanas de atendimento); o mês anterior vem do fechamento da época.
+Campanha "🤖 | Andrômeda - Leads - Enfermeira - teste novo público": gastou de 01/10 a 31/10.
+Campanha "🤖 | Andrômeda - Leads - Enfermeira - teste novo público —posicionamento": gastou de 01/10 a 31/10.
+Campanha "Andrômeda - Leads - Médico - teste novo público —posicionamento — Cópia": gastou de 07/10 a 31/10.
+As campanhas rodaram em paralelo: 31 dias do período tiveram mais de uma campanha gastando ao mesmo tempo.
+Campanha "🤖 | Andrômeda - Leads - Enfermeira - teste novo público —posicionamento" (ACTIVE): R$1.851,76, 177 leads, CPL R$10,46, CTR 1,08%.
+Campanha "Andrômeda - Leads - Médico - teste novo público —posicionamento — Cópia" (ACTIVE): R$722,72, 15 leads, CPL R$48,18, CTR 0,82%.
+Campanha "🤖 | Andrômeda - Leads - Enfermeira - teste novo público" (ACTIVE): R$304,89, 36 leads, CPL R$8,47, CTR 1,31%.
+Criativo "Ad01": R$2.877,49, 228 leads, CPL R$12,62, CTR 1,09%, 2 contrato(s), R$1.438,74 por contrato.
+Motivos de perda (236 perdidos com motivo no Moskit; o total de perdidos informado pela Tatiana é 244): Não tem interesse 106 (45%); Valor mínimo não atingido 36 (15%); Não possui restituição a receber 36 (15%); Sem retorno do cliente 34 (14%); Oportunidade duplicada 18 (8%); Outros motivos 6 (3%). Sem chance de virar contrato (não possui restituição ou duplicado): 54 (23%).
+Motivos no mês anterior: Não tem interesse 85 (29%); Sem retorno do cliente 78 (27%); Valor mínimo não atingido 55 (19%); Não possui restituição a receber 45 (15%); Oportunidade duplicada 20 (7%); Incompatível 11 (4%).
+Público Médicos: 15 leads no Meta; nas planilhas do Moskit 15 cadastros: 3 cálculos positivos, 0 contratos, 12 perdidos (0 incompatíveis, que não são nem médico nem enfermeiro; 2 sem contato ou retorno, com profissão desconhecida; 10 perdidos após atendimento).
+Público Enfermeiros: 213 leads no Meta; nas planilhas do Moskit 197 cadastros: 15 cálculos positivos, 2 contratos, 180 perdidos (0 incompatíveis, que não são nem médico nem enfermeiro; 27 sem contato ou retorno, com profissão desconhecida; 153 perdidos após atendimento).
+Público Sem origem; nas planilhas do Moskit 49 cadastros: 4 cálculos positivos, 1 contratos, 44 perdidos (0 incompatíveis, que não são nem médico nem enfermeiro; 5 sem contato ou retorno, com profissão desconhecida; 39 perdidos após atendimento).
+Profissão registrada nos leads qualificados: Enfermeira 2; Técnica de enfermagem 1.
+A profissão só é registrada nos leads que a equipe consegue atender e não vem nos perdidos: não afirme quantos leads são médicos nem quantos são enfermeiros; separe só incompatíveis (confirmado), sem contato (desconhecido) e perdidos após atendimento.
+Perdas do criativo "Ad01": 192 perdidos, principal motivo Não tem interesse com 92 (48%).
+Perdas do criativo "Sem origem": 44 perdidos, principal motivo Não tem interesse com 14 (32%).
+Fase em que os perdidos pararam (236 no CSV): 82 (35%) já tinham passado da fase Entrada; 34 deles saíram como "não possui restituição a receber"; 71 já estavam na fase Cálculo ou além. 44 perdidos sem origem registrada (UTM vazia).
+Origem registrada no Moskit: 18 dos 22 cálculos positivos listados e 2 dos 3 contratos listados têm origem; 4 cálculos positivos e 1 contratos estão sem origem registrada.
+Motivo de perda fora das categorias conhecidas: "Lead parou de responder/ Lead parou de interagir durante o atendimento" (5).
+Motivo de perda fora das categorias conhecidas: "Não removeu a verificação em duas etapas" (1).
+Cálculo positivo em negociação: G. M. Silva (Enfermeiro), entrou em 01/10, cálculo de R$1.399,24, origem: Ad01.
+Cálculo positivo em negociação: I. G. Tangerino, entrou em 02/10, cálculo de R$1.798,13, origem: Ad01.
+Cálculo positivo em negociação: S. O. Klassen (Enfermeira), entrou em 03/10, cálculo de R$13.937,48, origem: Ad01.
+Cálculo positivo em negociação: R. R. Ferreira, entrou em 06/10, cálculo de R$1.897,44, origem não registrada.
+Cálculo positivo em negociação: L. B. Moraes, entrou em 06/10, cálculo de R$4.596,99, origem: Ad01.
+Cálculo positivo em negociação: C. Azavedo, entrou em 06/10, cálculo de R$2.048,42, origem não registrada.
+Cálculo positivo em negociação: J. A. F. Oliveira, entrou em 06/10, cálculo de R$1.146,95, origem: Ad01.
+Cálculo positivo em negociação: C. Rech (Enfermeira), entrou em 07/10, cálculo de R$5.393,07, origem: Ad01.
+Cálculo positivo em negociação: R. C. Jacobasso (Enfermeira), entrou em 13/10, cálculo de R$7.770,90, origem: Ad01.
+Cálculo positivo em negociação: G. M. Andrade (Enfermeira), entrou em 13/10, cálculo de R$1.080,98, origem: Ad01.
+Cálculo positivo em negociação: E. R. Soares, entrou em 17/10, cálculo de R$1.650,12, origem: Ad01.
+Cálculo positivo em negociação: L. D. Moreno (Tec de enfermagem), entrou em 19/10, cálculo de R$1.004,02, origem: Ad01.
+Cálculo positivo em negociação: S. M. C. Silva, entrou em 19/10, cálculo de R$1.148,08, origem não registrada.
+Cálculo positivo em negociação: T. A. F. Sa (Enfermeira), entrou em 20/10, cálculo de R$1.110,97, origem: Ad01.
+Cálculo positivo em negociação: J. G. Leal (Técnico(a) de enfermagem), entrou em 22/10, cálculo de R$1.391,16, origem não registrada.
+Cálculo positivo em negociação: A. M. S. Domingues, entrou em 23/10, cálculo de R$9.298,62, origem: Ad01.
+Cálculo positivo em negociação: K. C. P. Moura (Técnico(a) de enfermagem), entrou em 23/10, cálculo de R$2.844,12, origem: Ad01.
+Cálculo positivo em negociação: A. F. Jacinto (Médico), entrou em 24/10, cálculo de R$48.741,47, origem: Ad01.
+Cálculo positivo em negociação: M. S. F. Pimenta, entrou em 25/10, cálculo de R$36.311,14, origem: Ad01.
+Cálculo positivo em negociação: S. M. Gracas (Enfermeira), entrou em 26/10, cálculo de R$9.961,35, origem: Ad01.
+Cálculo positivo em negociação: A. F. T. Mendes (Médica), entrou em 28/10, cálculo de R$18.237,29, origem: Ad01.
+Cálculo positivo em negociação: K. W. A. S. Souza (Enfermeira), entrou em 28/10, cálculo de R$4.004,80, origem: Ad01.
+Contrato I. V. Oliveira (Enfermeira), assinado em 06/10, origem: Ad01, valor R$2.200,71.
+Contrato F. S. Araujo (Técnica de enfermagem), assinado em 23/10, origem: Ad01, valor R$1.543,46.
+Contrato C. B. Machado (Enfermeira), assinado em 26/10, origem não registrada, valor R$9.649,50.
+3 de 3 contratos listados têm valor lançado no Moskit.
+Orçamento: média R$92,88 por dia; teto diário combinado R$66 e mensal R$2.000, vale desde 07/10; 25 dos 25 dias com teto ficaram acima do teto diário; maior gasto diário R$121,59 em 18/10; o gasto desde essa data passou do teto mensal em R$451,96.
+Faixa etária 35-44 recebeu 35% do gasto.
+Semana 01/10 – 04/10: R$289,33, 24 leads, CPL R$12,06, 39 perdidos entrados, 0 contratos assinados.
+Semana 05/10 – 11/10: R$614,06, 46 leads, CPL R$13,35, 45 perdidos entrados, 1 contratos assinados.
+Semana 12/10 – 18/10: R$700,76, 67 leads, CPL R$10,46, 74 perdidos entrados, 0 contratos assinados.
+Semana 19/10 – 25/10: R$697,84, 55 leads, CPL R$12,69, 57 perdidos entrados, 1 contratos assinados.
+Semana 26/10 – 31/10: R$577,38, 36 leads, CPL R$16,04, 21 perdidos entrados, 1 contratos assinados.
