@@ -1,0 +1,52 @@
+Mês: Setembro/2026. Investimento Meta R$2.151,80; 63 leads somando formulário instantâneo e site (custo por lead R$34,16); 81.730 impressões; 1.402 cliques no link (1,72% das impressões); 4,5% dos cliques viram lead.
+Moskit: 35 cadastros; 5 contratos assinados (14,29% dos cadastros); 23 perdidos; 7 ainda em atendimento. Custo por contrato R$430,36.
+Mês anterior (agosto/2026): investimento R$1.119,42; 67 leads; CPL R$16,71; contratos e cadastros do Moskit não disponíveis nesse mês. Variação: investimento 92,2%, leads -6,0%, CPL 104,4%.
+Campanha "Lc. Aquisição - Lead - Andromeda — posicionamento manual": gastou de 01/09 a 04/09.
+Campanha "teste formulário": gastou de 01/09 a 04/09.
+Campanha "Lc. SP(VOO) Aquisição  - Lead Formulário": gastou de 04/09 a 11/09.
+Campanha "Lc. SP(VOO) Aquisição  - Lead LP": gastou de 04/09 a 10/09.
+Campanha "Lc. Aquisição - Lead - 11/09/2026": gastou de 11/09 a 17/09.
+Campanha "Lc. Aquisição - Lead - 17/09/2026": gastou de 17/09 a 19/09.
+Campanha "Lc. Aquisição - Lead - 18/09/2026": gastou de 18/09 a 23/09.
+Campanha "Lc. Aquisição - Lead - 22/09/2026": gastou de 22/09 a 23/09.
+Campanha "Lc. Aquisição - Lead - 24/09/2026": gastou de 24/09 a 30/09.
+Mais de uma campanha gastando no mesmo dia: 01/09, 02/09, 03/09, 04/09, 08/09, 10/09, 11/09, 17/09, 18/09, 19/09, 22/09, 23/09.
+Dias com gasto zerado: 05/09, 06/09, 07/09, 09/09.
+Campanha "Lc. Aquisição - Lead - 18/09/2026" (PAUSED): R$570,00, 12 leads, CPL R$47,50, CTR 2,13%.
+Campanha "Lc. Aquisição - Lead - 11/09/2026" (PAUSED): R$517,11, 17 leads, CPL R$30,42, CTR 1,70%.
+Campanha "Lc. Aquisição - Lead - 24/09/2026" (ACTIVE): R$392,09, 8 leads, CPL R$49,01, CTR 3,33%.
+Campanha "Lc. Aquisição - Lead - Andromeda — posicionamento manual" (PAUSED): R$251,29, 8 leads, CPL R$31,41, CTR 0,64%.
+Campanha "Lc. SP(VOO) Aquisição  - Lead LP" (PAUSED): R$112,88, 0 leads, CPL —, CTR 1,81%.
+Campanha "Lc. SP(VOO) Aquisição  - Lead Formulário" (PAUSED): R$95,10, 2 leads, CPL R$47,55, CTR 1,18%.
+Campanha "teste formulário" (PAUSED): R$95,00, 16 leads, CPL R$5,94, CTR 3,46%.
+Campanha "Lc. Aquisição - Lead - 17/09/2026" (PAUSED): R$87,04, 0 leads, CPL —, CTR 1,10%.
+Campanha "Lc. Aquisição - Lead - 22/09/2026" (PAUSED): R$31,29, 0 leads, CPL —, CTR 1,85%.
+Campanhas que gastaram sem gerar nenhum lead: 3 ("Lc. SP(VOO) Aquisição  - Lead LP", "Lc. Aquisição - Lead - 17/09/2026", "Lc. Aquisição - Lead - 22/09/2026"), somando R$231,21.
+Criativo "0036 1B Vídeo Asa de avião": R$454,40, 26 leads, CPL R$17,48, CTR 1,77%, 0 contrato(s).
+Criativo "008 - Voo vídeo": R$243,73, 8 leads, CPL R$30,47, CTR 1,25%, 1 contrato(s), R$243,73 por contrato.
+Criativo "005 - Bagagem 7 dias": R$269,66, 8 leads, CPL R$33,71, CTR 2,96%, 0 contrato(s).
+Criativo "007 - Latam": R$285,47, 5 leads, CPL R$57,09, CTR 2,21%, 1 contrato(s), R$285,47 por contrato.
+Criativo "007 - corrigir": R$161,85, 5 leads, CPL R$32,37, CTR 1,77%, 0 contrato(s).
+Criativo "009 - Você chegou, sua mala não": R$96,50, 4 leads, CPL R$24,13, CTR 2,93%, 0 contrato(s).
+Criativo "003 - Seu voo atrasou? 3 direitos": R$227,23, 3 leads, CPL R$75,74, CTR 1,58%, 0 contrato(s).
+Criativo "003 - Voo cancelado criativo amarelo": R$27,50, 2 leads, CPL R$13,75, CTR 1,78%, 0 contrato(s).
+Criativo "004 - Voo atrasado criativo laranja": R$11,19, 1 leads, CPL R$11,19, CTR 3,81%, 0 contrato(s).
+Criativo "001 - ✈️ Voo atrasado? Você tem direitos garantidos pela Resolução nº 400 da ANAC:": R$25,72, 1 leads, CPL R$25,72, CTR 3,39%, 0 contrato(s).
+Motivos de perda (23 perdidos): Sem retorno / sem contato 17 (74%); Não possui direito à indenização 3 (13%); Cadastrou por engano 2 (9%); Não tem interesse 1 (4%). Leads fora do perfil (sem direito à indenização ou cadastro por engano): 5 (22%).
+Perdas do criativo "007 - Latam": 9 perdidos, principal motivo Sem retorno / sem contato com 7 (78%).
+Perdas do criativo "008 - Voo vídeo": 6 perdidos, principal motivo Sem retorno / sem contato com 5 (83%).
+Fase em que os perdidos pararam: 1 de 23 (4%) já tinham passado da fase Entrada (chegaram a Qualificação).
+Regra do cliente: o aviso de compra enviado pra Meta (Zap) sai quando o negócio chega na fase "Ingressar com ação" do Moskit, a mesma fase dos contratos assinados. Não se sabe pelo Moskit se o Zap está rodando.
+Contrato M. J. T. Rebelo, assinado em 14/09, origem: 007 - Latam, sem valor lançado no Moskit.
+Contrato F. P. R. Kozovits, assinado em 15/09, origem: 008 - Voo vídeo, sem valor lançado no Moskit.
+Contrato I. G. Costa, assinado em 15/09, fonte no Moskit: Tráfego pago, cadastrado direto no Moskit, sem valor lançado no Moskit.
+Contrato L. B. L. Krause, assinado em 29/09, fonte no Moskit: Tráfego pago, sem valor lançado no Moskit.
+Contrato M. A. Krause, assinado em 29/09, fonte no Moskit: Tráfego pago, cadastrado direto no Moskit, sem valor lançado no Moskit.
+0 de 5 contratos têm valor lançado no Moskit.
+Orçamento: média R$71,73 por dia; teto diário combinado R$66; 18 dias acima do teto; maior gasto diário R$151,68 em 10/09.
+Faixa etária 18-24 recebeu 24% do gasto.
+Semana 01/09 – 06/09: R$362,91, 25 leads, CPL R$14,52, 0 perdidos entrados, 0 contratos assinados.
+Semana 07/09 – 13/09: R$447,35, 9 leads, CPL R$49,71, 6 perdidos entrados, 0 contratos assinados.
+Semana 14/09 – 20/09: R$652,12, 14 leads, CPL R$46,58, 10 perdidos entrados, 3 contratos assinados.
+Semana 21/09 – 27/09: R$527,40, 12 leads, CPL R$43,95, 6 perdidos entrados, 0 contratos assinados.
+Semana 28/09 – 30/09: R$162,02, 3 leads, CPL R$54,01, 1 perdidos entrados, 2 contratos assinados.

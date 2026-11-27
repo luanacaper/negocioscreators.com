@@ -1,0 +1,24 @@
+Semana 05/10 a 11/10 (seg a dom). Investimento Meta R$540,85; 49 leads no pixel (CPL R$11,04); 228 cliques no link; 105 visualizações da página.
+Moskit (texto da Tatiane): 51 leads; 0 contratos assinados; 41 perdidos.
+Semana 05/10 – 11/10 (a desta análise): investido R$540,85; leads no Meta 49; CPL R$11,04; leads no Moskit 51; contratos assinados 0; perdidos 41.
+Sequência atual: 1 semana(s) seguida(s) sem contrato assinado, contando esta.
+Campanha "Lc. F1 - Aquisição Leads - 17/09/2026": gastou de 05/10 a 11/10 nesta semana.
+Campanha "Lc. Aquisição Leads - 06/10/2026": gastou de 06/10 a 11/10 nesta semana.
+Campanha "Lc. F1 - Aquisição Leads - 17/09/2026" (PAUSED): R$281,77, 49 leads, CPL R$5,75, CTR 5,36%.
+Campanha "Lc. Aquisição Leads - 06/10/2026" (PAUSED): R$259,08, 0 leads, CPL —, CTR 3,41%.
+Conjunto "HF010 - Melhores criativos (fechamento) || Aberto acima de 30 anos.": R$210,57, 42 leads, CPL R$5,01.
+Conjunto "HF010 - Melhores criativos (fechamento) || Advogados": R$71,20, 7 leads, CPL R$10,17.
+Conjunto "HF012 - Filtro federal (título A) || Aberto acima de 30 anos": R$85,24, 0 leads, CPL —.
+Conjunto "HF013 - Filtro federal (título B) || Aberto acima de 30 anos": R$86,59, 0 leads, CPL —.
+Conjunto "HF012 - Filtro federal (video) || Aberto acima de 30 anos — Cópia": R$87,25, 0 leads, CPL —.
+Criativo "Reels instagram 2ABC": R$253,59, 47 leads, CPL R$5,40, CTR 5,75%.
+Criativo "Criativo 1.1 IA — 5A": R$28,18, 2 leads, CPL R$14,09, CTR 1,93%.
+Criativo "1A criativos ia - criativo 1.1 filtro federal (sem inss)A": R$85,24, 0 leads, CPL sem lead, CTR 2,92%.
+Criativo "1B criativos ia - criativo 1.1 filtro federal B": R$86,59, 0 leads, CPL sem lead, CTR 3,93%.
+Criativo "1A criativos ia - criativo 1.1 filtro federal A": R$87,25, 0 leads, CPL sem lead, CTR 3,31%.
+Dia a dia: seg 05/10 R$49,00 e 12 lead(s); ter 06/10 R$76,14 e 8 lead(s); qua 07/10 R$86,14 e 5 lead(s); qui 08/10 R$75,73 e 7 lead(s); sex 09/10 R$69,62 e 5 lead(s); sáb 10/10 R$62,98 e 4 lead(s); dom 11/10 R$121,24 e 8 lead(s).
+Motivos de perda da planilha (41 linhas): PRC estadual/municipal 25 (61%); Sem retorno / sem contato 6 (15%); Não possui RPV/PRC 4 (10%); Cálculo não homologado 2 (5%); Não qualifica 2 (5%); Oportunidade duplicada 1 (2%); Outros motivos 1 (2%).
+Perdas do criativo "Reels instagram 2ABC": 34, principal motivo PRC estadual/municipal com 22.
+Orçamento: média R$77,26 por dia (teto R$66); 5 dia(s) acima do teto; maior dia R$121,24 em 11/10.
+Contexto fixo: escopo só federal; estadual e municipal fora do escopo.
+A campanha atual usa um pixel novo criado em 21/09/2026 (o aprendizado recomeçou do zero).

@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Aniversário na Aimê · Maresias</title>
+<meta name="description" content="Seu aniversário pode ser muito mais do que uma festa. Comemore em Maresias com quem você ama.">
+
+<!-- ===================================================================
+     META PIXEL — mesmo Pixel ID da LP de hospedagem (983368201398155)
+     Reaproveitado de propósito: mantém a otimização de campanha e o
+     histórico de conversão da conta de anúncios intactos.
+==================================================================== -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '983368201398155');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=983368201398155&ev=PageView&noscript=1"/></noscript>
+
+<style>
+  :root{
+    --verde-mata:#1f3329;
+    --verde-escuro:#16241d;
+    --areia:#f4ede1;
+    --areia-clara:#faf6ef;
+    --cobre:#c17a4a;
+    --cobre-escuro:#a8603a;
+    --texto:#2b2620;
+    --texto-claro:#6b6255;
+    --borda:#e4dac8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--areia-clara); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; line-height:1.6;}
+  h1,h2,h3,.serif{font-family:'Georgia','Times New Roman',serif;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 20px;}
+  a{color:inherit;}
+  section{padding:64px 0;}
+  .section-title{text-align:center; max-width:680px; margin:0 auto 36px;}
+  .section-title .tag{color:var(--cobre-escuro); font-size:13px; text-transform:uppercase; letter-spacing:.12em; font-weight:700;}
+  .section-title h2{font-size:clamp(24px,3.4vw,32px); margin-top:10px; color:var(--verde-escuro); line-height:1.3;}
+  .section-title p{color:var(--texto-claro); margin-top:14px; font-size:17px;}
+  .center{text-align:center;}
+  .btn{
+    display:inline-block; margin-top:24px; background:var(--cobre); color:#fff;
+    padding:15px 30px; border-radius:8px; font-weight:600; text-decoration:none; font-size:16px;
+    box-shadow:0 8px 24px rgba(193,122,74,.3); transition:transform .2s, background .2s, box-shadow .2s;
+    animation:cta-bob 2.6s ease-in-out infinite;
+  }
+  .btn:hover{background:var(--cobre-escuro); transform:translateY(-5px) scale(1.03); box-shadow:0 12px 28px rgba(193,122,74,.45); animation-play-state:paused;}
+  @keyframes cta-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);}}
+
+  /* header */
+  .site-header{position:absolute; top:0; left:0; right:0; z-index:5; padding:28px 0; display:flex; justify-content:center;}
+  .site-header .logo{height:70px; width:auto;}
+  @media(max-width:600px){.site-header .logo{height:54px;}}
+
+  /* hero */
+  .hero{position:relative; min-height:620px; display:flex; align-items:flex-end; background:#000;}
+  .hero img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.8;}
+  .hero::after{content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(15,25,20,.4) 0%, rgba(15,25,20,.35) 35%, rgba(12,20,16,.92) 100%);}
+  .hero-content{position:relative; z-index:2; color:#fff; padding:60px 20px 44px; width:100%;}
+  .hero h1{font-size:clamp(28px,4.6vw,44px); font-weight:600; max-width:680px; line-height:1.2;}
+  .hero p{font-size:17px; max-width:560px; margin-top:16px; color:#eee6d8; font-weight:300;}
+  .hero .destaque{font-size:15px; color:var(--cobre); font-weight:700; margin-top:18px; text-transform:uppercase; letter-spacing:.08em;}
+
+  /* prosa longa */
+  .prosa{max-width:680px; margin:0 auto;}
+  .prosa p{font-size:17px; margin-bottom:16px; color:var(--texto);}
+  .prosa .verso{margin-bottom:4px;}
+  .prosa .sintese{font-style:italic; color:var(--verde-escuro); font-size:19px; margin-top:22px;}
+
+  /* comparativo */
+  .comparativo{display:grid; grid-template-columns:1fr; gap:24px; max-width:900px; margin:0 auto;}
+  @media(min-width:761px){.comparativo{grid-template-columns:1fr 1fr;}}
+  .comp-card{background:#fff; border:1px solid var(--borda); border-radius:16px; padding:30px;}
+  .comp-card.destaque-card{border-color:var(--cobre); box-shadow:0 10px 30px rgba(193,122,74,.12);}
+  .comp-card h3{font-size:20px; color:var(--verde-escuro);}
+  .comp-card .sub{color:var(--texto-claro); font-size:15px; margin-top:4px;}
+  .comp-list{margin-top:18px; display:flex; flex-direction:column; gap:10px;}
+  .comp-list div{font-size:15px; padding-left:20px; position:relative;}
+  .comp-list div.sim::before{content:'+'; position:absolute; left:0; color:var(--cobre-escuro); font-weight:700;}
+  .comp-list div.nao::before{content:'–'; position:absolute; left:0; color:var(--texto-claro); font-weight:700;}
+  .comp-list div.nao{color:var(--texto-claro);}
+  .comp-nota{margin-top:16px; font-size:13px; color:var(--texto-claro); font-style:italic;}
+
+  /* objeções em prosa */
+  .objecoes{background:var(--verde-mata); color:#fff;}
+  .objecoes .section-title h2{color:#fff;}
+  .objecoes .section-title p{color:#d9c9a3;}
+  .obj-bloco{max-width:680px; margin:0 auto 44px;}
+  .obj-bloco:last-child{margin-bottom:0;}
+  .obj-bloco .pergunta{font-size:14px; text-transform:uppercase; letter-spacing:.06em; color:var(--cobre); font-weight:700; margin-bottom:8px;}
+  .obj-bloco h3{font-size:22px; margin-bottom:12px;}
+  .obj-bloco p{color:#e8e2d4; font-size:16px;}
+
+  /* videos */
+  .videos-grid{display:grid; grid-template-columns:1fr; gap:24px;}
+  @media(min-width:761px){.videos-grid{grid-template-columns:repeat(3,1fr);}}
+  .video-embed{border-radius:14px; overflow:hidden; background:#fff; border:1px solid var(--borda);}
+  .video-embed .cap{padding:14px 16px; font-size:14px; color:var(--texto-claro);}
+
+  /* galeria */
+  .galeria{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+  @media(min-width:641px){.galeria{grid-template-columns:repeat(4,1fr);}}
+  .g-item{position:relative; border-radius:12px; overflow:hidden; aspect-ratio:4/5; background:#ddd; cursor:zoom-in;}
+  .g-item img{width:100%; height:100%; object-fit:cover; transition:transform .35s ease;}
+  .g-item:hover img{transform:scale(1.08);}
+  .g-item::after{
+    content:'+'; position:absolute; top:10px; right:10px; width:28px; height:28px; border-radius:50%;
+    background:rgba(0,0,0,.45); color:#fff; font-size:18px; line-height:28px; text-align:center;
+    opacity:0; transition:opacity .25s ease;
+  }
+  .g-item:hover::after{opacity:1;}
+  .g-item.tall{aspect-ratio:4/5;}
+
+  .lightbox{
+    position:fixed; inset:0; background:rgba(12,20,16,.94); z-index:60; display:none;
+    align-items:center; justify-content:center; padding:30px; cursor:zoom-out;
+  }
+  .lightbox.show{display:flex;}
+  .lightbox img{max-width:min(900px,92vw); max-height:88vh; object-fit:contain; border-radius:8px;}
+
+  /* depoimentos */
+  .depo-grid{display:grid; grid-template-columns:1fr; gap:20px; max-width:760px; margin:0 auto;}
+  @media(min-width:761px){.depo-grid{grid-template-columns:1fr 1fr;}}
+  .depo-card{background:#fff; border:1px solid var(--borda); border-radius:14px; padding:24px;}
+  .depo-card p{font-size:15px; color:var(--texto-claro); font-style:italic;}
+  .depo-card .autor{margin-top:12px; font-size:14px; font-weight:700; color:var(--verde-escuro);}
+  .depo-card.embed{padding:0; overflow:hidden;}
+
+  /* localização */
+  .local{background:var(--areia); text-align:center;}
+  .local .pin{font-size:15px; color:var(--cobre-escuro); font-weight:700; letter-spacing:.04em;}
+  .local h2{margin-top:8px;}
+  .local p{max-width:520px; margin:16px auto 0; color:var(--texto);}
+
+  /* faq */
+  .faq{max-width:720px; margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--borda);}
+  .faq-item button{
+    width:100%; text-align:left; background:none; border:none; cursor:pointer;
+    padding:20px 0; display:flex; justify-content:space-between; align-items:center; gap:16px;
+  }
+  .faq-item h3{font-size:17px; color:var(--verde-escuro); font-weight:600; font-family:inherit;}
+  .faq-item .plus{font-size:22px; color:var(--cobre-escuro); flex-shrink:0; transition:transform .25s ease; line-height:1;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-item .resposta{max-height:0; overflow:hidden; transition:max-height .3s ease;}
+  .faq-item .resposta p{font-size:15px; color:var(--texto-claro); padding-bottom:20px;}
+  .faq-item.open .resposta{max-height:240px;}
+
+  /* fechamento */
+  .fechamento{background:var(--verde-mata); color:#fff; text-align:center;}
+  .fechamento .versos p{font-size:19px; margin-bottom:2px; font-family:Georgia,serif;}
+  .fechamento .checklist{margin-top:30px; display:flex; flex-wrap:wrap; gap:20px; justify-content:center; color:#d9c9a3; font-size:14px;}
+
+  /* form */
+  .form-section{background:var(--areia-clara);}
+  .form-card{max-width:640px; margin:0 auto; background:#fff; border:1px solid var(--borda); border-radius:18px; padding:36px; box-shadow:0 12px 40px rgba(31,51,41,.08);}
+  .form-card h2{font-size:23px; color:var(--verde-escuro); text-align:center;}
+  .form-card > p.sub{text-align:center; color:var(--texto-claro); margin-top:8px; font-size:15px;}
+  fieldset{border:none; margin-top:26px;}
+  legend{font-size:13px; text-transform:uppercase; letter-spacing:.08em; color:var(--cobre-escuro); font-weight:700; margin-bottom:12px;}
+  .opcoes{display:flex; flex-direction:column; gap:10px;}
+  .opcoes label{
+    display:flex; align-items:center; gap:10px; border:1px solid var(--borda); border-radius:10px;
+    padding:13px 16px; cursor:pointer; font-size:15px;
+  }
+  .opcoes label:has(input:checked){border-color:var(--cobre); background:#fdf1e8;}
+  .opcoes input{accent-color:var(--cobre);}
+  .row{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:14px;}
+  .field{flex:1 1 160px;}
+  .field label{display:block; font-size:13px; color:var(--texto-claro); margin-bottom:6px;}
+  .field input[type=date], .field input[type=text], .field textarea{
+    width:100%; padding:12px 13px; border:1px solid var(--borda); border-radius:8px; font-size:15px; background:#fff; font-family:inherit;
+  }
+  .field textarea{resize:vertical; min-height:80px;}
+  .field input:focus, .field textarea:focus{outline:2px solid var(--cobre); outline-offset:1px;}
+  .err{color:#b3402a; font-size:13px; margin-top:4px; display:none;}
+  .err.show{display:block;}
+  .submit-btn{width:100%; background:var(--cobre); color:#fff; border:none; padding:16px; border-radius:10px; font-size:16px; font-weight:700; margin-top:22px; cursor:pointer;}
+  .submit-btn:hover{background:var(--cobre-escuro);}
+  .microcopy{text-align:center; font-size:13px; color:var(--texto-claro); margin-top:14px;}
+
+  footer{padding:34px 0; text-align:center; color:var(--texto-claro); font-size:13px;}
+
+  .sending{position:fixed; inset:0; background:rgba(22,36,29,.94); color:#fff; z-index:50; display:none; align-items:center; justify-content:center; flex-direction:column; gap:14px; text-align:center; padding:20px;}
+  .sending.show{display:flex;}
+  .spinner{width:38px; height:38px; border:3px solid rgba(255,255,255,.25); border-top-color:#fff; border-radius:50%; animation:spin 1s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  .video-embed video, .depo-card video{width:100%; max-height:520px; object-fit:contain; background:#000; display:block;}
+
+  /* mobile: os tamanhos base ficam grandes demais em telas estreitas */
+  @media(max-width:600px){
+    section{padding:44px 0;}
+    .hero{min-height:560px;}
+    .hero h1{font-size:26px;}
+    .hero p{font-size:15px;}
+    .hero .destaque{font-size:13px;}
+    .section-title h2{font-size:22px;}
+    .section-title p{font-size:15px;}
+    .prosa p{font-size:15px;}
+    .prosa .sintese{font-size:16px;}
+    .comp-card h3{font-size:18px;}
+    .comp-list div{font-size:14px;}
+    .obj-bloco h3{font-size:19px;}
+    .obj-bloco p{font-size:14px;}
+    .local h2{font-size:22px;}
+    .local p{font-size:15px;}
+    .faq-item h3{font-size:15px;}
+    .faq-item .resposta p{font-size:14px;}
+    .fechamento .versos p{font-size:16px;}
+    .checklist span{font-size:13px;}
+    .form-card h2{font-size:19px;}
+    .form-card{padding:24px;}
+    .btn{font-size:15px; padding:14px 24px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap"><img src="img/logo-branca.png" alt="Aimê Pousada & Spa Maresias" class="logo"></div>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <img src="img/hero-piscina.jpg" alt="Pousada Aimê em Maresias, piscina e casa entre a mata">
+  <div class="hero-content">
+    <div class="wrap">
+      <h1>Seu aniversário pode ser muito mais do que uma festa.</h1>
+      <p>Que tal trocar algumas horas de comemoração por dias de praia, natureza e histórias pra lembrar? Comemore em Maresias com as pessoas que você ama, numa experiência que começa antes do parabéns e continua muito depois dele.</p>
+      <div class="destaque">Apenas 3 horas de São Paulo</div>
+      <br>
+      <a href="#form" class="btn">Quero comemorar meu aniversário na Aimê</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ A IDEIA ============ -->
+<section>
+  <div class="wrap prosa center">
+    <div class="section-title">
+      <div class="tag">A ideia</div>
+      <h2>Você realmente precisa de uma festa de aniversário?</h2>
+    </div>
+    <p class="verso">Talvez você esteja pensando: "não quero organizar uma festa enorme."</p>
+    <p class="verso">Então não organize.</p>
+    <p>Reúna algumas pessoas especiais, viaje pra Maresias e transforme seu aniversário numa pequena viagem. Piscina, praia, natureza, comida boa, conversas até tarde, fogueira. Momentos que não cabem numa noite.</p>
+    <p class="sintese">Às vezes, uma viagem com os amigos é uma festa muito melhor.</p>
+  </div>
+</section>
+
+<!-- ============ E SE EU QUISER UMA FESTA ============ -->
+<section style="background:var(--areia);">
+  <div class="wrap">
+    <div class="section-title">
+      <div class="tag">E se eu quiser uma festa de verdade</div>
+      <h2>Também dá.</h2>
+      <p>Pra grupos maiores, a Aimê estrutura uma experiência de aniversário bem mais completa: hospedagem pro grupo, espaço pra comemoração, restaurante, possibilidade de cardápio especial e toda a estrutura pra reunir os convidados numa experiência única de hospedagem e celebração.</p>
+    </div>
+    <div class="center">
+      <p style="max-width:520px; margin:0 auto; color:var(--texto-claro); font-size:15px;">Quanto maior o grupo, maiores as possibilidades de negociação. O formato ideal pra uma experiência mais completa é a partir de 15 pessoas.</p>
+      <a href="#form" class="btn">Quero saber como funciona</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARATIVO ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-title">
+      <div class="tag">O que muda conforme o tamanho do grupo</div>
+      <h2>Duas formas de comemorar na Aimê</h2>
+    </div>
+    <div class="comparativo">
+      <div class="comp-card">
+        <h3>Menos de 15 pessoas</h3>
+        <div class="sub">Uma comemoração íntima + hospedagem</div>
+        <div class="comp-list">
+          <div class="sim">reunir seus convidados</div>
+          <div class="sim">hospedar o grupo</div>
+          <div class="sim">aproveitar toda a estrutura da Aimê</div>
+          <div class="sim">solicitar um cardápio especial pra ocasião</div>
+          <div class="sim">comemorar juntos durante a estadia</div>
+          <div class="nao">decoração personalizada de festa</div>
+          <div class="nao">transporte contratado pela Aimê</div>
+          <div class="nao">estrutura exclusiva de grande evento</div>
+        </div>
+        <div class="comp-nota">A proposta aqui é hospedagem + experiência. Não inclui automaticamente a estrutura de um grande evento.</div>
+      </div>
+      <div class="comp-card destaque-card">
+        <h3>15 pessoas ou mais</h3>
+        <div class="sub">Experiência de grupo mais completa</div>
+        <div class="comp-list">
+          <div class="sim">estrutura pra comemoração</div>
+          <div class="sim">restaurante</div>
+          <div class="sim">cardápio especial</div>
+          <div class="sim">condições diferenciadas de grupo</div>
+          <div class="sim">negociação de formatos de pagamento</div>
+          <div class="sim">experiência personalizada, a avaliar</div>
+        </div>
+        <div class="comp-nota">Quanto maior o grupo, mais possibilidades a gente consegue avaliar junto com você.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AMIGAS NA JACUZZI + PEBOLIM (respiro visual) ============ -->
+<section style="padding-top:0;">
+  <div class="wrap galeria" style="grid-template-columns:1fr 1fr;">
+    <div class="g-item"><img src="img/jacuzzi-amigas.jpg" alt="Amigas na jacuzzi da Aimê"></div>
+    <div class="g-item"><img src="img/pebolim.jpg" alt="Pebolim na área de jogos da Aimê à noite"></div>
+  </div>
+</section>
+
+<!-- ============ VÍDEOS ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-title">
+      <div class="tag">Veja como é viver a Aimê</div>
+      <h2>Três jeitos de sentir a experiência</h2>
+    </div>
+    <div class="videos-grid">
+      <div class="video-embed">
+        <video controls preload="metadata" poster="img/vid/video1-poster.jpg" playsinline>
+          <source src="img/vid/video1.mp4" type="video/mp4">
+        </video>
+        <div class="cap">Como é a Aimê</div>
+      </div>
+      <div class="video-embed">
+        <video controls preload="metadata" poster="img/vid/video2-poster.jpg" playsinline>
+          <source src="img/vid/video2.mp4" type="video/mp4">
+        </video>
+        <div class="cap">Como pode ser seu aniversário aqui</div>
+      </div>
+      <div class="video-embed">
+        <video controls preload="metadata" poster="img/vid/video3-poster.jpg" playsinline>
+          <source src="img/vid/video3.mp4" type="video/mp4">
+        </video>
+        <div class="cap">Uma viagem pra comemorar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALERIA ============ -->
+<section style="background:var(--areia);">
+  <div class="wrap">
+    <div class="section-title">
+      <div class="tag">A experiência começa antes do parabéns</div>
+      <h2>Um pouco do que você vai viver</h2>
+    </div>
+    <div class="galeria">
+      <div class="g-item"><img src="img/aniv-amigas.jpg" alt="Amigas comemorando na praia de Maresias"></div>
+      <div class="g-item"><img src="img/hero-piscina.jpg" alt="Piscina da Pousada Aimê"></div>
+      <div class="g-item"><img src="img/aniv-bolo.jpg" alt="Bolo e balões de aniversário na Aimê"></div>
+      <div class="g-item"><img src="img/casa3.jpg" alt="Acomodação para grupos na Aimê"></div>
+      <div class="g-item"><img src="img/rede-celebra.jpg" alt="Celebrando na rede sobre o rio da Aimê"></div>
+      <div class="g-item"><img src="img/pet.jpg" alt="Pet friendly na Aimê"></div>
+      <div class="g-item"><img src="img/fogueira-brinde.jpg" alt="Brinde à noite na fogueira da Aimê"></div>
+      <div class="g-item"><img src="img/aniv-polrsol-pedra.jpg" alt="Pôr do sol em Maresias"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPOIMENTOS ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-title">
+      <div class="tag">Depoimentos</div>
+      <h2>Quem já viveu sabe</h2>
+    </div>
+    <div class="depo-grid">
+      <div class="depo-card embed">
+        <video controls preload="metadata" poster="img/vid/depo1-poster.jpg" playsinline style="width:100%; display:block;">
+          <source src="img/vid/depo1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="depo-card embed">
+        <video controls preload="metadata" poster="img/vid/depo2-poster.jpg" playsinline style="width:100%; display:block;">
+          <source src="img/vid/depo2.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOCALIZAÇÃO ============ -->
+<section class="local">
+  <div class="wrap">
+    <div class="pin">Localização</div>
+    <h2>Seu aniversário a poucas horas de São Paulo</h2>
+    <p>Maresias · São Sebastião, SP. Aproximadamente 3 horas de São Paulo. Você não precisa pegar avião, nem organizar uma viagem internacional, nem esperar férias. É só reunir quem importa e pegar a estrada.</p>
+    <a href="#form" class="btn">Quero ver as datas</a>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section>
+  <div class="wrap faq">
+    <div class="section-title">
+      <div class="tag">Perguntas frequentes</div>
+      <h2>Ainda ficou alguma dúvida?</h2>
+    </div>
+
+    <div class="faq-item">
+      <button type="button"><h3>Posso fazer meu aniversário na Aimê com menos de 15 pessoas?</h3><span class="plus">+</span></button>
+      <div class="resposta"><p>Sim. Você pode reunir seus convidados e comemorar durante a hospedagem. Pra grupos menores, podemos preparar um cardápio especial pra ocasião, de acordo com a possibilidade da pousada. Mas grupos menores não têm automaticamente a mesma estrutura ou condições de um evento maior.</p></div>
+    </div>
+    <div class="faq-item">
+      <button type="button"><h3>Posso contratar uma decoração de aniversário?</h3><span class="plus">+</span></button>
+      <div class="resposta"><p>Pra grupos menores, não trabalhamos com a estrutura de uma grande festa completa com decoração personalizada. Pra grupos maiores, avaliamos as possibilidades de acordo com o formato do evento.</p></div>
+    </div>
+    <div class="faq-item">
+      <button type="button"><h3>A Aimê oferece transporte para os convidados?</h3><span class="plus">+</span></button>
+      <div class="resposta"><p>Não é um serviço padrão da Aimê. A logística de transporte deve ser organizada pelo grupo.</p></div>
+    </div>
+    <div class="faq-item">
+      <button type="button"><h3>Posso fazer uma festa grande?</h3><span class="plus">+</span></button>
+      <div class="resposta"><p>Sim, grupos maiores têm mais possibilidades de estruturação. O ideal é conversar com nossa equipe pra entender o número de convidados e o formato desejado.</p></div>
+    </div>
+    <div class="faq-item">
+      <button type="button"><h3>Meus convidados podem pagar individualmente?</h3><span class="plus">+</span></button>
+      <div class="resposta"><p>Sim, esse formato pode ser negociado. Uma possibilidade interessante pra grupos em que o aniversariante não quer assumir sozinho o custo da hospedagem.</p></div>
+    </div>
+    <div class="faq-item">
+      <button type="button"><h3>Preciso pagar tudo sozinho?</h3><span class="plus">+</span></button>
+      <div class="resposta"><p>Não necessariamente. A forma de pagamento pode ser estudada de acordo com o grupo e o formato da reserva.</p></div>
+    </div>
+    <div class="faq-item">
+      <button type="button"><h3>Posso levar minha família ou meu pet?</h3><span class="plus">+</span></button>
+      <div class="resposta"><p>Sim. A Aimê recebe famílias, casais, grupos de amigos e hóspedes com pets. A proposta é pet friendly, e as condições específicas são confirmadas no momento da reserva.</p></div>
+    </div>
+    <div class="faq-item">
+      <button type="button"><h3>E se eu só quiser viajar com alguns amigos?</h3><span class="plus">+</span></button>
+      <div class="resposta"><p>Essa é justamente uma das propostas da Aimê. Você não precisa fazer uma grande festa. Pode transformar seu aniversário numa viagem com as pessoas mais importantes pra você.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FECHAMENTO ============ -->
+<section class="fechamento">
+  <div class="wrap">
+    <div class="versos">
+      <p>Seu aniversário acontece uma vez por ano.</p>
+      <p>Você pode passar algumas horas numa festa,</p>
+      <p>ou alguns dias criando histórias que vão durar muito mais tempo.</p>
+    </div>
+    <div class="checklist">
+      <span>Praia de manhã</span>
+      <span>Piscina à tarde</span>
+      <span>Jantar à noite</span>
+      <span>Seus amigos por perto durante tudo isso</span>
+    </div>
+    <br>
+    <a href="#form" class="btn">Quero comemorar na Aimê</a>
+  </div>
+</section>
+
+<!-- ============ FORM DE QUALIFICAÇÃO ============ -->
+<section class="form-section" id="form">
+  <div class="wrap">
+    <div class="form-card">
+      <h2>Conte pra gente como você imaginou seu aniversário</h2>
+      <p class="sub">A gente responde pelo WhatsApp com uma proposta feita pro seu grupo.</p>
+
+      <form id="leadForm">
+        <fieldset>
+          <legend>Quantas pessoas pretende convidar?</legend>
+          <div class="opcoes">
+            <label><input type="radio" name="convidados" value="2 a 5" checked> 2 a 5</label>
+            <label><input type="radio" name="convidados" value="6 a 10"> 6 a 10</label>
+            <label><input type="radio" name="convidados" value="11 a 14"> 11 a 14</label>
+            <label><input type="radio" name="convidados" value="15 a 30"> 15 a 30</label>
+            <label><input type="radio" name="convidados" value="31 a 60"> 31 a 60</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>O que você procura?</legend>
+          <div class="opcoes">
+            <label><input type="radio" name="busca" value="Apenas hospedagem" checked> Apenas hospedagem</label>
+            <label><input type="radio" name="busca" value="Hospedagem + comemoração"> Hospedagem + comemoração</label>
+            <label><input type="radio" name="busca" value="Festa/aniversário estruturado"> Festa/aniversário estruturado</label>
+            <label><input type="radio" name="busca" value="Ainda não sei"> Ainda não sei</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Quando pretende viajar</legend>
+          <div class="row">
+            <div class="field">
+              <label for="data">Data (ou período aproximado)</label>
+              <input type="date" id="data">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Quer contar um pouco mais do que imaginou?</legend>
+          <div class="field">
+            <textarea id="detalhes" placeholder="Ex: aniversário de 30 anos, grupo de amigos, gostaríamos de um jantar especial no sábado..."></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Contato</legend>
+          <div class="row">
+            <div class="field" style="flex:1 1 100%;">
+              <label for="nome">Seu nome</label>
+              <input type="text" id="nome" required>
+              <div class="err" id="errNome">Por favor, informe seu nome.</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="whats">WhatsApp com DDD</label>
+              <input type="text" id="whats" required inputmode="tel">
+              <div class="err" id="errWhats">Informe um WhatsApp válido com DDD.</div>
+            </div>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="submit-btn">Quero receber uma proposta</button>
+        <p class="microcopy">Seus dados serão usados pra te enviar uma proposta e falar com você sobre sua comemoração. Não compartilhamos seus dados para outras finalidades.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">Pousada Aimê · Maresias · São Sebastião · SP</div></footer>
+
+<div class="sending" id="sending">
+  <div class="spinner"></div>
+  <p>Preparando seu atendimento…</p>
+  <small>Você será levado ao WhatsApp da Aimê</small>
+</div>
+
+<div class="lightbox" id="lightbox"><img id="lightboxImg" src="" alt=""></div>
+
+<script>
+/* galeria: clique numa foto pra ampliar, clique em qualquer lugar pra fechar */
+(function(){
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightboxImg');
+  document.querySelectorAll('.g-item img').forEach(img => {
+    img.addEventListener('click', () => {
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lb.classList.add('show');
+    });
+  });
+  lb.addEventListener('click', () => lb.classList.remove('show'));
+})();
+
+/* FAQ: clique na pergunta pra abrir/fechar a resposta */
+(function(){
+  document.querySelectorAll('.faq-item button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.closest('.faq-item').classList.toggle('open');
+    });
+  });
+})();
+</script>
+
+<script>
+/* ==================================================================
+   CONFIGURAÇÃO — mesmo número e mesma planilha "Leads Aimê" da LP
+   de hospedagem. categoria/origem diferentes pra identificar o
+   funil no painel interno; perguntas de qualificação vão dentro de
+   "observacao" (coluna livre já existente na planilha) pra não
+   depender de o Apps Script reconhecer colunas novas.
+================================================================== */
+const WHATSAPP_NUMERO = "5511995088826";
+/* Backend de leads: Supabase (tabela "leads", RLS insert-only pra role
+   anon). Substitui o Apps Script/Google Sheets antigo (limite de linhas
+   do free tier). Chave "publishable" é segura pra expor no client —
+   só permite INSERT, nunca leitura. */
+const SUPABASE_URL = "https://vzskzainujdbvtatrglg.supabase.co/rest/v1/leads";
+const SUPABASE_KEY = "sb_publishable__khx61JCm6NsTFRZDGfF7w_nnMjH3JX";
+
+const $ = id => document.getElementById(id);
+const form = $('leadForm');
+$('data').min = new Date().toISOString().split('T')[0];
+
+/* Envia o lead pro Supabase. keepalive:true sobrevive à navegação que já
+   vem em seguida pro WhatsApp (mesmo papel que sendBeacon tinha antes,
+   mas sendBeacon não permite header de autenticação, por isso fetch). */
+function enviarLead(payload){
+  const { action, ...dados } = payload;
+  return fetch(SUPABASE_URL, {
+    method: 'POST',
+    keepalive: true,
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': SUPABASE_KEY,
+      'Prefer': 'return=minimal'
+    },
+    body: JSON.stringify(dados)
+  }).catch(err => console.warn('Falha ao salvar lead:', err));
+}
+
+function mascara(el){
+  el.addEventListener('input', () => {
+    let v = el.value.replace(/\D/g,'').slice(0,11);
+    if (v.length > 6)      el.value = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+    else if (v.length > 2) el.value = `(${v.slice(0,2)}) ${v.slice(2)}`;
+    else if (v.length > 0) el.value = `(${v}`;
+    else el.value = v;
+  });
+}
+mascara($('whats'));
+
+function dataBR(iso){
+  if(!iso) return 'A definir';
+  const [a,m,d] = iso.split('-');
+  return `${d}/${m}/${a}`;
+}
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  let ok = true;
+  const nome = $('nome').value.trim();
+  const whatsDigits = $('whats').value.replace(/\D/g,'');
+
+  $('errNome').classList.toggle('show', !nome);
+  if(!nome) ok = false;
+
+  const whatsInvalido = whatsDigits.length < 10;
+  $('errWhats').classList.toggle('show', whatsInvalido);
+  if(whatsInvalido) ok = false;
+
+  if(!ok){
+    document.querySelector('.err.show')?.scrollIntoView({behavior:'smooth', block:'center'});
+    return;
+  }
+
+  const convidados = form.querySelector('input[name=convidados]:checked')?.value || 'Não informado';
+  const busca = form.querySelector('input[name=busca]:checked')?.value || 'Não informado';
+  const detalhes = $('detalhes').value.trim();
+  const dataViagem = dataBR($('data').value);
+
+  const observacao = `Convidados: ${convidados} | Busca: ${busca}${detalhes ? ' | Detalhes: ' + detalhes : ''}`;
+
+  $('sending').classList.add('show');
+
+  if (window.fbq) {
+    try { fbq('track', 'Lead'); } catch(_){}
+  }
+
+  if (SUPABASE_URL) {
+    await enviarLead({
+      action: 'novo_lead',
+      nome,
+      checkin: dataViagem,
+      checkout: 'A definir',
+      adultos: convidados,
+      criancas: '0',
+      pet: 'Não',
+      whatsapp: $('whats').value,
+      telefone: $('whats').value,
+      email: '',
+      observacao,
+      categoria: 'Aniversário',
+      canal: 'WhatsApp',
+      origem: 'LP ANIVERSARIO',
+      data_envio: new Date().toLocaleString('pt-BR')
+    });
+  }
+
+  const msg =
+`Olá! Quero comemorar meu aniversário na Aimê.
+Nome: ${nome}
+Convidados: ${convidados}
+O que busco: ${busca}
+Data pretendida: ${dataViagem}${detalhes ? '\nDetalhes: ' + detalhes : ''}
+Gostaria de receber uma proposta.`;
+
+  const url = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(msg)}`;
+  setTimeout(() => { window.location.href = url; }, 900);
+});
+</script>
+</body>
+</html>

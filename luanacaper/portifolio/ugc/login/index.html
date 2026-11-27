@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#55613b">
+<title>Admin | Luana Caper</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%2355613b'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='800' font-size='34' text-anchor='middle' fill='%23ffbf85'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--verde:#55613b;--verde-esc:#3f4a2b;--laranja:#d4691f;--laranja-claro:#ffbf85;--gelo:#f7f6f1;--tinta:#1d2216;--suave:#55594a;--linha:#e6e6da;--erro:#b3261e}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--gelo);color:var(--tinta);line-height:1.5;-webkit-text-size-adjust:100%}
+h1,h2,h3,p{margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--tinta);outline-offset:2px;border-radius:8px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:900px;margin:0 auto;padding:16px}
+
+/* Botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:42px;padding:8px 18px;border-radius:999px;border:2px solid transparent;font-weight:700;font-size:.95rem;cursor:pointer;text-decoration:none;background:var(--verde);color:#fff;transition:background .2s}
+.btn:hover{background:var(--verde-esc)}
+.btn:disabled{opacity:.6;cursor:wait}
+.btn.contorno{background:#fff;color:var(--verde-esc);border-color:var(--verde)}
+.btn.contorno:hover{background:#eef0df}
+.btn.perigo{background:#fff;color:var(--erro);border-color:#e6b8b4}
+.btn.perigo:hover{background:#fbeceb}
+.btn.mini{min-height:34px;padding:4px 14px;font-size:.85rem}
+
+/* Login */
+.login{min-height:100vh;display:grid;place-items:center;padding:16px}
+.cartao{width:100%;max-width:400px;background:#fff;border:1px solid var(--linha);border-radius:26px;padding:28px 24px;box-shadow:0 18px 44px rgba(20,32,28,.12)}
+.logo{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--verde);color:var(--laranja-claro);font-weight:800;margin-bottom:12px}
+.cartao h1{font-size:1.5rem;letter-spacing:-.02em}
+.cartao .sub{color:var(--suave);margin:4px 0 18px;font-size:.95rem}
+.campo{display:grid;gap:5px;margin-bottom:12px}
+.campo label{font-weight:700;font-size:.88rem}
+.campo input,.campo select,.campo textarea{width:100%;padding:11px 14px;border:1.5px solid #d7dac8;border-radius:14px;background:var(--gelo)}
+.campo textarea{min-height:90px;resize:vertical}
+.campo input:focus,.campo select:focus,.campo textarea:focus{outline:none;border-color:var(--verde);background:#fff;box-shadow:0 0 0 4px rgba(85,97,59,.2)}
+.dica{font-size:.78rem;color:var(--suave)}
+.campo.check{display:flex;align-items:center;gap:10px}
+.campo.check input{width:20px;height:20px;padding:0}
+.aviso{padding:10px 14px;border-radius:14px;font-size:.9rem;margin-bottom:12px}
+.aviso.erro{background:#fbeceb;color:var(--erro);border:1px solid #e6b8b4}
+.aviso.ok{background:#e8f1e4;color:var(--verde-esc);border:1px solid #c9dbc1}
+
+/* Painel com menu lateral */
+.painel-layout{display:flex;align-items:flex-start;min-height:100vh}
+.lateral{flex:none;width:260px;min-height:100vh;background:#fff;border-right:1px solid var(--linha);padding:20px 16px;display:flex;flex-direction:column;position:sticky;top:0}
+.lateral-marca{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.lateral-marca .logo{margin:0}
+.lateral-marca h1{font-size:1.05rem;letter-spacing:-.02em}
+.lateral-marca small{display:block;color:var(--suave);font-size:.74rem;overflow-wrap:anywhere}
+.lateral-grupo{margin-bottom:6px}
+.lateral-grupo-titulo{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--suave);padding:14px 10px 6px}
+.lateral-item{display:block;width:100%;text-align:left;padding:10px 12px;border-radius:12px;border:0;background:none;font-weight:700;font-size:.92rem;color:var(--tinta);cursor:pointer}
+.lateral-item:hover{background:var(--gelo)}
+.lateral-item[aria-selected="true"]{background:var(--verde);color:#fff}
+.lateral-rodape{margin-top:auto;padding-top:14px;border-top:1px solid var(--linha);display:flex;flex-direction:column;gap:8px}
+.lateral-sites{display:flex;flex-direction:column;gap:6px}
+.lateral-sites .btn{justify-content:flex-start}
+.principal{flex:1;min-width:0;padding:22px 24px}
+.principal .wrap{max-width:900px;margin:0;padding:0}
+@media (max-width:820px){
+  .painel-layout{flex-direction:column}
+  .lateral{width:100%;min-height:0;position:static;border-right:0;border-bottom:1px solid var(--linha);padding:14px 16px}
+  .lateral-grupos{display:flex;gap:16px;overflow-x:auto;padding-bottom:4px}
+  .lateral-grupo{flex:none;margin-bottom:0}
+  .lateral-item{white-space:nowrap}
+  .lateral-rodape{flex-direction:row;flex-wrap:wrap;margin-top:12px;padding-top:12px}
+  .lateral-sites{flex-direction:row;flex-wrap:wrap}
+  .principal{padding:16px}
+}
+.barra{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.barra p{color:var(--suave);font-size:.9rem}
+.lista{display:grid;gap:10px}
+.mapa-utm{margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--linha)}
+.mapa-utm h3{margin-bottom:4px}
+.item{background:#fff;border:1px solid var(--linha);border-radius:20px;padding:14px 16px;display:grid;gap:8px}
+.item-cab{display:flex;gap:12px;align-items:flex-start;justify-content:space-between}
+.item-cab img{flex:none;width:44px;height:78px;object-fit:cover;border-radius:8px;background:#ddd}
+.item-txt{min-width:0;flex:1}
+.item-txt b{display:block;overflow-wrap:anywhere}
+.item-txt span{display:block;color:var(--suave);font-size:.85rem;overflow-wrap:anywhere}
+.item-msg{background:var(--gelo);border-radius:12px;padding:8px 12px;font-size:.88rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.item-acoes{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.item-acoes select{padding:6px 10px;border:1.5px solid #d7dac8;border-radius:999px;background:#fff;font-weight:600}
+.vazio{padding:28px 16px;text-align:center;color:var(--suave);background:#fff;border:1px dashed #cfd3bd;border-radius:20px}
+
+/* Planilha de marcas */
+.planilha-ferramentas{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.planilha-ferramentas input[type=search]{flex:1;min-width:200px;padding:9px 14px;border:1.5px solid #d7dac8;border-radius:999px;background:#fff}
+.planilha-ferramentas select{padding:9px 14px;border:1.5px solid #d7dac8;border-radius:999px;background:#fff;font-weight:600}
+.tabela-embrulho{overflow-x:auto;border:1px solid var(--linha);border-radius:16px;background:#fff}
+table.planilha{width:100%;border-collapse:collapse;font-size:.86rem;min-width:860px}
+table.planilha th,table.planilha td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--linha);vertical-align:top}
+table.planilha thead th{background:var(--gelo);font-size:.74rem;text-transform:uppercase;letter-spacing:.03em;color:var(--suave);white-space:nowrap;position:sticky;top:0}
+table.planilha tbody tr:hover{background:var(--gelo)}
+table.planilha td.obs{max-width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--suave);cursor:help}
+table.planilha td.vazio{text-align:center;color:var(--suave);padding:24px 12px}
+table.planilha select{padding:5px 9px;border:1.5px solid #d7dac8;border-radius:999px;background:#fff;font-weight:600;font-size:.82rem}
+table.planilha a{color:var(--verde-esc);font-weight:600}
+
+table.planilha td b{display:block}
+.sub-celula{display:block;color:var(--suave);font-size:.78rem}
+.pilha{display:grid;gap:2px}
+.pilha small{color:var(--suave);font-size:.76rem}
+.mini-links{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:4px;font-size:.78rem}
+.mini-links a{color:var(--verde-esc);font-weight:700}
+.selo{display:inline-block;padding:2px 9px;border-radius:999px;font-size:.74rem;font-weight:700;background:var(--gelo);border:1px solid var(--linha);color:var(--suave);white-space:nowrap}
+.selo.origem-claude_chrome{background:#fdeee2;border-color:#f3c9a4;color:#8a3d0c}
+.selo.origem-portfolio{background:#e8f1e4;border-color:#c9dbc1;color:var(--verde-esc)}
+.selo.resp{background:var(--verde);border-color:var(--verde);color:#fff}
+.selo.nicho{background:#eef0df;border-color:#d7dac8;color:var(--verde-esc)}
+.selo.camp{background:#fff7e6;border-color:#f1d9a6;color:#7a5410}
+
+/* CRM em colunas */
+.principal .wrap:has(.kanban),.principal .wrap:has(.tabela-embrulho){max-width:none}
+.kanban{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(250px,1fr);gap:12px;overflow-x:auto;padding-bottom:10px;align-items:start}
+.coluna-crm{background:#efeee6;border:1px solid var(--linha);border-radius:18px;padding:10px;display:grid;gap:8px}
+.coluna-crm header h3{font-size:.95rem;display:flex;align-items:center;gap:6px}
+.coluna-crm header small{color:var(--suave);font-size:.76rem}
+.contador{background:#fff;border-radius:999px;padding:0 8px;font-size:.78rem}
+.etapa-fechado{background:#e6efdf}
+.etapa-perdido{background:#f3ecea}
+.coluna-crm-cards{display:grid;gap:8px}
+.coluna-vazia{color:var(--suave);font-size:.82rem;text-align:center;padding:10px 0}
+.card-crm{background:#fff;border:1px solid var(--linha);border-left:4px solid #cfd3bd;border-radius:14px;padding:10px 12px;display:grid;gap:6px;font-size:.86rem}
+.card-crm.pri-alta{border-left-color:var(--laranja)}
+.card-crm.pri-media{border-left-color:#d9b84a}
+.card-crm-topo{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.card-crm-topo b{overflow-wrap:anywhere}
+.card-crm-contato{display:grid}
+.card-crm-contato small{color:var(--suave);font-size:.78rem}
+.card-crm-selos{display:flex;flex-wrap:wrap;gap:4px}
+.card-crm-prox{background:var(--gelo);border-radius:10px;padding:6px 8px;display:grid}
+.card-crm-prox small{color:var(--suave);font-size:.74rem;font-weight:700}
+.card-crm-prox.atrasado{background:#fbeceb}
+.card-crm-prox.atrasado small{color:var(--erro)}
+.card-crm-data{color:var(--suave);font-size:.76rem}
+.card-crm .item-acoes select{max-width:120px}
+.cadencia{border:1px dashed #cfd3bd;border-radius:10px;padding:6px 8px;display:grid;gap:6px}
+.cadencia-topo{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.cadencia-topo small{color:var(--suave);font-size:.74rem;font-weight:700}
+.bolinhas{display:flex;gap:4px}
+.bolinha{width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid #cfd3bd}
+.bolinha.feito{background:var(--verde);border-color:var(--verde)}
+.bolinha.atual{background:var(--laranja);border-color:var(--laranja)}
+.bolinha.pula{background:repeating-linear-gradient(45deg,#e6e6da 0 2px,#fff 2px 4px);border-color:#e6e6da}
+.programa-aviso{background:#fff7e6;border:1px solid #f1d9a6;border-radius:10px;padding:6px 8px;display:grid;gap:6px}
+.programa-aviso small{color:#7a5410;font-weight:700;font-size:.76rem}
+.agenda-hoje{background:#fff;border:1px solid var(--linha);border-radius:18px;padding:12px 14px;margin-bottom:14px}
+.agenda-hoje summary{font-weight:800;cursor:pointer}
+.agenda-lista{display:grid;gap:8px;margin-top:10px}
+.agenda-item{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;border:1px solid var(--linha);border-left:4px solid var(--laranja);border-radius:12px;padding:8px 12px}
+.agenda-item.atrasado{border-left-color:var(--erro);background:#fdf6f5}
+.agenda-txt{display:grid;gap:1px;min-width:0;flex:1}
+.agenda-txt span{font-size:.88rem}
+.agenda-txt small{color:var(--suave);font-size:.76rem}
+.visoes{display:flex;gap:6px;margin-bottom:10px}
+.visoes .lateral-item{width:auto;border:1px solid var(--linha);background:#fff;padding:8px 16px}
+.visoes .lateral-item[aria-selected="true"]{background:var(--verde);color:#fff}
+.selo.vence{background:#fbeceb;border-color:#e6b8b4;color:var(--erro)}
+.agenda-item.retomar{border-left-color:var(--verde);background:#f3f6ec}
+.arquivo-lista{display:grid;gap:10px}
+.compositor{border-top:1px solid var(--linha);padding-top:6px;display:grid;gap:6px}
+.compositor[open]{gap:6px}
+.compositor summary{cursor:pointer;font-weight:700;font-size:.8rem;color:var(--verde-esc)}
+.compositor > *:not(summary){margin-top:6px}
+.compositor textarea,.compositor input,.compositor select{width:100%;padding:8px 10px;border:1.5px solid #d7dac8;border-radius:10px;background:var(--gelo);font-size:.84rem}
+.compositor textarea{resize:vertical;min-height:110px}
+.compositor textarea:focus,.compositor input:focus{outline:none;border-color:var(--verde);background:#fff}
+.msg-rodape{display:flex;justify-content:space-between;gap:8px;font-size:.74rem;color:var(--suave)}
+.msg-contador.estourou{color:var(--erro);font-weight:800}
+.msg-status{font-style:italic}
+.agenda-txt .compositor{max-width:640px}
+
+/* Métricas do portfólio */
+.metricas-cartoes{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.metrica-cartao{flex:1;min-width:140px;background:#fff;border:1px solid var(--linha);border-radius:20px;padding:16px 18px;display:grid;gap:2px}
+.metrica-cartao b{font-size:1.7rem;letter-spacing:-.02em}
+.metrica-cartao span{color:var(--suave);font-size:.85rem;font-weight:600}
+.metricas-grade{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.metricas-grade h3{font-size:1rem;margin-bottom:8px}
+.metricas-grade table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--linha);border-radius:16px;overflow:hidden;font-size:.88rem}
+.metricas-grade th,.metricas-grade td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--linha)}
+.metricas-grade th{background:var(--gelo);font-size:.72rem;text-transform:uppercase;color:var(--suave)}
+.metricas-grade td:nth-child(2),.metricas-grade td:nth-child(3),.metricas-grade th:nth-child(2),.metricas-grade th:nth-child(3){text-align:right;white-space:nowrap}
+@media (max-width:640px){.metricas-grade{grid-template-columns:1fr}}
+
+/* Formulário em janela */
+dialog{width:min(520px,calc(100vw - 24px));max-height:calc(100vh - 24px);border:0;border-radius:24px;padding:22px 20px;box-shadow:0 30px 80px rgba(0,0,0,.35);overflow:auto}
+dialog::backdrop{background:rgba(24,30,17,.55)}
+dialog h2{font-size:1.25rem;margin-bottom:14px;letter-spacing:-.02em}
+.form-acoes{display:flex;gap:8px;justify-content:flex-end;margin-top:6px}
+</style>
+</head>
+<body>
+<main id="app"></main>
+
+<script>
+/* Endereço do banco e chave PÚBLICA (a chave pública pode ficar no site; quem protege os dados são as regras RLS do Supabase).
+   NUNCA cole aqui a chave secreta (sb_secret_...). */
+const SB = {
+  url: "https://tzpjkbzkmaeyjiktmpie.supabase.co",
+  chave: "sb_publishable_SPp8r0D8hiWdcEVe8u_YRw_Ezb0I5tl"
+};
+const CHAVE_SESSAO = "luana-admin-sessao";
+
+/* As abas do painel. Para criar uma aba nova, crie a tabela no Supabase e acrescente um bloco aqui. */
+const STATUS_MARCA = ["novo", "conversando", "proposta", "cliente", "perdido"];
+const ROTULO_STATUS = { novo: "Lead", conversando: "Conversando", proposta: "Proposta", cliente: "Cliente", perdido: "Perdido" };
+const NICHOS_GERAL = ["gastronomia-assinaturas", "casa-decoracao", "beleza-saude", "tech-infoprodutos", "viagem"];
+const ROTULO_NICHO = {
+  "gastronomia-assinaturas": "Alimentação & Lifestyle Saudável",
+  "casa-decoracao": "Casa, Decoração & Achadinhos",
+  "beleza-saude": "Beleza, Saúde & Bem-Estar",
+  "tech-infoprodutos": "Tech, Apps & Infoprodutos",
+  "viagem": "Viagem"
+};
+const TAMANHO_BADGE = ["", "pequeno", "grande"];
+const ROTULO_TAMANHO = { "": "Padrão", pequeno: "Pequeno (62px)", grande: "Grande (94px)" };
+const SITES_UTM = {
+  geral: "https://negocioscreators.com/luh/portifolio/",
+  si: "https://negocioscreators.com/luh/portifolio/si/",
+  viagem: "https://negocioscreators.com/luanacaper/portifolio/ugc/"
+};
+const ROTULO_SITE_UTM = {
+  geral: "Portfólio Geral",
+  si: "Portfólio SI (influencer)",
+  viagem: "Portfolio Viagem"
+};
+const PORTFOLIOS_VIDEO = ["todos", "geral", "si", "nenhum"];
+const ROTULO_PORTFOLIO_VIDEO = {
+  todos: "Todos (Geral + SI)",
+  geral: "Só Portfólio Geral",
+  si: "Só Portfólio SI (influencer)",
+  nenhum: "Nenhum (fica oculto nos dois)"
+};
+/* De onde a marca entrou na base */
+const ORIGENS = ["portfolio", "claude_chrome", "manual"];
+const ROTULO_ORIGEM = { portfolio: "Portfólio (formulário do site)", claude_chrome: "Abordagem via Claude Chrome", manual: "Cadastro manual" };
+const ROTULO_ORIGEM_CURTO = { portfolio: "Portfólio", claude_chrome: "Claude Chrome", manual: "Manual" };
+
+/* CRM: as casas do pipeline (Perdido fica no fim, fora do caminho principal) */
+const ETAPAS_CRM = ["a_enviar", "enviado", "respondeu", "proposta", "fechado", "perdido"];
+const ROTULO_ETAPA = { a_enviar: "A enviar", enviado: "Enviado", respondeu: "Respondeu", proposta: "Proposta", fechado: "Fechado", perdido: "Perdido" };
+const DICA_ETAPA = {
+  a_enviar: "Está na lista, ainda não recebeu nada.",
+  enviado: "Recebeu sua mensagem, com data.",
+  respondeu: "Voltou. Agora é conversa.",
+  proposta: "Pediu valor e escopo.",
+  fechado: "Virou trabalho pago.",
+  perdido: "Disse não ou sumiu."
+};
+const RESPONSAVEIS = ["Luana", "Heuller", "Chely"];
+const CAMPANHAS_SUGERIDAS = ["Abordagens Tech", "Black Friday", "Natal"];
+const PRIORIDADES = ["alta", "media", "baixa"];
+const ROTULO_PRIORIDADE = { alta: "Alta", media: "Média", baixa: "Baixa" };
+/* Nicho da marca = os mesmos nichos do Portfólio Geral, pra filtrar marca e funil igual */
+const NICHOS_MARCA = ["", ...NICHOS_GERAL, "outro"];
+const ROTULO_NICHO_MARCA = Object.assign({ "": "Sem nicho", outro: "Outro" }, ROTULO_NICHO);
+const nichoCurto = n => ({ "gastronomia-assinaturas": "Alimentação", "casa-decoracao": "Casa", "beleza-saude": "Beleza e saúde", "tech-infoprodutos": "Tech e apps", "viagem": "Viagem", outro: "Outro" })[n] || "";
+const CANAIS_ABORDAGEM = ["LinkedIn", "E-mail", "DM Instagram", "WhatsApp", "Formulário da marca", "TikTok", "Outro"];
+
+/* Cadência do primeiro contato (enquanto a marca está em "A enviar" ou "Enviado").
+   LinkedIn primeiro (decisor pelo nome), Instagram como reforço, e-mail como último recurso.
+   WhatsApp nunca abre conversa: só depois que o decisor passar o número.
+   "espera" = dias até o próximo passo depois que este for feito. */
+const CADENCIA = [
+  null,
+  { canal: "LinkedIn", acao: "Pedir conexão no LinkedIn com nota curta + seguir a marca no Instagram", espera: 2, linkedin: true },
+  { canal: "DM Instagram", acao: "DM no Instagram da marca com 1 vídeo seu do mesmo nicho", acaoSemDecisor: "DM no Instagram da marca perguntando quem cuida de creators + 1 vídeo seu", espera: 4 },
+  { canal: "LinkedIn", acao: "Follow-up no LinkedIn com o link do portfólio", espera: 3, linkedin: true },
+  { canal: "E-mail", acao: "E-mail pedindo que encaminhem ao time de marketing", espera: 7 },
+  { canal: "Outro", acao: "Sem resposta: mover para Perdido ou pausar 30 dias e tentar de novo", espera: 0 }
+];
+const ULTIMO_PASSO = CADENCIA.length - 1;
+/* O que fazer automaticamente quando o card muda de etapa na mão */
+const PASSO_DA_ETAPA = {
+  respondeu: { texto: "Responder em até 24h: portfólio + ideia de vídeo pra marca", dias: 1 },
+  proposta: { texto: "Cobrar retorno da proposta", dias: 3 },
+  fechado: { texto: "Combinar briefing, prazo e data de entrega", dias: 1 }
+};
+
+const ABAS = {
+  videos: {
+    rotulo: "Vídeos", tabela: "videos", ordem: "ordem.asc,created_at.asc", novo: "Novo vídeo",
+    dica: "Os vídeos daqui aparecem no site, na seção Vídeos Experiências Narradas.",
+    campos: [
+      { k: "titulo", r: "Título", t: "text", obrig: true },
+      { k: "local", r: "Local (cidade)", t: "text" },
+      { k: "link", r: "Link do vídeo", t: "text", obrig: true, dica: "Cole o link do YouTube (Shorts ou normal) ou do TikTok (com /video/ no endereço)." },
+      { k: "ordem", r: "Ordem na página (1 aparece primeiro)", t: "number" },
+      { k: "publicado", r: "Mostrar no site", t: "check" }
+    ]
+  },
+  marcas: {
+    rotulo: "Marcas e contatos", tabela: "marcas", ordem: "created_at.desc", novo: "Nova marca",
+    dica: "Toda marca da base. Quem preenche o formulário do site entra com origem \"Portfólio\"; as que o Claude pesquisou no Chrome entram como \"Abordagem via Claude Chrome\". A abordagem em si anda na aba CRM.",
+    campos: [
+      { k: "nome", r: "Marca", t: "text", obrig: true },
+      { k: "origem_base", r: "Origem (de onde a marca entrou na base)", t: "select", opcoes: ORIGENS, rotulos: ROTULO_ORIGEM },
+      { k: "nicho", r: "Nicho", t: "select", opcoes: NICHOS_MARCA, rotulos: ROTULO_NICHO_MARCA },
+      { k: "instagram", r: "Instagram", t: "text", dica: "Sem @, ex: pousadaexemplo" },
+      { k: "email", r: "E-mail", t: "text", dica: "Pode ter mais de um, separado por |" },
+      { k: "telefone", r: "Telefone ou WhatsApp", t: "text" },
+      { k: "status", r: "Situação", t: "select", opcoes: STATUS_MARCA, rotulos: ROTULO_STATUS },
+      { k: "ultimo_contato", r: "Último contato", t: "date" },
+      { k: "categoria", r: "Categoria", t: "text" },
+      { k: "seguidores", r: "Seguidores no Instagram", t: "text", dica: "Ex.: 64,4 mil" },
+      { k: "site", r: "Site / link do serviço", t: "text" },
+      { k: "biblioteca_anuncios", r: "Link da Biblioteca de Anúncios", t: "text" },
+      { k: "tiktok", r: "TikTok (link)", t: "text" },
+      { k: "linkedin", r: "LinkedIn da empresa (link)", t: "text" },
+      { k: "mensagem", r: "Mensagem que a pessoa enviou", t: "textarea" },
+      { k: "observacoes", r: "Observação", t: "textarea" }
+    ]
+  },
+  crm: {
+    rotulo: "CRM (pipeline)", tabela: "crm", ordem: "updated_at.desc", novo: "Novo card",
+    dica: "Toda marca anda por estas casas. O status te diz o que fazer amanhã de manhã, sem precisar lembrar de nada.",
+    campos: [
+      { k: "marca", r: "Marca", t: "text", obrig: true },
+      { k: "etapa", r: "Etapa", t: "select", opcoes: ETAPAS_CRM, rotulos: ROTULO_ETAPA },
+      { k: "responsavel", r: "Responsável", t: "select", opcoes: RESPONSAVEIS },
+      { k: "nicho", r: "Nicho", t: "select", opcoes: NICHOS_MARCA, rotulos: ROTULO_NICHO_MARCA, dica: "Em branco = usa o nicho cadastrado na aba Marcas." },
+      { k: "campanha", r: "Campanha / estratégia", t: "lista", sugestoes: CAMPANHAS_SUGERIDAS, dica: "Escolha uma ou escreva uma nova (ex.: Dia das Mães, Volta às aulas)." },
+      { k: "prioridade", r: "Prioridade", t: "select", opcoes: PRIORIDADES, rotulos: ROTULO_PRIORIDADE },
+      { k: "contato_nome", r: "Decisor (nome)", t: "text", dica: "Analista, coordenador ou gerente de marketing. Não o dono." },
+      { k: "contato_cargo", r: "Cargo do decisor", t: "text" },
+      { k: "contato_linkedin", r: "LinkedIn do decisor", t: "text" },
+      { k: "contato_email", r: "E-mail do decisor", t: "text" },
+      { k: "contato_whatsapp", r: "WhatsApp do decisor", t: "text" },
+      { k: "outros_contatos", r: "Outros contatos (reserva)", t: "textarea" },
+      { k: "canal_abordagem", r: "Canal da abordagem", t: "select", opcoes: CANAIS_ABORDAGEM },
+      { k: "data_envio", r: "Data do envio", t: "date", dica: "Preenche sozinho quando o card vai para \"Enviado\"." },
+      { k: "proximo_passo", r: "Próximo passo", t: "text" },
+      { k: "data_proximo_passo", r: "Data do próximo passo", t: "date" },
+      { k: "valor", r: "Valor da proposta (R$)", t: "number" },
+      { k: "origem", r: "Origem", t: "select", opcoes: ORIGENS, rotulos: ROTULO_ORIGEM },
+      { k: "passo_cadencia", r: "Passo da cadência (1 a 5)", t: "number", dica: "1 LinkedIn · 2 DM Instagram · 3 follow-up LinkedIn · 4 e-mail · 5 decidir. O botão \"✓ Feito\" do card avança sozinho." },
+      { k: "programa_link", r: "Programa / formulário de creators da marca", t: "text", dica: "Se a marca tem inscrição aberta pra creators, cole o link: aparece um lembrete no card até você marcar como inscrita." },
+      { k: "programa_inscrito", r: "Já me inscrevi no programa", t: "check" },
+      { k: "comentario_ig_post", r: "Post do Instagram pra comentar (aquecimento)", t: "text", dica: "Link do post da marca em que vale deixar um comentário sincero antes da DM." },
+      { k: "comentario_ig", r: "Comentário sugerido no Instagram", t: "textarea", dica: "Curto, sincero e sem pedir nada. Aparece no card com o botão que copia e abre o post." },
+      { k: "comentario_ig_feito", r: "Já comentei", t: "check" },
+      { k: "arquivado", r: "Arquivada (sai do funil até a data de retomar)", t: "check" },
+      { k: "retomar_em", r: "Retomar contato em", t: "date" },
+      { k: "motivo_arquivo", r: "Por que arquivei", t: "textarea" },
+      { k: "historico", r: "Histórico de toques", t: "textarea", dica: "Preenchido sozinho pelo \"✓ Feito\". Pode escrever à mão também (uma linha por toque)." },
+      { k: "observacoes", r: "Observações", t: "textarea" }
+    ]
+  },
+  metricas: {
+    rotulo: "Métricas do portfólio", tabela: "metricas", ordem: "created_at.desc",
+    dica: "Quantas pessoas abriram o portfólio, o que mais olharam e de onde vieram — o que te diz qual nicho está puxando mais."
+  },
+  calendario: {
+    rotulo: "Calendário", tabela: "calendario", ordem: "data.asc", novo: "Novo compromisso",
+    dica: "Gravações, postagens, reuniões e entregas em ordem de data.",
+    campos: [
+      { k: "data", r: "Data", t: "date", obrig: true },
+      { k: "titulo", r: "O que é", t: "text", obrig: true },
+      { k: "tipo", r: "Tipo", t: "select", opcoes: ["gravação", "postagem", "reunião", "entrega", "outro"] },
+      { k: "marca", r: "Marca ou local", t: "text" },
+      { k: "feito", r: "Já foi feito", t: "check" }
+    ]
+  },
+  campanhas: {
+    rotulo: "Campanhas", tabela: "campanhas", ordem: "created_at.desc", novo: "Nova campanha",
+    dica: "Campanhas em andamento e o resultado de cada uma.",
+    campos: [
+      { k: "nome", r: "Nome da campanha", t: "text", obrig: true },
+      { k: "marca", r: "Marca", t: "text" },
+      { k: "status", r: "Status", t: "select", opcoes: ["planejada", "em andamento", "concluída"] },
+      { k: "inicio", r: "Início", t: "date" },
+      { k: "fim", r: "Fim", t: "date" },
+      { k: "resultado", r: "Resultado", t: "textarea" }
+    ]
+  },
+  videos_geral: {
+    rotulo: "Vídeos (Geral)", tabela: "videos_geral", ordem: "ordem.asc,created_at.asc", novo: "Novo vídeo",
+    dica: "Catálogo por nicho do Portfólio Geral. Sem link ainda? Deixa em branco que aparece como \"Em breve\". A \"Marca\" é o que aparece em destaque na miniatura pro público; \"Título\" e \"Nota\" são só pra você se localizar aqui no painel.",
+    campos: [
+      { k: "titulo", r: "Título (uso interno, não aparece no site)", t: "text", obrig: true },
+      { k: "marca", r: "Marca (aparece na miniatura, pro público)", t: "text", obrig: true },
+      { k: "nicho", r: "Nicho", t: "select", opcoes: NICHOS_GERAL, rotulos: ROTULO_NICHO },
+      { k: "nota", r: "Nota interna (ex.: ROAS 7,54)", t: "text" },
+      { k: "link", r: "Link do vídeo (opcional)", t: "text", dica: "Cole o link do YouTube (Shorts ou normal) ou do TikTok (com /video/ no endereço). Em branco = \"Em breve\"." },
+      { k: "ordem", r: "Ordem na página (1 aparece primeiro)", t: "number" },
+      { k: "portfolio", r: "Em qual portfólio aparece", t: "select", opcoes: PORTFOLIOS_VIDEO, rotulos: ROTULO_PORTFOLIO_VIDEO, dica: "Todos = aparece no Geral e no SI. Nenhum = fica escondido nos dois (rascunho)." },
+      { k: "publicado", r: "Mostrar no site", t: "check" }
+    ]
+  },
+  marcas_logos: {
+    rotulo: "Marcas (logos)", tabela: "marcas_logos", ordem: "ordem.asc,created_at.asc", novo: "Nova logo",
+    dica: "Carrossel \"Marcas que confiaram no meu trabalho\". Pra marca nova, além de cadastrar aqui, manda o arquivo da imagem pra colocar em img/marcas/.",
+    campos: [
+      { k: "nome", r: "Nome da marca", t: "text", obrig: true },
+      { k: "arquivo", r: "Arquivo da imagem", t: "text", obrig: true, dica: "Só o nome do arquivo, ex.: milky-moo.png (sem img/marcas/ na frente)." },
+      { k: "fundo", r: "Cor do selo de fundo (opcional)", t: "text", dica: "Só pra logo clara/branca que some no fundo claro. Ex.: #14130f. Em branco = sem selo." },
+      { k: "tamanho", r: "Tamanho do selo", t: "select", opcoes: TAMANHO_BADGE, rotulos: ROTULO_TAMANHO },
+      { k: "ordem", r: "Ordem no carrossel", t: "number" },
+      { k: "publicado", r: "Mostrar no site", t: "check" }
+    ]
+  },
+  depoimentos_geral: {
+    rotulo: "Depoimentos", tabela: "depoimentos_geral", ordem: "ordem.asc,created_at.asc", novo: "Novo depoimento",
+    dica: "Seção \"O que dizem sobre o trabalho\" do Portfólio Geral.",
+    campos: [
+      { k: "marca", r: "Marca", t: "text", obrig: true },
+      { k: "texto", r: "Depoimento", t: "textarea", obrig: true },
+      { k: "ctx", r: "Linha de contexto (ex.: ROAS 7,54)", t: "text" },
+      { k: "ordem", r: "Ordem na página", t: "number" },
+      { k: "publicado", r: "Mostrar no site", t: "check" }
+    ]
+  },
+  servicos_geral: {
+    rotulo: "Serviços", tabela: "servicos_geral", ordem: "ordem.asc,created_at.asc", novo: "Novo serviço",
+    dica: "Seção \"O que podemos criar juntos?\" do Portfólio Geral.",
+    campos: [
+      { k: "titulo", r: "Título do serviço", t: "text", obrig: true },
+      { k: "texto", r: "Descrição curta", t: "textarea", obrig: true },
+      { k: "ordem", r: "Ordem na página", t: "number" },
+      { k: "publicado", r: "Mostrar no site", t: "check" }
+    ]
+  },
+  links_utm: {
+    rotulo: "Links UTM", tabela: "links_utm", ordem: "created_at.desc", novo: "Novo link",
+    dica: "Gera um link rastreável. Toda visita por ele aparece na aba Métricas, em \"De onde vieram\", com o nome que você der aqui.",
+    campos: [
+      { k: "nome", r: "Nome (só pra você identificar)", t: "text", obrig: true, dica: "Ex.: Inscrição no diretório XPTO" },
+      { k: "site", r: "Qual portfólio", t: "select", opcoes: Object.keys(SITES_UTM), rotulos: ROTULO_SITE_UTM },
+      { k: "fonte", r: "Origem · utm_source", t: "text", obrig: true, dica: "De onde vem o tráfego. Sem espaço/acento. Ex.: instagram, laradam-ugc, newsletter. Esse é o que aparece em Métricas → De onde vieram." },
+      { k: "meio", r: "Meio · utm_medium", t: "text", dica: "Que TIPO de canal é. Ex.: social, email, bio, parceria, organico, pago. Opcional." },
+      { k: "campanha", r: "Campanha · utm_campaign", t: "text", dica: "Nome da ação específica que gerou o link. Ex.: lancamento-novembro, black-friday-2026. Opcional." },
+      { k: "conteudo", r: "Conteúdo · utm_content", t: "text", dica: "Qual peça ou botão especificamente — útil quando o mesmo link aparece em 2 lugares diferentes. Ex.: botao-topo, story-1, link-bio. Opcional." },
+      { k: "termo", r: "Termo · utm_term", t: "text", dica: "Palavra-chave — só faz sentido em anúncio de busca paga (Google Ads). Pode deixar em branco na maioria das vezes." }
+    ]
+  }
+};
+const GRUPOS = [
+  { titulo: "Marcas e prospecção", abas: ["marcas", "crm"] },
+  { titulo: "Viagem (Portfolio UGC)", abas: ["videos", "metricas", "calendario", "campanhas"] },
+  { titulo: "Geral", abas: ["videos_geral", "marcas_logos", "depoimentos_geral", "servicos_geral"] },
+  { titulo: "Ferramentas", abas: ["links_utm"] }
+];
+
+/* ---------- utilidades ---------- */
+const app = document.getElementById("app");
+function el(tag, attrs, filhos) {
+  const n = document.createElement(tag);
+  for (const k in (attrs || {})) {
+    const v = attrs[k];
+    if (v === false || v == null) continue;
+    if (k === "class") n.className = v;
+    else if (k === "text") n.textContent = v;
+    else n.setAttribute(k, v === true ? "" : v);
+  }
+  (filhos || []).forEach(f => f != null && n.append(f));
+  return n;
+}
+const limpar = n => { n.replaceChildren(); return n; };
+const dataBR = s => s ? new Date(s + "T12:00:00").toLocaleDateString("pt-BR") : "";
+
+/* ---------- sessão e chamadas ao Supabase ---------- */
+let sessao = null;
+try { sessao = JSON.parse(localStorage.getItem(CHAVE_SESSAO)); } catch (e) {}
+function salvarSessao(s) {
+  sessao = s;
+  try { s ? localStorage.setItem(CHAVE_SESSAO, JSON.stringify(s)) : localStorage.removeItem(CHAVE_SESSAO); } catch (e) {}
+}
+async function auth(tipo, corpo) {
+  const r = await fetch(SB.url + "/auth/v1/token?grant_type=" + tipo, { method: "POST", headers: { apikey: SB.chave, "Content-Type": "application/json" }, body: JSON.stringify(corpo) });
+  const d = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(d.error_description || d.msg || d.message || "Não foi possível entrar.");
+  return d;
+}
+function guardar(d) {
+  salvarSessao({ acesso: d.access_token, renovar: d.refresh_token, expira: Date.now() + Math.max(d.expires_in - 30, 30) * 1000, email: (d.user && d.user.email) || (sessao && sessao.email) || "" });
+}
+async function tokenValido() {
+  if (!sessao) return null;
+  if (Date.now() > sessao.expira) {
+    try { guardar(await auth("refresh_token", { refresh_token: sessao.renovar })); }
+    catch (e) { salvarSessao(null); return null; }
+  }
+  return sessao.acesso;
+}
+async function rest(caminho, opc) {
+  const o = opc || {};
+  const token = await tokenValido();
+  if (!token) throw new Error("sessao");
+  const h = { apikey: SB.chave, Authorization: "Bearer " + token, "Content-Type": "application/json" };
+  if (o.retorno) h.Prefer = "return=" + o.retorno;
+  const r = await fetch(SB.url + "/rest/v1/" + caminho, { method: o.metodo || "GET", headers: h, body: o.corpo !== undefined ? JSON.stringify(o.corpo) : undefined });
+  if (r.status === 401) { salvarSessao(null); throw new Error("sessao"); }
+  if (!r.ok) { const d = await r.json().catch(() => ({})); throw new Error(d.message || "Erro " + r.status); }
+  return r.status === 204 ? null : r.json().catch(() => null);
+}
+
+/* ---------- links de vídeo ---------- */
+function lerVideo(link) {
+  const t = String(link || "").trim();
+  let m = t.match(/(?:youtu\.be\/|youtube\.com\/(?:shorts\/|embed\/|live\/)|[?&]v=)([A-Za-z0-9_-]{11})/);
+  if (m) return { plataforma: "yt", video_id: m[1] };
+  m = t.match(/tiktok\.com\/(?:@[\w.\-]+\/)?(?:video|player\/v1)\/(\d{8,25})/);
+  if (m) return { plataforma: "tt", video_id: m[1] };
+  return null;
+}
+const linkDoVideo = v => v.plataforma === "tt" ? "https://www.tiktok.com/video/" + v.video_id : "https://www.youtube.com/shorts/" + v.video_id;
+
+/* ---------- telas ---------- */
+function telaLogin(erro) {
+  limpar(app);
+  const msg = el("div", { class: "aviso erro", role: "alert", hidden: !erro, text: erro || "" });
+  const email = el("input", { id: "l-email", type: "email", autocomplete: "username", required: true });
+  const senha = el("input", { id: "l-senha", type: "password", autocomplete: "current-password", required: true });
+  const botao = el("button", { class: "btn", type: "submit", text: "Entrar", style: "width:100%" });
+  const form = el("form", {}, [
+    msg,
+    el("div", { class: "campo" }, [el("label", { for: "l-email", text: "E-mail" }), email]),
+    el("div", { class: "campo" }, [el("label", { for: "l-senha", text: "Senha" }), senha]),
+    botao
+  ]);
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    botao.disabled = true; botao.textContent = "Entrando...";
+    try {
+      guardar(await auth("password", { email: email.value.trim(), password: senha.value }));
+      const admin = await rest("rpc/is_admin", { metodo: "POST", corpo: {} });
+      if (admin !== true) { salvarSessao(null); throw new Error("Esse usuário entrou, mas ainda não tem permissão de administrador. Peça para liberar o acesso."); }
+      telaPainel();
+    } catch (err) {
+      salvarSessao(null);
+      msg.hidden = false;
+      msg.textContent = err.message === "Invalid login credentials" ? "E-mail ou senha incorretos." : err.message;
+      botao.disabled = false; botao.textContent = "Entrar";
+    }
+  });
+  app.append(el("div", { class: "login" }, [el("div", { class: "cartao" }, [
+    el("span", { class: "logo", "aria-hidden": "true", text: "L" }),
+    el("h1", { text: "Admin dos portfólios" }),
+    el("p", { class: "sub", text: "Área só para a Luana. Entre para editar o conteúdo dos dois portfólios, contatos, calendário e campanhas." }),
+    form
+  ])]));
+  email.focus();
+}
+
+function telaPainel() {
+  limpar(app);
+  let atual = "videos";
+  const conteudo = el("div", {});
+  const itensNav = [];
+  const lateralGrupos = el("div", { class: "lateral-grupos", role: "tablist", "aria-label": "Seções do admin", "aria-orientation": "vertical" });
+  GRUPOS.forEach(g => {
+    const grupo = el("div", { class: "lateral-grupo" }, [el("div", { class: "lateral-grupo-titulo", text: g.titulo })]);
+    g.abas.forEach(k => {
+      const b = el("button", { class: "lateral-item", role: "tab", type: "button", text: ABAS[k].rotulo, "aria-selected": String(k === atual) });
+      b.addEventListener("click", () => {
+        atual = k;
+        itensNav.forEach(x => x.setAttribute("aria-selected", String(x === b)));
+        mostrarAba(conteudo, k);
+      });
+      itensNav.push(b);
+      grupo.append(b);
+    });
+    lateralGrupos.append(grupo);
+  });
+  const sair = el("button", { class: "btn contorno mini", type: "button", text: "Sair" });
+  sair.addEventListener("click", () => { salvarSessao(null); telaLogin(); });
+  const lateral = el("div", { class: "lateral" }, [
+    el("div", { class: "lateral-marca" }, [
+      el("span", { class: "logo", "aria-hidden": "true", text: "L" }),
+      el("div", {}, [el("h1", { text: "Admin dos portfólios" }), el("small", { text: sessao && sessao.email ? sessao.email : "" })])
+    ]),
+    lateralGrupos,
+    el("div", { class: "lateral-rodape" }, [
+      el("div", { class: "lateral-sites" }, Object.keys(SITES_UTM).map(k =>
+        el("a", { class: "btn contorno mini", href: SITES_UTM[k], target: "_blank", rel: "noopener", text: "Ver · " + (ROTULO_SITE_UTM[k] || k) })
+      )),
+      sair
+    ])
+  ]);
+  app.append(el("div", { class: "painel-layout" }, [
+    lateral,
+    el("div", { class: "principal" }, [el("div", { class: "wrap" }, [conteudo])])
+  ]));
+  mostrarAba(conteudo, atual);
+}
+
+/* Mapa fixo dos portfólios: endereço de cada um, pra copiar sem precisar criar um link UTM pra isso. */
+function mapaUtm() {
+  const linhas = Object.keys(SITES_UTM).map(k => {
+    const url = SITES_UTM[k];
+    const copiar = el("button", { class: "btn contorno mini", type: "button", text: "Copiar" });
+    copiar.addEventListener("click", () => {
+      navigator.clipboard.writeText(url).then(() => {
+        copiar.textContent = "Copiado!";
+        setTimeout(() => { copiar.textContent = "Copiar"; }, 1600);
+      });
+    });
+    return el("div", { class: "item" }, [
+      el("div", { class: "item-cab" }, [el("div", { class: "item-txt" }, [el("b", { text: ROTULO_SITE_UTM[k] || k }), el("span", { text: url })])]),
+      el("div", { class: "item-acoes" }, [copiar])
+    ]);
+  });
+  return el("div", { class: "mapa-utm" }, [
+    el("h3", { text: "Mapa dos seus portfólios" }),
+    el("p", { class: "dica", text: "Endereço de cada portfólio, sem UTM — pra quando você só precisa do link puro." }),
+    el("div", { class: "lista" }, linhas)
+  ]);
+}
+
+async function mostrarAba(raiz, chave) {
+  if (chave === "marcas") return mostrarMarcas(raiz);
+  if (chave === "crm") return mostrarCRM(raiz);
+  if (chave === "metricas") return mostrarMetricas(raiz);
+  const aba = ABAS[chave];
+  limpar(raiz);
+  const aviso = el("div", { class: "aviso", hidden: true, role: "status" });
+  const lista = el("div", { class: "lista" }, [el("div", { class: "vazio", text: "Carregando..." })]);
+  const novo = el("button", { class: "btn", type: "button", text: "+ " + aba.novo });
+  raiz.append(el("div", { class: "barra" }, [el("p", { text: aba.dica }), novo]), aviso, lista);
+  if (chave === "links_utm") raiz.insertBefore(mapaUtm(), aviso);
+
+  const falar = (texto, tipo) => { aviso.hidden = false; aviso.className = "aviso " + (tipo || "ok"); aviso.textContent = texto; };
+  let linhas = [];
+  async function carregar() {
+    try {
+      linhas = await rest(aba.tabela + "?select=*&order=" + aba.ordem) || [];
+      desenhar();
+    } catch (e) { tratarErro(e); }
+  }
+  function tratarErro(e) {
+    if (e.message === "sessao") { telaLogin("Sua sessão expirou. Entre de novo."); return; }
+    falar(e.message, "erro");
+    if (!linhas.length) limpar(lista);
+  }
+  async function salvar(id, dados) {
+    try {
+      if (id) await rest(aba.tabela + "?id=eq." + id, { metodo: "PATCH", corpo: dados, retorno: "minimal" });
+      else await rest(aba.tabela, { metodo: "POST", corpo: dados, retorno: "minimal" });
+      falar("Salvo.", "ok");
+      await carregar();
+      return true;
+    } catch (e) { tratarErro(e); return false; }
+  }
+  async function excluir(l) {
+    if (!confirm("Excluir \"" + (l.titulo || l.nome || l.marca || "este item") + "\"? Não dá para desfazer.")) return;
+    try { await rest(aba.tabela + "?id=eq." + l.id, { metodo: "DELETE", retorno: "minimal" }); falar("Excluído.", "ok"); await carregar(); }
+    catch (e) { tratarErro(e); }
+  }
+
+  function desenhar() {
+    limpar(lista);
+    if (!linhas.length) { lista.append(el("div", { class: "vazio", text: "Nada por aqui ainda. Toque em \"+ " + aba.novo + "\"." })); return; }
+    linhas.forEach(l => lista.append(cartaoDe(chave, l, { salvar, excluir, editar: () => abrirFormulario(aba, l, salvar, linhas) })));
+  }
+  novo.addEventListener("click", () => abrirFormulario(aba, null, salvar, linhas));
+  carregar();
+}
+
+/* Aba "Marcas e contatos": planilha em vez de cartões — busca, filtro por situação e CSV */
+async function mostrarMarcas(raiz) {
+  const aba = ABAS.marcas;
+  limpar(raiz);
+  const aviso = el("div", { class: "aviso", hidden: true, role: "status" });
+  const novo = el("button", { class: "btn", type: "button", text: "+ " + aba.novo });
+  const busca = el("input", { type: "search", placeholder: "Buscar por marca, Instagram, e-mail, telefone ou observação", "aria-label": "Buscar marcas" });
+  const filtro = el("select", { "aria-label": "Filtrar por situação" }, [
+    el("option", { value: "", text: "Todas as situações" }),
+    ...STATUS_MARCA.map(s => el("option", { value: s, text: ROTULO_STATUS[s] || s }))
+  ]);
+  const filtroOrigem = el("select", { "aria-label": "Filtrar por origem" }, [
+    el("option", { value: "", text: "Todas as origens" }),
+    ...ORIGENS.map(o => el("option", { value: o, text: ROTULO_ORIGEM[o] }))
+  ]);
+  const filtroNicho = el("select", { "aria-label": "Filtrar por nicho" }, [
+    el("option", { value: "*", text: "Todos os nichos" }),
+    ...NICHOS_MARCA.map(n => el("option", { value: n, text: ROTULO_NICHO_MARCA[n] }))
+  ]);
+  const csv = el("button", { class: "btn contorno mini", type: "button", text: "Baixar CSV" });
+  const corpo = el("tbody", {});
+  const tabela = el("table", { class: "planilha" }, [
+    el("thead", {}, [el("tr", {}, ["Marca", "Nicho", "Origem", "Canal", "Instagram", "E-mail", "Telefone", "Situação", "Observação", "Último contato", "Ações"].map(t => el("th", { text: t })))]),
+    corpo
+  ]);
+  raiz.append(
+    el("div", { class: "barra" }, [el("p", { text: aba.dica }), novo]),
+    aviso,
+    el("div", { class: "planilha-ferramentas" }, [busca, filtroNicho, filtroOrigem, filtro, csv]),
+    el("div", { class: "tabela-embrulho" }, [tabela])
+  );
+
+  const falar = (texto, tipo) => { aviso.hidden = false; aviso.className = "aviso " + (tipo || "ok"); aviso.textContent = texto; };
+  let linhas = [];
+  async function carregar() {
+    try { linhas = await rest(aba.tabela + "?select=*&order=" + aba.ordem) || []; redesenhar(); }
+    catch (e) { tratarErro(e); }
+  }
+  function tratarErro(e) {
+    if (e.message === "sessao") { telaLogin("Sua sessão expirou. Entre de novo."); return; }
+    falar(e.message, "erro");
+  }
+  async function salvar(id, dados) {
+    try {
+      if (id) await rest(aba.tabela + "?id=eq." + id, { metodo: "PATCH", corpo: dados, retorno: "minimal" });
+      else await rest(aba.tabela, { metodo: "POST", corpo: dados, retorno: "minimal" });
+      falar("Salvo.", "ok");
+      await carregar();
+      return true;
+    } catch (e) { tratarErro(e); return false; }
+  }
+  async function excluir(l) {
+    if (!confirm("Excluir \"" + (l.nome || "esta marca") + "\"? Não dá para desfazer.")) return;
+    try { await rest(aba.tabela + "?id=eq." + l.id, { metodo: "DELETE", retorno: "minimal" }); falar("Excluído.", "ok"); await carregar(); }
+    catch (e) { tratarErro(e); }
+  }
+
+  function filtradas() {
+    const termo = busca.value.trim().toLowerCase();
+    const status = filtro.value;
+    const origem = filtroOrigem.value;
+    return linhas.filter(l => {
+      if (status && l.status !== status) return false;
+      if (origem && (l.origem_base || "portfolio") !== origem) return false;
+      if (filtroNicho.value !== "*" && (l.nicho || "") !== filtroNicho.value) return false;
+      if (!termo) return true;
+      return [l.nome, l.canal, l.instagram, l.email, l.telefone, l.observacoes, l.categoria].some(v => String(v || "").toLowerCase().includes(termo));
+    });
+  }
+
+  function linhaDe(l) {
+    const sel = el("select", { "aria-label": "Situação de " + l.nome }, STATUS_MARCA.map(s => el("option", { value: s, text: ROTULO_STATUS[s] || s, selected: s === l.status })));
+    sel.addEventListener("change", () => salvar(l.id, { status: sel.value }));
+    const fone = String(l.telefone || "").replace(/\D/g, "");
+    const celTelefone = fone.length >= 10
+      ? el("a", { href: "https://wa.me/" + (fone.length <= 11 ? "55" : "") + fone, target: "_blank", rel: "noopener noreferrer", text: l.telefone })
+      : document.createTextNode(l.telefone || "—");
+    const emails = String(l.email || "").split("|").map(s => s.trim()).filter(Boolean);
+    const celEmail = emails.length ? el("div", { class: "pilha" }, emails.map(m => el("a", { href: "mailto:" + m, text: m }))) : document.createTextNode("—");
+    const handle = l.instagram ? l.instagram.replace(/^@/, "") : "";
+    const celInstagram = handle ? el("div", { class: "pilha" }, [
+      el("a", { href: "https://instagram.com/" + handle, target: "_blank", rel: "noopener noreferrer", text: "@" + handle }),
+      l.seguidores ? el("small", { text: l.seguidores + " seguidores" }) : null
+    ]) : document.createTextNode("—");
+    const links = [["Site", l.site], ["Anúncios", l.biblioteca_anuncios], ["TikTok", l.tiktok], ["LinkedIn", l.linkedin]]
+      .filter(x => x[1] && /^https?:/.test(x[1]))
+      .map(x => el("a", { href: x[1], target: "_blank", rel: "noopener noreferrer", text: x[0] }));
+    const celMarca = el("td", {}, [
+      el("b", { text: l.nome || "—" }),
+      l.categoria ? el("small", { class: "sub-celula", text: l.categoria }) : null,
+      links.length ? el("div", { class: "mini-links" }, links) : null
+    ]);
+    const origem = l.origem_base || "portfolio";
+    const ed = el("button", { class: "btn contorno mini", type: "button", text: "Editar" });
+    ed.addEventListener("click", () => abrirFormulario(aba, l, salvar, linhas));
+    const paraCrm = el("button", { class: "btn contorno mini", type: "button", text: "→ CRM", title: "Criar um card dessa marca no pipeline" });
+    paraCrm.addEventListener("click", () => abrirFormulario(ABAS.crm, null, async (id, dados) => {
+      try { await rest("crm", { metodo: "POST", corpo: dados, retorno: "minimal" }); falar("Card criado no CRM para " + dados.marca + ".", "ok"); return true; }
+      catch (e) { tratarErro(e); return false; }
+    }, [], { marca: l.nome, origem, nicho: l.nicho || null, contato_email: emails[0] || null, contato_whatsapp: l.telefone || null }));
+    const ex = el("button", { class: "btn perigo mini", type: "button", text: "Excluir" });
+    ex.addEventListener("click", () => excluir(l));
+    return el("tr", {}, [
+      celMarca,
+      el("td", {}, [l.nicho ? el("span", { class: "selo nicho", text: nichoCurto(l.nicho) }) : document.createTextNode("—")]),
+      el("td", {}, [el("span", { class: "selo origem-" + origem, text: ROTULO_ORIGEM_CURTO[origem] || origem }), origem === "portfolio" && l.origem && l.origem !== "manual" ? el("small", { class: "sub-celula", text: "formulário: " + l.origem }) : null]),
+      el("td", { text: l.canal || "—" }),
+      el("td", {}, [celInstagram]),
+      el("td", {}, [celEmail]),
+      el("td", {}, [celTelefone]),
+      el("td", {}, [sel]),
+      el("td", { class: "obs", title: l.observacoes || "", text: l.observacoes || "—" }),
+      el("td", { text: l.ultimo_contato ? dataBR(l.ultimo_contato) : "—" }),
+      el("td", {}, [el("div", { class: "item-acoes" }, [ed, paraCrm, ex])])
+    ]);
+  }
+
+  function redesenhar() {
+    const vis = filtradas();
+    limpar(corpo);
+    if (!linhas.length) { corpo.append(el("tr", {}, [el("td", { colspan: 11, class: "vazio", text: "Nada por aqui ainda. Toque em \"+ " + aba.novo + "\"." })])); return; }
+    if (!vis.length) { corpo.append(el("tr", {}, [el("td", { colspan: 11, class: "vazio", text: "Nenhuma marca encontrada com esse filtro." })])); return; }
+    vis.forEach(l => corpo.append(linhaDe(l)));
+  }
+
+  function paraCSV() {
+    const cab = ["Marca", "Nicho", "Origem", "Categoria", "Canal", "Instagram", "Seguidores", "E-mail", "Telefone", "Situação", "Site", "Biblioteca de anúncios", "TikTok", "LinkedIn", "Observação", "Último contato"];
+    const esc = v => { const s = String(v == null ? "" : v).replace(/"/g, '""'); return /[",\n;]/.test(s) ? '"' + s + '"' : s; };
+    const corpoCSV = filtradas().map(l => [l.nome, ROTULO_NICHO_MARCA[l.nicho || ""], ROTULO_ORIGEM[l.origem_base || "portfolio"], l.categoria, l.canal, l.instagram, l.seguidores, l.email, l.telefone, ROTULO_STATUS[l.status] || l.status, l.site, l.biblioteca_anuncios, l.tiktok, l.linkedin, l.observacoes, l.ultimo_contato ? dataBR(l.ultimo_contato) : ""].map(esc).join(","));
+    return "﻿" + [cab.map(esc).join(","), ...corpoCSV].join("\r\n");
+  }
+
+  busca.addEventListener("input", redesenhar);
+  filtro.addEventListener("change", redesenhar);
+  filtroOrigem.addEventListener("change", redesenhar);
+  filtroNicho.addEventListener("change", redesenhar);
+  csv.addEventListener("click", () => {
+    if (!filtradas().length) { falar("Não há marcas para baixar com esse filtro.", "erro"); return; }
+    const blob = new Blob([paraCSV()], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = el("a", { href: url, download: "marcas-" + new Date().toISOString().slice(0, 10) + ".csv" });
+    document.body.append(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+  });
+  novo.addEventListener("click", () => abrirFormulario(aba, null, salvar, linhas));
+  carregar();
+}
+
+/* Aba "CRM": pipeline em colunas (as casas do caminho da marca), com filtro por responsável, campanha e prioridade */
+async function mostrarCRM(raiz) {
+  const aba = ABAS.crm;
+  limpar(raiz);
+  const aviso = el("div", { class: "aviso", hidden: true, role: "status" });
+  const novo = el("button", { class: "btn", type: "button", text: "+ " + aba.novo });
+  const busca = el("input", { type: "search", placeholder: "Buscar marca, decisor, cargo ou observação", "aria-label": "Buscar no CRM" });
+  const fResp = el("select", { "aria-label": "Filtrar por responsável" }, [el("option", { value: "", text: "Todos os responsáveis" }), ...RESPONSAVEIS.map(r => el("option", { value: r, text: r }))]);
+  const fCamp = el("select", { "aria-label": "Filtrar por campanha" });
+  const fPri = el("select", { "aria-label": "Filtrar por prioridade" }, [el("option", { value: "", text: "Todas as prioridades" }), ...PRIORIDADES.map(p => el("option", { value: p, text: ROTULO_PRIORIDADE[p] }))]);
+  const fNicho = el("select", { "aria-label": "Filtrar por nicho" }, [el("option", { value: "*", text: "Todos os nichos" }), ...NICHOS_MARCA.map(n => el("option", { value: n, text: ROTULO_NICHO_MARCA[n] }))]);
+  let visao = "funil";
+  const btFunil = el("button", { class: "lateral-item visao", type: "button", role: "tab", "aria-selected": "true", text: "Funil" });
+  const btArq = el("button", { class: "lateral-item visao", type: "button", role: "tab", "aria-selected": "false", text: "Arquivados" });
+  const visoes = el("div", { class: "visoes", role: "tablist", "aria-label": "Visão do CRM" }, [btFunil, btArq]);
+  const arquivo = el("div", { class: "arquivo-lista", hidden: true });
+  const csv = el("button", { class: "btn contorno mini", type: "button", text: "Baixar CSV" });
+  const resumo = el("div", { class: "metricas-cartoes" });
+  const agenda = el("details", { class: "agenda-hoje", open: true });
+  const quadro = el("div", { class: "kanban", role: "list" });
+  raiz.append(
+    el("div", { class: "barra" }, [el("p", { text: aba.dica }), novo]),
+    aviso,
+    visoes,
+    el("div", { class: "planilha-ferramentas" }, [busca, fNicho, fResp, fCamp, fPri, csv]),
+    resumo,
+    agenda,
+    quadro,
+    arquivo
+  );
+
+  const falar = (texto, tipo) => { aviso.hidden = false; aviso.className = "aviso " + (tipo || "ok"); aviso.textContent = texto; };
+  let linhas = [], marcas = {};
+  /* datas no fuso local (toISOString viraria o dia às 21h) */
+  const isoLocal = d => d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+  const hoje = () => isoLocal(new Date());
+  const somaDias = n => { const d = new Date(); d.setDate(d.getDate() + n); return isoLocal(d); };
+
+  /* ---- cadência ---- */
+  const temDecisor = l => !!(l.contato_linkedin && /linkedin\.com/i.test(l.contato_linkedin));
+  const valePasso = (l, i) => i >= 1 && i <= ULTIMO_PASSO && (!CADENCIA[i].linkedin || temDecisor(l));
+  const proximoValido = (l, depoisDe) => { for (let i = depoisDe + 1; i <= ULTIMO_PASSO; i++) if (valePasso(l, i)) return i; return ULTIMO_PASSO; };
+  const passoAtual = l => { const n = l.passo_cadencia || 1; return valePasso(l, n) ? n : proximoValido(l, n - 1); };
+  const textoPasso = (l, i) => (i === 2 && !temDecisor(l) && CADENCIA[2].acaoSemDecisor) || CADENCIA[i].acao;
+  const emCadencia = l => ["a_enviar", "enviado"].includes(l.etapa || "a_enviar") && (l.passo_cadencia || 1) <= ULTIMO_PASSO;
+  const anotar = (l, texto) => (dataBR(hoje()) + " · " + texto + (l.historico ? "\n" + l.historico : "")).slice(0, 8000);
+
+  async function concluirPasso(l) {
+    const n = passoAtual(l);
+    const dados = { historico: anotar(l, CADENCIA[n].canal + " · " + textoPasso(l, n)) };
+    const m = proximoValido(l, n);
+    dados.passo_cadencia = m;
+    dados.proximo_passo = textoPasso(l, m);
+    dados.canal_abordagem = CADENCIA[m].canal === "Outro" ? l.canal_abordagem : CADENCIA[m].canal;
+    dados.data_proximo_passo = somaDias(CADENCIA[n].espera);
+    if ((l.etapa || "a_enviar") === "a_enviar") { dados.etapa = "enviado"; if (!l.data_envio) dados.data_envio = hoje(); }
+    if (await salvar(l.id, dados)) falar(l.marca + ": passo " + n + " feito. Próximo em " + dataBR(dados.data_proximo_passo) + ".", "ok");
+  }
+  async function pausar(l) {
+    const p = proximoValido(l, 0);
+    await salvar(l.id, { passo_cadencia: p, proximo_passo: "Recomeçar a cadência: " + textoPasso(l, p), canal_abordagem: CADENCIA[p].canal, data_proximo_passo: somaDias(30), historico: anotar(l, "Sem resposta na cadência, pausado por 30 dias") });
+  }
+  async function marcarPerdido(l) {
+    await salvar(l.id, { etapa: "perdido", proximo_passo: null, data_proximo_passo: null, historico: anotar(l, "Marcado como Perdido") });
+  }
+  async function mudarEtapa(l, etapa) {
+    const dados = { etapa, historico: anotar(l, "Etapa: " + (ROTULO_ETAPA[l.etapa] || l.etapa) + " → " + ROTULO_ETAPA[etapa]) };
+    const auto = PASSO_DA_ETAPA[etapa];
+    if (auto) { dados.proximo_passo = auto.texto; dados.data_proximo_passo = somaDias(auto.dias); }
+    if (etapa === "perdido") { dados.proximo_passo = null; dados.data_proximo_passo = null; }
+    await salvar(l.id, dados);
+  }
+  const nichoDe = l => l.nicho || ((marcas[(l.marca || "").toLowerCase()] || {}).nicho) || "";
+  const arquivada = l => !!l.arquivado;
+  const toques = l => String(l.historico || "").split("\n").filter(x => /LinkedIn|Instagram|E-mail|WhatsApp/.test(x)).length;
+  /* Arquivar: sai do funil e do "Pra fazer hoje" até a data de retomar */
+  function arquivar(l) {
+    const def = { novo: "Arquivar " + l.marca, campos: [
+      { k: "motivo_arquivo", r: "Por que está arquivando?", t: "textarea", dica: "Ex.: 4 toques sem resposta; disse que só fecha creator no 2º semestre." },
+      { k: "retomar_em", r: "Tentar de novo em", t: "date", dica: "Nessa data a marca volta pro seu \"Pra fazer hoje\" com o botão Reativar. Em branco = fica arquivada até você reativar." }
+    ] };
+    abrirFormulario(def, null, async (id, dados) => salvar(l.id, {
+      arquivado: true, arquivado_em: hoje(), retomar_em: dados.retomar_em, motivo_arquivo: dados.motivo_arquivo,
+      historico: anotar(l, "Arquivada" + (dados.motivo_arquivo ? ": " + dados.motivo_arquivo : "") + (dados.retomar_em ? " (retomar em " + dataBR(dados.retomar_em) + ")" : ""))
+    }), [], { retomar_em: somaDias(90), motivo_arquivo: toques(l) ? toques(l) + " toques sem fechar" : null });
+  }
+  async function reativar(l) {
+    const p = proximoValido(l, 0);
+    await salvar(l.id, {
+      arquivado: false, retomar_em: null, etapa: "a_enviar", passo_cadencia: p, proximo_passo: textoPasso(l, p),
+      canal_abordagem: CADENCIA[p].canal, data_proximo_passo: hoje(),
+      historico: anotar(l, "Reativada pra nova tentativa" + (l.campanha ? " (campanha anterior: " + l.campanha + ")" : ""))
+    });
+    falar(l.marca + " voltou pro funil em \"A enviar\". Se for outra campanha, troque no Editar.", "ok");
+  }
+  async function marcarInscrita(l) {
+    await salvar(l.id, { programa_inscrito: true, historico: anotar(l, "Inscrição feita no programa de creators da marca") });
+  }
+
+  async function carregar() {
+    try {
+      const [c, m] = await Promise.all([
+        rest("crm?select=*&order=" + aba.ordem),
+        rest("marcas?select=nome,instagram,email,biblioteca_anuncios,site,nicho").catch(() => [])
+      ]);
+      linhas = c || [];
+      marcas = {};
+      (m || []).forEach(x => { if (x.nome) marcas[x.nome.toLowerCase()] = x; });
+      montarFiltroCampanha();
+      redesenhar();
+    } catch (e) { tratarErro(e); }
+  }
+  function tratarErro(e) {
+    if (e.message === "sessao") { telaLogin("Sua sessão expirou. Entre de novo."); return; }
+    if (/relation|does not exist|crm/i.test(e.message) && !linhas.length) falar("A tabela do CRM ainda não existe no Supabase. Rode o arquivo migracao-crm-e-origem-marcas-2026-11-16.sql no SQL Editor.", "erro");
+    else falar(e.message, "erro");
+  }
+  async function salvar(id, dados) {
+    try {
+      if (dados.etapa === "enviado") {
+        const atual = id ? linhas.find(x => x.id === id) : null;
+        if (!dados.data_envio && !(atual && atual.data_envio)) dados.data_envio = hoje();
+      }
+      if (id) await rest(aba.tabela + "?id=eq." + id, { metodo: "PATCH", corpo: dados, retorno: "minimal" });
+      else await rest(aba.tabela, { metodo: "POST", corpo: dados, retorno: "minimal" });
+      falar("Salvo.", "ok");
+      await carregar();
+      return true;
+    } catch (e) { tratarErro(e); return false; }
+  }
+  async function excluir(l) {
+    if (!confirm("Excluir o card de \"" + l.marca + "\"? Não dá para desfazer.")) return;
+    try { await rest(aba.tabela + "?id=eq." + l.id, { metodo: "DELETE", retorno: "minimal" }); falar("Excluído.", "ok"); await carregar(); }
+    catch (e) { tratarErro(e); }
+  }
+
+  function montarFiltroCampanha() {
+    const atual = fCamp.value;
+    const nomes = new Set(CAMPANHAS_SUGERIDAS);
+    linhas.forEach(l => l.campanha && nomes.add(l.campanha));
+    limpar(fCamp).append(el("option", { value: "", text: "Todas as campanhas" }), ...[...nomes].map(n => el("option", { value: n, text: n, selected: n === atual })));
+  }
+
+  function filtradas() {
+    const termo = busca.value.trim().toLowerCase();
+    return linhas.filter(l => {
+      if (fResp.value && l.responsavel !== fResp.value) return false;
+      if (fCamp.value && l.campanha !== fCamp.value) return false;
+      if (fPri.value && l.prioridade !== fPri.value) return false;
+      if (fNicho.value !== "*" && nichoDe(l) !== fNicho.value) return false;
+      if (!termo) return true;
+      return [l.marca, l.contato_nome, l.contato_cargo, l.observacoes, l.proximo_passo, l.campanha].some(v => String(v || "").toLowerCase().includes(termo));
+    });
+  }
+
+  function cartao(l) {
+    const m = marcas[(l.marca || "").toLowerCase()] || {};
+    const atrasado = l.data_proximo_passo && l.data_proximo_passo < hoje() && !["fechado", "perdido"].includes(l.etapa);
+    const sel = el("select", { "aria-label": "Mover " + l.marca + " para" }, ETAPAS_CRM.map(e => el("option", { value: e, text: ROTULO_ETAPA[e], selected: e === l.etapa })));
+    sel.addEventListener("change", () => mudarEtapa(l, sel.value));
+    const ed = el("button", { class: "btn contorno mini", type: "button", text: "Editar" });
+    ed.addEventListener("click", () => abrirFormulario(aba, l, salvar, linhas));
+    const ex = el("button", { class: "btn perigo mini", type: "button", text: "Excluir" });
+    ex.addEventListener("click", () => excluir(l));
+    const arq = el("button", { class: "btn contorno mini", type: "button", text: "Arquivar" , title: "Tira do funil e guarda pra tentar em outra oportunidade" });
+    arq.addEventListener("click", () => arquivar(l));
+    const links = [];
+    if (l.contato_linkedin && /^https?:/.test(l.contato_linkedin)) links.push(el("a", { href: l.contato_linkedin, target: "_blank", rel: "noopener noreferrer", text: "LinkedIn" }));
+    if (l.contato_email) links.push(el("a", { href: "mailto:" + l.contato_email, text: "E-mail" }));
+    const zap = String(l.contato_whatsapp || "").replace(/\D/g, "");
+    if (zap.length >= 10) links.push(el("a", { href: "https://wa.me/" + (zap.length <= 11 ? "55" : "") + zap, target: "_blank", rel: "noopener noreferrer", text: "WhatsApp" }));
+    if (m.instagram) links.push(el("a", { href: "https://instagram.com/" + String(m.instagram).replace(/^@/, ""), target: "_blank", rel: "noopener noreferrer", text: "Instagram" }));
+    if (m.biblioteca_anuncios) links.push(el("a", { href: m.biblioteca_anuncios, target: "_blank", rel: "noopener noreferrer", text: "Anúncios" }));
+    return el("article", { class: "card-crm pri-" + (l.prioridade || "media"), role: "listitem" }, [
+      el("div", { class: "card-crm-topo" }, [
+        el("b", { text: l.marca }),
+        el("span", { class: "selo pri", text: ROTULO_PRIORIDADE[l.prioridade] || "—" })
+      ]),
+      l.contato_nome ? el("div", { class: "card-crm-contato" }, [el("span", { text: l.contato_nome }), l.contato_cargo ? el("small", { text: l.contato_cargo }) : null])
+        : el("div", { class: "card-crm-contato" }, [el("small", { text: "Sem decisor ainda" })]),
+      el("div", { class: "card-crm-selos" }, [
+        l.responsavel ? el("span", { class: "selo resp", text: l.responsavel }) : el("span", { class: "selo", text: "Sem responsável" }),
+        l.campanha ? el("span", { class: "selo camp", text: l.campanha }) : null,
+        nichoDe(l) ? el("span", { class: "selo nicho", text: nichoCurto(nichoDe(l)) }) : null,
+        l.origem ? el("span", { class: "selo origem-" + l.origem, text: ROTULO_ORIGEM_CURTO[l.origem] || l.origem }) : null,
+        l.canal_abordagem ? el("span", { class: "selo", text: l.canal_abordagem }) : null
+      ]),
+      l.proximo_passo || l.data_proximo_passo ? el("div", { class: "card-crm-prox" + (atrasado ? " atrasado" : "") }, [
+        el("small", { text: (atrasado ? "Atrasado · " : "Próximo passo") + (l.data_proximo_passo ? " · " + dataBR(l.data_proximo_passo) : "") }),
+        l.proximo_passo ? el("span", { text: l.proximo_passo }) : null
+      ]) : null,
+      emCadencia(l) ? blocoCadencia(l) : compositor(l, "livre", false),
+      l.programa_link && !l.programa_inscrito ? blocoPrograma(l) : null,
+      (l.comentario_ig || l.comentario_ig_post) && !l.comentario_ig_feito ? blocoComentario(l) : null,
+      l.data_envio ? el("small", { class: "card-crm-data", text: "Enviado em " + dataBR(l.data_envio) }) : null,
+      l.historico ? el("small", { class: "card-crm-data", title: l.historico, text: "Último toque: " + l.historico.split("\n")[0] }) : null,
+      l.valor ? el("small", { class: "card-crm-data", text: "Proposta: " + Number(l.valor).toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) }) : null,
+      links.length ? el("div", { class: "mini-links" }, links) : null,
+      el("div", { class: "item-acoes" }, [sel, ed, arq, ex])
+    ]);
+  }
+
+  /* Bolinhas da cadência + botão que registra o toque e agenda o próximo */
+  function blocoCadencia(l) {
+    const n = passoAtual(l);
+    const bolinhas = [];
+    for (let i = 1; i <= ULTIMO_PASSO; i++) {
+      const estado = !valePasso(l, i) ? "pula" : i < n ? "feito" : i === n ? "atual" : "";
+      bolinhas.push(el("span", { class: "bolinha " + estado, title: i + ". " + CADENCIA[i].canal + (estado === "pula" ? " (sem decisor no LinkedIn)" : "") }));
+    }
+    const botoes = [];
+    if (n < ULTIMO_PASSO) {
+      const feito = el("button", { class: "btn mini", type: "button", text: "✓ Feito" , title: "Registra este toque e agenda o próximo" });
+      feito.addEventListener("click", () => { feito.disabled = true; concluirPasso(l); });
+      botoes.push(feito);
+    } else {
+      const perdido = el("button", { class: "btn perigo mini", type: "button", text: "Perdido" });
+      perdido.addEventListener("click", () => marcarPerdido(l));
+      const pausa = el("button", { class: "btn contorno mini", type: "button", text: "Arquivar (tentar depois)" });
+      pausa.addEventListener("click", () => arquivar(l));
+      botoes.push(pausa, perdido);
+    }
+    return el("div", { class: "cadencia" }, [
+      el("div", { class: "cadencia-topo" }, [el("div", { class: "bolinhas", "aria-label": "Passo " + n + " de " + ULTIMO_PASSO }, bolinhas), el("small", { text: "Passo " + n + " de " + ULTIMO_PASSO + " · " + CADENCIA[n].canal })]),
+      CANAL_DO_PASSO["p" + n] ? compositor(l, "p" + n, false) : null,
+      el("div", { class: "item-acoes" }, botoes)
+    ]);
+  }
+
+  /* ---- mensagens de abordagem: escrever, salvar e abrir o canal certo ---- */
+  const primeiroNome = l => String(l.contato_nome || "").trim().split(/\s+/)[0] || "";
+  const slug = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const linkPortfolio = (l, fonte) => SITES_UTM.geral + "?utm_source=" + fonte + "&utm_medium=abordagem" + (l.campanha ? "&utm_campaign=" + slug(l.campanha) : "") + "&utm_content=" + slug(l.marca);
+  const CANAL_DO_PASSO = { p1: "LinkedIn", p2: "DM Instagram", p3: "LinkedIn", p4: "E-mail" };
+  const LIMITE = { p1: 300 };
+  function modelo(l, chave, canal) {
+    const nome = primeiroNome(l), marca = l.marca;
+    const oi = nome ? "Oi " + nome + ", tudo bem?" : "Oi, time " + marca + "! Tudo bem?";
+    if (chave === "p1") return oi + " Sou a Luana, creator de UGC tech. Vi os anúncios da " + marca + " rodando e tenho umas ideias de vídeo pra vocês. Bora conectar?";
+    if (chave === "p2") return "Oi, time " + marca + "! Sou a Luana, faço vídeos UGC de apps e tecnologia. Testo app de verdade na minha rotina de mãe e home office e queria criar vídeos pros anúncios de vocês. Meu portfólio: " + linkPortfolio(l, "instagram") + "\n\n" + (temDecisor(l) ? "Posso mandar uma ideia de roteiro?" : "Quem cuida de creators e influência aí?");
+    if (chave === "p3") return (nome ? nome + ", passando" : "Passando") + " pra deixar meu portfólio de UGC: " + linkPortfolio(l, "linkedin") + "\n\nSeparei uma ideia de vídeo pra " + marca + ". Te mando por aqui se fizer sentido?";
+    if (chave === "p4") return "Olá! Sou a Luana Caper, creator de UGC tech.\n\nVi os anúncios da " + marca + " na Biblioteca da Meta e tenho ideias de vídeo pra eles. Vocês podem encaminhar este e-mail pra pessoa de marketing ou de influência?\n\nPortfólio: " + linkPortfolio(l, "email") + "\n\nObrigada!\nLuana Caper";
+    if (canal === "E-mail") return "Olá" + (nome ? " " + nome : "") + "!\n\n\n\nPortfólio: " + linkPortfolio(l, "email") + "\n\nLuana Caper";
+    if (canal === "WhatsApp") return (nome ? "Oi " + nome + "! " : "Oi! ") + "Aqui é a Luana Caper, creator de UGC.";
+    return oi + " ";
+  }
+  const assuntoPadrao = l => "Vídeos UGC pra " + l.marca;
+  async function guardarMensagem(l, chave, valor) {
+    const msgs = Object.assign({}, l.mensagens || {});
+    if (valor == null || valor === "") delete msgs[chave]; else msgs[chave] = valor;
+    l.mensagens = msgs;
+    try { await rest(aba.tabela + "?id=eq." + l.id, { metodo: "PATCH", corpo: { mensagens: msgs }, retorno: "minimal" }); }
+    catch (e) { tratarErro(e); }
+  }
+  function destinoDoCanal(l, canal) {
+    const m = marcas[(l.marca || "").toLowerCase()] || {};
+    if (canal === "LinkedIn") return /^https?:/.test(l.contato_linkedin || "") ? l.contato_linkedin : null;
+    if (canal === "DM Instagram") { const h = String(m.instagram || "").replace(/^@/, ""); return h ? "https://ig.me/m/" + h : null; }
+    if (canal === "E-mail") return l.contato_email || String(m.email || "").split("|")[0].trim() || null;
+    if (canal === "WhatsApp") { const z = String(l.contato_whatsapp || "").replace(/\D/g, ""); return z.length >= 10 ? (z.length <= 11 ? "55" : "") + z : null; }
+    return null;
+  }
+  /* Campo de texto + botão que abre o canal. chave: p1..p4 (passos da cadência) ou "livre" */
+  function compositor(l, chave, aberto) {
+    let canal = CANAL_DO_PASSO[chave] || l.canal_abordagem || "LinkedIn";
+    const salvo = (l.mensagens || {})[chave];
+    const txt = el("textarea", { class: "msg-texto", rows: 5, "aria-label": "Mensagem para " + l.marca });
+    txt.value = typeof salvo === "object" && salvo ? (salvo.texto || "") : (salvo || modelo(l, chave, canal));
+    const assunto = el("input", { type: "text", class: "msg-assunto", "aria-label": "Assunto do e-mail", placeholder: "Assunto" });
+    assunto.value = (salvo && salvo.assunto) || assuntoPadrao(l);
+    const contador = el("small", { class: "msg-contador" });
+    const status = el("small", { class: "msg-status" });
+    const seletor = chave === "livre" ? el("select", { "aria-label": "Canal da mensagem" }, ["LinkedIn", "DM Instagram", "E-mail", "WhatsApp"].map(c => el("option", { value: c, text: c, selected: c === canal }))) : null;
+    const abrir = el("button", { class: "btn mini", type: "button" });
+    function atualizar() {
+      const lim = LIMITE[chave];
+      contador.textContent = txt.value.length + (lim ? " / " + lim + " (nota de conexão)" : " caracteres");
+      contador.classList.toggle("estourou", !!(lim && txt.value.length > lim));
+      assunto.hidden = canal !== "E-mail";
+      const dest = destinoDoCanal(l, canal);
+      abrir.disabled = !dest;
+      abrir.textContent = !dest ? "Sem " + canal + " cadastrado" : canal === "E-mail" ? "Abrir e-mail pronto" : canal === "WhatsApp" ? "Abrir WhatsApp pronto" : "Copiar e abrir " + (canal === "LinkedIn" ? "o LinkedIn" : "o direct");
+    }
+    let tempo;
+    const salvarDepois = () => {
+      clearTimeout(tempo);
+      status.textContent = "salvando...";
+      tempo = setTimeout(async () => {
+        await guardarMensagem(l, chave, canal === "E-mail" ? { texto: txt.value, assunto: assunto.value } : txt.value);
+        status.textContent = "rascunho salvo";
+      }, 700);
+    };
+    txt.addEventListener("input", () => { atualizar(); salvarDepois(); });
+    assunto.addEventListener("input", salvarDepois);
+    if (seletor) seletor.addEventListener("change", () => { canal = seletor.value; if (!salvo) txt.value = modelo(l, chave, canal); atualizar(); });
+    abrir.addEventListener("click", async () => {
+      const dest = destinoDoCanal(l, canal);
+      if (!dest) return;
+      const texto = txt.value;
+      if (canal === "E-mail") { window.open("mailto:" + dest + "?subject=" + encodeURIComponent(assunto.value) + "&body=" + encodeURIComponent(texto), "_blank"); status.textContent = "e-mail aberto com o texto"; return; }
+      if (canal === "WhatsApp") { window.open("https://wa.me/" + dest + "?text=" + encodeURIComponent(texto), "_blank", "noopener"); status.textContent = "WhatsApp aberto com o texto"; return; }
+      let copiou = true;
+      try { await navigator.clipboard.writeText(texto); } catch (e) { copiou = false; }
+      window.open(dest, "_blank", "noopener");
+      status.textContent = copiou ? "texto copiado: é só colar (Ctrl+V)" : "não consegui copiar: selecione o texto e copie";
+      if (!copiou) { txt.focus(); txt.select(); }
+    });
+    atualizar();
+    const restaurar = el("button", { class: "btn contorno mini", type: "button", text: "Usar modelo" , title: "Troca o texto pelo modelo padrão" });
+    restaurar.addEventListener("click", () => { txt.value = modelo(l, chave, canal); atualizar(); salvarDepois(); });
+    const rotulo = chave === "livre" ? "✍️ Escrever outra mensagem" : "✍️ Mensagem do passo " + chave.slice(1) + " · " + canal + (salvo ? " (rascunho salvo)" : "");
+    return el("details", { class: "compositor", open: !!aberto }, [
+      el("summary", { text: rotulo }),
+      seletor,
+      assunto,
+      txt,
+      el("div", { class: "msg-rodape" }, [contador, status]),
+      el("div", { class: "item-acoes" }, [abrir, restaurar])
+    ]);
+  }
+
+  function blocoPrograma(l) {
+    const ok = el("button", { class: "btn contorno mini", type: "button", text: "✓ Inscrita" });
+    ok.addEventListener("click", () => marcarInscrita(l));
+    return el("div", { class: "programa-aviso" }, [
+      el("small", { text: "A marca tem programa de creators aberto" }),
+      el("div", { class: "item-acoes" }, [el("a", { class: "btn mini", href: l.programa_link, target: "_blank", rel: "noopener noreferrer", text: "Inscrever" }), ok])
+    ]);
+  }
+
+  /* Comentário de aquecimento no Instagram: texto sugerido + link do post (não publica nada sozinho) */
+  function blocoComentario(l) {
+    const txt = el("textarea", { class: "msg-texto", rows: 3, "aria-label": "Comentário no Instagram para " + l.marca });
+    txt.value = l.comentario_ig || "";
+    const status = el("small", { class: "msg-status" });
+    let tempo;
+    txt.addEventListener("input", () => {
+      clearTimeout(tempo); status.textContent = "salvando...";
+      tempo = setTimeout(async () => {
+        try { await rest(aba.tabela + "?id=eq." + l.id, { metodo: "PATCH", corpo: { comentario_ig: txt.value }, retorno: "minimal" }); l.comentario_ig = txt.value; status.textContent = "salvo"; }
+        catch (e) { tratarErro(e); }
+      }, 700);
+    });
+    const abrir = el("button", { class: "btn mini", type: "button", text: l.comentario_ig_post ? "Copiar e abrir o post" : "Sem link do post" });
+    abrir.disabled = !l.comentario_ig_post;
+    abrir.addEventListener("click", async () => {
+      let copiou = true;
+      try { await navigator.clipboard.writeText(txt.value); } catch (e) { copiou = false; }
+      window.open(l.comentario_ig_post, "_blank", "noopener");
+      status.textContent = copiou ? "texto copiado: é só colar no comentário" : "não consegui copiar: selecione o texto";
+    });
+    const feito = el("button", { class: "btn contorno mini", type: "button", text: "✓ Comentei" });
+    feito.addEventListener("click", () => salvar(l.id, { comentario_ig_feito: true, historico: anotar(l, "Comentário no Instagram da marca") }));
+    return el("details", { class: "compositor" }, [
+      el("summary", { text: "💬 Comentário no Instagram (aquecimento)" }),
+      txt,
+      el("div", { class: "msg-rodape" }, [el("small", { text: "Curto, sincero, sem pedir nada" }), status]),
+      el("div", { class: "item-acoes" }, [abrir, feito])
+    ]);
+  }
+
+  /* "Pra fazer hoje": tudo com próximo passo vencido ou pra hoje, mais inscrições pendentes */
+  function desenharAgenda(visTodas) {
+    const h = hoje();
+    const peso = { alta: 0, media: 1, baixa: 2 };
+    const retomar = visTodas.filter(l => arquivada(l) && l.retomar_em && l.retomar_em <= h);
+    const vis = visTodas.filter(l => !arquivada(l));
+    const tarefas = vis.filter(l => !["fechado", "perdido"].includes(l.etapa) && ((l.data_proximo_passo && l.data_proximo_passo <= h) || (l.programa_link && !l.programa_inscrito)))
+      .sort((a, b) => String(a.data_proximo_passo || h).localeCompare(String(b.data_proximo_passo || h)) || (peso[a.prioridade] ?? 1) - (peso[b.prioridade] ?? 1));
+    limpar(agenda).append(el("summary", { text: "Pra fazer hoje (" + (tarefas.length + retomar.length) + ")" }));
+    if (retomar.length) agenda.append(el("div", { class: "agenda-lista" }, retomar.map(l => {
+      const b = el("button", { class: "btn mini", type: "button", text: "Reativar" });
+      b.addEventListener("click", () => { b.disabled = true; reativar(l); });
+      const adiar = el("button", { class: "btn contorno mini", type: "button", text: "Adiar 30 dias" });
+      adiar.addEventListener("click", () => salvar(l.id, { retomar_em: somaDias(30), historico: anotar(l, "Retomada adiada 30 dias") }));
+      return el("div", { class: "agenda-item retomar" }, [
+        el("div", { class: "agenda-txt" }, [
+          el("b", { text: l.marca }),
+          el("span", { text: "Hora de tentar de novo (arquivada em " + (l.arquivado_em ? dataBR(l.arquivado_em) : "—") + ")" }),
+          el("small", { text: [l.responsavel, l.motivo_arquivo].filter(Boolean).join(" · ") })
+        ]),
+        el("div", { class: "item-acoes" }, [b, adiar])
+      ]);
+    })));
+    if (!tarefas.length) { if (!retomar.length) agenda.append(el("p", { class: "coluna-vazia", text: "Nada pendente pra hoje com esse filtro." })); return; }
+    agenda.append(el("div", { class: "agenda-lista" }, tarefas.map(l => {
+      const atras = l.data_proximo_passo && l.data_proximo_passo < h;
+      const acoes = [];
+      if (l.contato_linkedin && /^https?:/.test(l.contato_linkedin)) acoes.push(el("a", { href: l.contato_linkedin, target: "_blank", rel: "noopener noreferrer", text: "LinkedIn" }));
+      const m = marcas[(l.marca || "").toLowerCase()] || {};
+      if (m.instagram) acoes.push(el("a", { href: "https://instagram.com/" + String(m.instagram).replace(/^@/, ""), target: "_blank", rel: "noopener noreferrer", text: "Instagram" }));
+      if (l.programa_link && !l.programa_inscrito) acoes.push(el("a", { href: l.programa_link, target: "_blank", rel: "noopener noreferrer", text: "Programa de creators" }));
+      const botoes = [];
+      if (emCadencia(l) && passoAtual(l) < ULTIMO_PASSO && l.data_proximo_passo && l.data_proximo_passo <= h) {
+        const b = el("button", { class: "btn mini", type: "button", text: "✓ Feito" });
+        b.addEventListener("click", () => { b.disabled = true; concluirPasso(l); });
+        botoes.push(b);
+      }
+      if (l.programa_link && !l.programa_inscrito) {
+        const b = el("button", { class: "btn contorno mini", type: "button", text: "✓ Inscrita" });
+        b.addEventListener("click", () => marcarInscrita(l));
+        botoes.push(b);
+      }
+      const ed = el("button", { class: "btn contorno mini", type: "button", text: "Abrir" });
+      ed.addEventListener("click", () => abrirFormulario(aba, l, salvar, linhas));
+      botoes.push(ed);
+      return el("div", { class: "agenda-item" + (atras ? " atrasado" : "") }, [
+        el("div", { class: "agenda-txt" }, [
+          el("b", { text: l.marca }),
+          el("span", { text: (l.proximo_passo || "Inscrever no programa de creators") }),
+          el("small", { text: [l.responsavel, l.contato_nome, atras ? "atrasado desde " + dataBR(l.data_proximo_passo) : (l.data_proximo_passo ? "hoje" : "")].filter(Boolean).join(" · ") }),
+          acoes.length ? el("div", { class: "mini-links" }, acoes) : null,
+          emCadencia(l) && CANAL_DO_PASSO["p" + passoAtual(l)] && l.data_proximo_passo && l.data_proximo_passo <= h ? compositor(l, "p" + passoAtual(l), true) : null
+        ]),
+        el("div", { class: "item-acoes" }, botoes)
+      ]);
+    })));
+  }
+
+  function redesenhar() {
+    const todas = filtradas();
+    const vis = todas.filter(l => !arquivada(l));
+    const arqs = todas.filter(arquivada);
+    btArq.textContent = "Arquivados (" + arqs.length + ")";
+    const noFunil = visao === "funil";
+    resumo.hidden = agenda.hidden = quadro.hidden = !noFunil;
+    arquivo.hidden = noFunil;
+    if (!noFunil) { desenharArquivo(arqs); return; }
+    limpar(resumo);
+    const ativos = vis.filter(l => !["fechado", "perdido"].includes(l.etapa));
+    const atrasados = ativos.filter(l => l.data_proximo_passo && l.data_proximo_passo < hoje());
+    [["Marcas no pipeline", vis.length], ["Em andamento", ativos.length], ["Responderam", vis.filter(l => ["respondeu", "proposta", "fechado"].includes(l.etapa)).length], ["Fechadas", vis.filter(l => l.etapa === "fechado").length], ["Passo atrasado", atrasados.length]]
+      .forEach(([r, n]) => resumo.append(el("div", { class: "metrica-cartao" }, [el("b", { text: String(n) }), el("span", { text: r })])));
+    desenharAgenda(todas);
+    limpar(quadro);
+    ETAPAS_CRM.forEach(e => {
+      const peso = { alta: 0, media: 1, baixa: 2 };
+      const daEtapa = vis.filter(l => (l.etapa || "a_enviar") === e).sort((a, b) => (peso[a.prioridade] ?? 1) - (peso[b.prioridade] ?? 1) || String(a.marca).localeCompare(String(b.marca), "pt-BR"));
+      quadro.append(el("section", { class: "coluna-crm etapa-" + e, "aria-label": ROTULO_ETAPA[e] }, [
+        el("header", {}, [el("h3", {}, [document.createTextNode(ROTULO_ETAPA[e] + " "), el("span", { class: "contador", text: String(daEtapa.length) })]), el("small", { text: DICA_ETAPA[e] })]),
+        daEtapa.length ? el("div", { class: "coluna-crm-cards" }, daEtapa.map(cartao)) : el("p", { class: "coluna-vazia", text: "Nada aqui." })
+      ]));
+    });
+  }
+
+  function desenharArquivo(arqs) {
+    limpar(arquivo);
+    arquivo.append(el("p", { class: "dica", text: "Marcas que já receberam vários contatos e não fecharam. Ficam fora do funil e voltam pro \"Pra fazer hoje\" na data de retomar." }));
+    if (!arqs.length) { arquivo.append(el("p", { class: "vazio", text: "Nenhuma marca arquivada com esse filtro." })); return; }
+    const h = hoje();
+    const ordem = [...arqs].sort((a, b) => String(a.retomar_em || "9999").localeCompare(String(b.retomar_em || "9999")));
+    const corpo = el("tbody", {}, ordem.map(l => {
+      const re = el("button", { class: "btn mini", type: "button", text: "Reativar" });
+      re.addEventListener("click", () => { re.disabled = true; reativar(l); });
+      const ed = el("button", { class: "btn contorno mini", type: "button", text: "Editar" });
+      ed.addEventListener("click", () => abrirFormulario(aba, l, salvar, linhas));
+      const vence = l.retomar_em && l.retomar_em <= h;
+      return el("tr", {}, [
+        el("td", {}, [el("b", { text: l.marca }), l.contato_nome ? el("small", { class: "sub-celula", text: l.contato_nome + (l.contato_cargo ? " · " + l.contato_cargo : "") }) : null]),
+        el("td", { text: nichoCurto(nichoDe(l)) || "—" }),
+        el("td", { text: l.campanha || "—" }),
+        el("td", { text: ROTULO_ETAPA[l.etapa] || l.etapa || "—" }),
+        el("td", { text: String(toques(l)) }),
+        el("td", { class: "obs", title: l.motivo_arquivo || "", text: l.motivo_arquivo || "—" }),
+        el("td", { text: l.arquivado_em ? dataBR(l.arquivado_em) : "—" }),
+        el("td", {}, [l.retomar_em ? el("span", { class: "selo" + (vence ? " vence" : ""), text: dataBR(l.retomar_em) + (vence ? " · já pode" : "") }) : document.createTextNode("Sem data")]),
+        el("td", { text: l.responsavel || "—" }),
+        el("td", {}, [el("div", { class: "item-acoes" }, [re, ed])])
+      ]);
+    }));
+    arquivo.append(el("div", { class: "tabela-embrulho" }, [el("table", { class: "planilha" }, [
+      el("thead", {}, [el("tr", {}, ["Marca", "Nicho", "Campanha", "Parou em", "Toques", "Motivo", "Arquivada em", "Retomar em", "Responsável", "Ações"].map(t => el("th", { text: t })))]),
+      corpo
+    ])]));
+  }
+
+  function paraCSV() {
+    const cols = ["marca", "nicho", "arquivado", "retomar_em", "motivo_arquivo", "etapa", "responsavel", "campanha", "prioridade", "contato_nome", "contato_cargo", "contato_linkedin", "contato_email", "contato_whatsapp", "canal_abordagem", "passo_cadencia", "data_envio", "proximo_passo", "data_proximo_passo", "valor", "origem", "programa_link", "programa_inscrito", "outros_contatos", "historico", "observacoes", "comentario_ig_post", "comentario_ig"];
+    const cab = ["Marca", "Nicho", "Arquivada", "Retomar em", "Motivo do arquivo", "Etapa", "Responsável", "Campanha", "Prioridade", "Decisor", "Cargo", "LinkedIn", "E-mail", "WhatsApp", "Canal", "Passo da cadência", "Data do envio", "Próximo passo", "Data do próximo passo", "Valor", "Origem", "Programa de creators", "Inscrita no programa", "Outros contatos", "Histórico", "Observações", "Post pra comentar", "Comentário no Instagram"];
+    const esc = v => { const s = String(v == null ? "" : v).replace(/"/g, '""'); return /[",\n;]/.test(s) ? '"' + s + '"' : s; };
+    const fmt = (k, v) => k === "etapa" ? ROTULO_ETAPA[v] || v : k === "prioridade" ? ROTULO_PRIORIDADE[v] || v : k === "origem" ? ROTULO_ORIGEM[v] || v : /^data/.test(k) && v ? dataBR(v) : v;
+    return "﻿" + [cab.map(esc).join(","), ...filtradas().map(l => cols.map(k => esc(fmt(k, k === "nicho" ? (ROTULO_NICHO_MARCA[nichoDe(l)] || "") : k === "arquivado" ? (l.arquivado ? "sim" : "não") : l[k]))).join(","))].join("\r\n");
+  }
+
+  [busca].forEach(x => x.addEventListener("input", redesenhar));
+  [fResp, fCamp, fPri, fNicho].forEach(x => x.addEventListener("change", redesenhar));
+  [[btFunil, "funil"], [btArq, "arquivo"]].forEach(([b, v]) => b.addEventListener("click", () => {
+    visao = v;
+    btFunil.setAttribute("aria-selected", String(v === "funil"));
+    btArq.setAttribute("aria-selected", String(v === "arquivo"));
+    redesenhar();
+  }));
+  csv.addEventListener("click", () => {
+    if (!filtradas().length) { falar("Não há cards para baixar com esse filtro.", "erro"); return; }
+    const blob = new Blob([paraCSV()], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = el("a", { href: url, download: "crm-" + hoje() + ".csv" });
+    document.body.append(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+  });
+  novo.addEventListener("click", () => abrirFormulario(aba, null, salvar, linhas, { campanha: fCamp.value || null, responsavel: fResp.value || null }));
+  carregar();
+}
+
+/* Aba "Métricas do portfólio": visitas, sessões (pessoas) e vídeos mais abertos, com filtro de período */
+async function mostrarMetricas(raiz) {
+  const aba = ABAS.metricas;
+  limpar(raiz);
+  const aviso = el("div", { class: "aviso", hidden: true, role: "status" });
+  const periodo = el("select", { "aria-label": "Período" }, [
+    el("option", { value: "7", text: "Últimos 7 dias" }),
+    el("option", { value: "30", text: "Últimos 30 dias", selected: true }),
+    el("option", { value: "90", text: "Últimos 90 dias" }),
+    el("option", { value: "0", text: "Desde sempre" })
+  ]);
+  const cartoes = el("div", { class: "metricas-cartoes" });
+  const colOrigem = el("div", {});
+  const colVideos = el("div", {});
+  const colConversao = el("div", {});
+  const colProfundidade = el("div", {});
+  const colCliques = el("div", {});
+  raiz.append(
+    el("div", { class: "barra" }, [el("p", { text: aba.dica }), periodo]),
+    aviso,
+    cartoes,
+    colConversao,
+    el("div", { class: "metricas-grade" }, [colProfundidade, colCliques]),
+    el("div", { class: "metricas-grade" }, [colOrigem, colVideos])
+  );
+
+  const falar = (texto, tipo) => { aviso.hidden = false; aviso.className = "aviso " + (tipo || "ok"); aviso.textContent = texto; };
+
+  function contagem(linhas, chave) {
+    const mapa = new Map();
+    linhas.forEach(l => { const k = chave(l); mapa.set(k, (mapa.get(k) || 0) + 1); });
+    return [...mapa.entries()].sort((a, b) => b[1] - a[1]);
+  }
+  function cartaoNumero(n, rotulo) {
+    return el("div", { class: "metrica-cartao" }, [el("b", { text: String(n) }), el("span", { text: rotulo })]);
+  }
+  function tabelaContagem(pares, colRotulo, total) {
+    if (!pares.length) return el("p", { class: "vazio", text: "Sem dados nesse período." });
+    return el("table", {}, [
+      el("thead", {}, [el("tr", {}, [el("th", { text: colRotulo }), el("th", { text: "Vezes" }), el("th", { text: "%" })])]),
+      el("tbody", {}, pares.slice(0, 12).map(([nome, n]) => el("tr", {}, [
+        el("td", { text: nome }),
+        el("td", { text: String(n) }),
+        el("td", { text: total ? Math.round(n / total * 100) + "%" : "—" })
+      ])))
+    ]);
+  }
+
+  function tabelaFunil(marcos, base) {
+    return el("table", {}, [
+      el("thead", {}, [el("tr", {}, ["Rolou até", "Pessoas", "%"].map(t => el("th", { text: t })))]),
+      el("tbody", {}, marcos.map(([m, n]) => el("tr", {}, [
+        el("td", { text: m + "%" }),
+        el("td", { text: String(n) }),
+        el("td", { text: base ? Math.round(n / base * 100) + "%" : "—" })
+      ])))
+    ]);
+  }
+
+  function tabelaConversao(linhas) {
+    if (!linhas.length) return el("p", { class: "vazio", text: "Sem dados nesse período." });
+    return el("table", {}, [
+      el("thead", {}, [el("tr", {}, ["Canal", "Visitas", "Leads", "Conversão"].map(t => el("th", { text: t })))]),
+      el("tbody", {}, linhas.slice(0, 12).map(([canal, v, lds, pct]) => el("tr", {}, [
+        el("td", { text: canal }),
+        el("td", { text: String(v) }),
+        el("td", { text: String(lds) }),
+        el("td", { text: pct == null ? "—" : pct + "%" })
+      ])))
+    ]);
+  }
+
+  async function carregar() {
+    limpar(cartoes); limpar(colOrigem); limpar(colVideos); limpar(colConversao); limpar(colProfundidade); limpar(colCliques);
+    cartoes.append(el("div", { class: "vazio", text: "Carregando..." }));
+    try {
+      const dias = Number(periodo.value);
+      const desde = dias ? "&created_at=gte." + new Date(Date.now() - dias * 86400000).toISOString() : "";
+      let filtro = "tipo=in.(visita,video,clique,profundidade,ping)&select=tipo,origem,detalhe,sessao,created_at&order=created_at.desc&limit=10000" + desde;
+      const [metricas, leads] = await Promise.all([
+        rest(aba.tabela + "?" + filtro),
+        rest("marcas?select=canal,created_at&order=created_at.desc&limit=5000" + desde).catch(() => [])
+      ]);
+      desenhar(metricas || [], leads || []);
+    } catch (e) {
+      limpar(cartoes);
+      if (e.message === "sessao") { telaLogin("Sua sessão expirou. Entre de novo."); return; }
+      falar(e.message, "erro");
+    }
+  }
+
+  function desenhar(linhas, leads) {
+    limpar(cartoes); limpar(colOrigem); limpar(colVideos); limpar(colConversao); limpar(colProfundidade); limpar(colCliques);
+    const visitas = linhas.filter(l => l.tipo === "visita");
+    const videos = linhas.filter(l => l.tipo === "video");
+    const cliques = linhas.filter(l => l.tipo === "clique");
+    const profundidade = linhas.filter(l => l.tipo === "profundidade");
+    const pings = linhas.filter(l => l.tipo === "ping");
+    const pessoas = new Set(linhas.map(l => l.sessao)).size;
+
+    const porSessaoPing = new Map();
+    pings.forEach(l => { const v = Number(l.detalhe) || 0; porSessaoPing.set(l.sessao, Math.max(porSessaoPing.get(l.sessao) || 0, v)); });
+    const temposSessao = [...porSessaoPing.values()];
+    const tempoMedio = temposSessao.length ? Math.round(temposSessao.reduce((a, b) => a + b, 0) / temposSessao.length) : 0;
+
+    cartoes.append(
+      cartaoNumero(visitas.length, "Visitas"),
+      cartaoNumero(pessoas, "Pessoas (aprox.)"),
+      cartaoNumero(videos.length, "Vídeos abertos"),
+      cartaoNumero(leads.length, "Leads gerados"),
+      cartaoNumero(tempoMedio ? Math.round(tempoMedio / 60 * 10) / 10 + " min" : "—", "Tempo médio na página")
+    );
+
+    const porOrigem = new Map(contagem(visitas, l => l.origem || "Direto"));
+    const porCanal = new Map(contagem(leads, l => l.canal || "Direto"));
+    const canais = [...new Set([...porOrigem.keys(), ...porCanal.keys()])]
+      .map(c => { const v = porOrigem.get(c) || 0, lds = porCanal.get(c) || 0; return [c, v, lds, v ? Math.round(lds / v * 1000) / 10 : null]; })
+      .sort((a, b) => b[2] - a[2] || b[1] - a[1]);
+    colConversao.append(
+      el("h3", { text: "Conversão por canal" }),
+      el("p", { class: "dica", text: "Quantas visitas de cada canal viraram lead (formulário ou WhatsApp). É o dado pra decidir onde focar." }),
+      tabelaConversao(canais)
+    );
+
+    const marcosProf = [25, 50, 75, 100].map(m => [m, new Set(profundidade.filter(l => l.detalhe === String(m)).map(l => l.sessao)).size]);
+    colProfundidade.append(
+      el("h3", { text: "Até onde rolam a página" }),
+      el("p", { class: "dica", text: "Quantas pessoas chegaram em cada ponto da página. Se muita gente some antes de 100%, o conteúdo até ali não está segurando." }),
+      tabelaFunil(marcosProf, pessoas)
+    );
+    colCliques.append(
+      el("h3", { text: "Onde mais clicam" }),
+      el("p", { class: "dica", text: "Botões de ação (CTA, WhatsApp, formulário, categorias) — o que as pessoas realmente tocam." }),
+      tabelaContagem(contagem(cliques, l => l.detalhe || "—"), "Clique", cliques.length)
+    );
+    colOrigem.append(el("h3", { text: "De onde vieram" }), tabelaContagem(contagem(visitas, l => l.origem || "Direto"), "Origem", visitas.length));
+    colVideos.append(el("h3", { text: "O que mais olharam" }), tabelaContagem(contagem(videos, l => l.detalhe || "Sem título"), "Vídeo", videos.length));
+  }
+
+  periodo.addEventListener("change", carregar);
+  carregar();
+}
+
+function linkUtm(l) {
+  const base = SITES_UTM[l.site] || SITES_UTM.geral;
+  const p = new URLSearchParams();
+  p.set("utm_source", l.fonte || "");
+  if (l.meio) p.set("utm_medium", l.meio);
+  if (l.campanha) p.set("utm_campaign", l.campanha);
+  if (l.conteudo) p.set("utm_content", l.conteudo);
+  if (l.termo) p.set("utm_term", l.termo);
+  return base + "?" + p.toString();
+}
+
+function cartaoDe(chave, l, acoes) {
+  let titulo = "", sub = "", extra = [], miniatura = null;
+  if (chave === "videos") {
+    titulo = l.titulo;
+    sub = [l.local, l.plataforma === "tt" ? "TikTok" : "YouTube", l.publicado ? "publicado" : "oculto"].filter(Boolean).join(" · ") + " · ordem " + l.ordem;
+    if (l.plataforma === "yt") miniatura = el("img", { src: "https://i.ytimg.com/vi/" + l.video_id + "/mqdefault.jpg", alt: "", loading: "lazy" });
+  } else if (chave === "videos_geral") {
+    titulo = l.titulo;
+    sub = [ROTULO_NICHO[l.nicho] || l.nicho, l.nota, l.video_id ? (l.plataforma === "tt" ? "TikTok" : "YouTube") : "em breve", ROTULO_PORTFOLIO_VIDEO[l.portfolio || "todos"], l.publicado ? "publicado" : "oculto"].filter(Boolean).join(" · ") + " · ordem " + l.ordem;
+    if (l.plataforma === "yt" && l.video_id) miniatura = el("img", { src: "https://i.ytimg.com/vi/" + l.video_id + "/mqdefault.jpg", alt: "", loading: "lazy" });
+  } else if (chave === "marcas_logos") {
+    titulo = l.nome;
+    sub = [l.fundo ? "selo " + l.fundo : null, ROTULO_TAMANHO[l.tamanho || ""], l.publicado ? "publicado" : "oculto"].filter(Boolean).join(" · ") + " · ordem " + l.ordem;
+    miniatura = el("img", { src: "../img/marcas/" + l.arquivo, alt: "", loading: "lazy", style: "object-fit:contain;background:" + (l.fundo || "#fff") });
+  } else if (chave === "depoimentos_geral") {
+    titulo = l.marca;
+    sub = [l.ctx, l.publicado ? "publicado" : "oculto"].filter(Boolean).join(" · ") + " · ordem " + l.ordem;
+    extra.push(el("div", { class: "item-msg", text: l.texto }));
+  } else if (chave === "servicos_geral") {
+    titulo = l.titulo;
+    sub = (l.publicado ? "publicado" : "oculto") + " · ordem " + l.ordem;
+    extra.push(el("div", { class: "item-msg", text: l.texto }));
+  } else if (chave === "calendario") {
+    titulo = dataBR(l.data) + "  " + l.titulo + (l.feito ? "  (feito)" : "");
+    sub = [l.tipo, l.marca].filter(Boolean).join(" · ");
+  } else if (chave === "links_utm") {
+    titulo = l.nome;
+    sub = [ROTULO_SITE_UTM[l.site] || l.site, l.fonte, l.meio, l.campanha].filter(Boolean).join(" · ");
+    extra.push(el("div", { class: "item-msg", text: linkUtm(l) }));
+  } else {
+    titulo = l.nome;
+    sub = [l.marca, l.status, l.inicio ? dataBR(l.inicio) + (l.fim ? " a " + dataBR(l.fim) : "") : ""].filter(Boolean).join(" · ");
+    if (l.resultado) extra.push(el("div", { class: "item-msg", text: l.resultado }));
+  }
+  const botoes = [];
+  if (chave === "calendario") {
+    const b = el("button", { class: "btn contorno mini", type: "button", text: l.feito ? "Desmarcar" : "Marcar como feito" });
+    b.addEventListener("click", () => acoes.salvar(l.id, { feito: !l.feito }));
+    botoes.push(b);
+  }
+  if (chave === "links_utm") {
+    const b = el("button", { class: "btn contorno mini", type: "button", text: "Copiar link" });
+    b.addEventListener("click", () => {
+      navigator.clipboard.writeText(linkUtm(l)).then(() => {
+        b.textContent = "Copiado!";
+        setTimeout(() => { b.textContent = "Copiar link"; }, 1600);
+      });
+    });
+    botoes.push(b);
+  }
+  const ed = el("button", { class: "btn contorno mini", type: "button", text: "Editar" });
+  ed.addEventListener("click", acoes.editar);
+  const ex = el("button", { class: "btn perigo mini", type: "button", text: "Excluir" });
+  ex.addEventListener("click", () => acoes.excluir(l));
+  botoes.push(ed, ex);
+  return el("article", { class: "item" }, [
+    el("div", { class: "item-cab" }, [
+      el("div", { class: "item-txt" }, [el("b", { text: titulo }), el("span", { text: sub })]),
+      miniatura
+    ]),
+    ...extra,
+    el("div", { class: "item-acoes" }, botoes)
+  ]);
+}
+
+function abrirFormulario(aba, linha, salvar, linhas, inicial) {
+  const dlg = el("dialog", { "aria-labelledby": "dlg-titulo" });
+  const msg = el("div", { class: "aviso erro", role: "alert", hidden: true });
+  const campos = [];
+  aba.campos.forEach(c => {
+    const id = "f-" + c.k;
+    let entrada, valor = linha ? linha[c.k] : undefined;
+    if (c.k === "link") valor = linha && linha.video_id ? linkDoVideo(linha) : "";
+    if (c.k === "ordem" && !linha) valor = linhas.reduce((m, x) => Math.max(m, x.ordem || 0), 0) + 1;
+    if (c.k === "publicado" && !linha) valor = true;
+    if (c.k === "status" && !linha) valor = aba.tabela === "marcas" ? "novo" : (c.opcoes && c.opcoes[0]);
+    if (c.k === "tipo" && !linha) valor = c.opcoes[0];
+    if ((c.k === "origem" || c.k === "origem_base") && !linha) valor = "manual";
+    if (c.k === "prioridade" && !linha) valor = "media";
+    if (!linha && inicial && inicial[c.k] != null) valor = inicial[c.k];
+    if (c.t === "textarea") entrada = el("textarea", { id, required: c.obrig });
+    else if (c.t === "select") entrada = el("select", { id }, c.opcoes.map(o => el("option", { value: o, text: (c.rotulos && c.rotulos[o]) || o })));
+    else if (c.t === "lista") {
+      const ja = new Set(c.sugestoes || []);
+      (linhas || []).forEach(x => x[c.k] && ja.add(x[c.k]));
+      entrada = el("input", { id, type: "text", list: id + "-sug", autocomplete: "off", required: c.obrig });
+      entrada._lista = el("datalist", { id: id + "-sug" }, [...ja].map(v => el("option", { value: v })));
+    }
+    else entrada = el("input", { id, type: c.t === "check" ? "checkbox" : c.t, required: c.obrig, inputmode: c.t === "number" ? "decimal" : null, step: c.t === "number" ? "any" : null });
+    if (c.t === "check") entrada.checked = !!valor; else if (valor != null) entrada.value = valor;
+    campos.push({ c, entrada });
+  });
+  const form = el("form", { method: "dialog" }, [msg]);
+  campos.forEach(({ c, entrada }) => {
+    if (c.t === "check") form.append(el("div", { class: "campo check" }, [entrada, el("label", { for: entrada.id, text: c.r })]));
+    else form.append(el("div", { class: "campo" }, [el("label", { for: entrada.id, text: c.r }), entrada, entrada._lista || null, c.dica ? el("span", { class: "dica", text: c.dica }) : null]));
+  });
+  const cancelar = el("button", { class: "btn contorno", type: "button", text: "Cancelar" });
+  const ok = el("button", { class: "btn", type: "submit", text: "Salvar" });
+  form.append(el("div", { class: "form-acoes" }, [cancelar, ok]));
+  dlg.append(el("h2", { id: "dlg-titulo", text: linha ? "Editar" : aba.novo }), form);
+  document.body.append(dlg);
+  const fechar = () => { dlg.close(); dlg.remove(); };
+  cancelar.addEventListener("click", fechar);
+  dlg.addEventListener("cancel", e => { e.preventDefault(); fechar(); });
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const dados = {};
+    let erro = "";
+    campos.forEach(({ c, entrada }) => {
+      if (c.k === "link") {
+        if (!entrada.value.trim() && !c.obrig) { dados.plataforma = null; dados.video_id = null; return; }
+        const v = lerVideo(entrada.value);
+        if (!v) { erro = "Não reconheci esse link. Use um link do YouTube ou um link do TikTok com /video/ no endereço."; return; }
+        dados.plataforma = v.plataforma; dados.video_id = v.video_id;
+      } else if (c.t === "check") dados[c.k] = entrada.checked;
+      else if (c.t === "number") {
+        if (entrada.value.trim() === "" && c.k !== "ordem") dados[c.k] = null;
+        else dados[c.k] = c.k === "ordem" ? (parseInt(entrada.value, 10) || 0) : (Number(String(entrada.value).replace(",", ".")) || 0);
+      }
+      else { const t = entrada.value.trim(); dados[c.k] = t === "" && !c.obrig ? null : t; }
+    });
+    if (erro) { msg.hidden = false; msg.textContent = erro; return; }
+    ok.disabled = true; ok.textContent = "Salvando...";
+    if (await salvar(linha ? linha.id : null, dados)) fechar();
+    else { ok.disabled = false; ok.textContent = "Salvar"; }
+  });
+  dlg.showModal();
+  const primeiro = form.querySelector("input,select,textarea");
+  if (primeiro) primeiro.focus();
+}
+
+/* ---------- início ---------- */
+(async function () {
+  if (!sessao) return telaLogin();
+  try {
+    const admin = await rest("rpc/is_admin", { metodo: "POST", corpo: {} });
+    if (admin === true) telaPainel(); else { salvarSessao(null); telaLogin(); }
+  } catch (e) { telaLogin(); }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+{
+ "chave": "2026-10",
+ "mesNome": "outubro",
+ "ano": 2026,
+ "kpi": {
+  "investido": 2879.37,
+  "leads": 228,
+  "cpl": 12.628815789473684,
+  "impressoes": 184108,
+  "alcance": 87754,
+  "cliquesLink": 1687,
+  "lpv": 1395,
+  "moskitLeads": 294,
+  "contratos": 3,
+  "positivos": 19,
+  "valorPositivos": 124986.88,
+  "valorContratos": 13393.67,
+  "perdidos": 244,
+  "emAtendimento": 28,
+  "custoContrato": 959.79,
+  "custoPositivo": 151.5457894736842,
+  "conv": 1.0204081632653061,
+  "convPositivo": 6.462585034013606
+ },
+ "motivos": [
+  {
+   "cat": "sem-interesse",
+   "rotulo": "Não tem interesse",
+   "n": 106,
+   "pct": 44.91525423728814,
+   "fora": false
+  },
+  {
+   "cat": "valor-minimo",
+   "rotulo": "Valor mínimo não atingido",
+   "n": 36,
+   "pct": 15.254237288135593,
+   "fora": false
+  },
+  {
+   "cat": "sem-restituicao",
+   "rotulo": "Não possui restituição a receber",
+   "n": 36,
+   "pct": 15.254237288135593,
+   "fora": true
+  },
+  {
+   "cat": "sem-retorno",
+   "rotulo": "Sem retorno do cliente",
+   "n": 34,
+   "pct": 14.40677966101695,
+   "fora": false
+  },
+  {
+   "cat": "duplicada",
+   "rotulo": "Oportunidade duplicada",
+   "n": 18,
+   "pct": 7.627118644067797,
+   "fora": true
+  },
+  {
+   "cat": "outros",
+   "rotulo": "Outros motivos",
+   "n": 6,
+   "pct": 2.5423728813559325,
+   "fora": false
+  }
+ ],
+ "pagina": true,
+ "publicado": "2026-11-04T12:32:58.669Z",
+ "textoPadrao": false,
+ "avisoNarrativa": null,
+ "divergencias": [
+  "cálculos positivos: texto 19 × CSV 22",
+  "perdidos: texto 244 × CSV 236"
+ ]
+}
